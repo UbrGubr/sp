@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	
+</head>
+
+<style>
+form {
+    border: 3px solid #f1f1f1;
+}
+
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 550px;
+    border: none;
+    cursor: pointer;
+    width: 15%;
+}
+
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+}
+
+.container {
+    padding: 16px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a, .dropbtn {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover, .dropdown:hover .dropbtn {
+    background-color: red;
+}
+
+li.dropdown {
+    display: inline-block;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.show {display:block;}
+
+</style>
+<body>
+
+	<div class="imgcontainer">
+<!--		<img src="priaire.jpg" alt="priarie logo"> -->
+	</div>
+
+	<form>
+	<ul>
+		<li class="dropdown">
+			<a href="Faculty Profile Page.html" class="dropbtn">Home</a>
+		</li>
+		<li class="dropdown">
+			<a href="login_page.html" class="dropbtn">Login</a>
+		</li>
+	</ul>
+<h2>Register New Faculty<h2>
+
+<form>
+	<div class="container">
+		<label><b>First Name</b></label>
+		<input type="text" id="firstName" placeholder="Enter first name" required>
+		
+		<label><b>Middle Name</b></label>
+		<input type="text" id="middleName" placeholder="Enter middle name" value="">
+		
+		<label><b>Last Name</b></label>
+		<input type="text" id="lastName" placeholder="Enter last name" required>
+		
+		<label><b>ID Number</b></label>
+		<input type="text" id="idNumber" placeholder="Enter ID number" required>
+		
+		<label><b>Email</b></label>
+		<input type="text" id="email" placeholder="Enter EGUSD email" @egsud required>
+		
+		<label><b>Password</b></label>
+		<input type="text" id="password" placeholder="Password" name="psw" required>
+		
+		<label><b>Verify Password</b></label>
+		<input type="text" id="verifyPassword" placeholder="Retype Password" name="psw" required>
+<!--		
+		<label><b>Date of Birth<b></label><br>
+		<select id="month" name="months">
+			<option value= "month">Month</option>
+			<option value="Jan">January</option>
+			<option value="Feb">February</option>
+			<option value="Mar">March</option>
+			<option value="Apr">April</option>
+			<option value="May">May</option>
+			<option value="Jun">June</option>
+			<option value="Jul">July</option>
+			<option value="Aug">August</option>
+			<option value="Sept">September</option>
+			<option value="Oct">October</option>
+			<option value="Nov">November</option>
+			<option value="Dec">December</option>
+		</select>	
+		
+		<select id="day" name="days">
+			<option value= "day">Day</option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="8">8</option>
+			<option value="9">9</option>
+			<option value="10">10</option>
+			<option value="11">11</option>
+			<option value="12">12</option>
+			<option value="13">13</option>
+			<option value="14">14</option>
+			<option value="15">15</option>
+			<option value="16">16</option>
+			<option value="17">17</option>
+			<option value="18">18</option>
+			<option value="19">19</option>
+			<option value="20">20</option>
+			<option value="21">21</option>
+			<option value="22">22</option>
+			<option value="23">23</option>
+			<option value="24">24</option>
+			<option value="25">25</option>
+			<option value="26">26</option>
+			<option value="27">27</option>
+			<option value="28">28</option>
+			<option value="29">29</option>
+			<option value="30">30</option>
+			<option value="31">31</option>
+		</select>
+			
+		<select id="year" name="year">
+			<option>Year</option>		
+			<option value="1997">1997</option>
+			<option value="1996">1996</option>
+			<option value="1995">1995</option>
+			<option value="1994">1994</option>
+			<option value="1993">1993</option>
+			<option value="1992">1992</option>
+			<option value="1991">1991</option>
+			<option value="1990">1990</option>
+			<option value="1989">1989</option>
+			<option value="1988">1988</option>
+			<option value="1987">1987</option>
+			<option value="1986">1986</option>
+			<option value="1985">1985</option>
+			<option value="1984">1984</option>
+			<option value="1983">1983</option>
+			<option value="1982">1982</option>
+			<option value="1981">1981</option>
+			<option value="1980">1980</option>
+			<option value="1979">1979</option>
+			<option value="1978">1978</option>
+			<option value="1977">1977</option>
+			<option value="1976">1976</option>
+			<option value="1975">1975</option>
+			<option value="1974">1974</option>
+			<option value="1973">1973</option>
+		</select><br>
+
+		<label><b>Track</b></label><br>
+			<form action="demo_form.asp" method="get">
+			  <input type="checkbox" name="A" id="a" value="1">A
+			  <input type="checkbox" name="B" id="b" value="2">B
+			  <input type="checkbox" name="C" id="c" value="3">C
+			  <input type="checkbox" name="D" id="d" value="4">D
+			</form><br>
+   -->
+		<button type="button" value="Submit" id="submitData" onclick="whenClicked()">Submit</button>
+
+</form>
+
+<script type="text/javascript">
+	
+	var firstName, midName, lastName, idNum, email, pw, pwVerify;
+	/*get all variables and display on webpage*/
+	/*
+	$('#submitData').click(function(){
+		window.alert('Button Clicked');
+		
+	var trackA, trackB, trackC, trackD;
+	
+	if(document.getElementById('a').checked){
+		trackA = document.getElementById('a').value;
+		console.log(trackA);
+	}
+	
+	if(document.getElementById('b').checked){
+		trackB = document.getElementById('b').value;
+		console.log(trackB);
+	}
+	
+	if(document.getElementById('c').checked){
+		trackC = document.getElementById('c').value;
+		console.log(trackC);
+	}
+	
+	if(document.getElementById('d').checked){
+		trackD = document.getElementById('d').value;
+		console.log(trackD);
+	}*/
+	
+	function whenClicked(){	
+		//save all values of data except track into a variable
+		firstName = document.getElementById('firstName').value;
+		midName = document.getElementById('middleName').value;
+		lastName = document.getElementById('lastName').value;
+		idNum = document.getElementById('idNumber').value;
+		email = document.getElementById('email').value;
+		pw = document.getElementById('password').value;
+		pwVerify = document.getElementById('verifyPassword').value;
+		<!--var track = document.getElementById('track').value;-->
+		
+		/*	console.log(firstName);
+			console.log(midName);
+			console.log(lastName);
+			console.log(idNum);
+			console.log(email);
+			console.log(pw);
+			console.log(pwVerify);
+			console.log(month);
+			console.log(day);
+			console.log(year);
+		*/
+
+		//check to see if passwords match
+		if(pw !== pwVerify){
+			window.alert("passwords don't match!");
+		}
+		
+		//check if password has correct char types
+		/*var letterNumber = /^[0-9a-zA-Z+$/;
+		if(!(pw.value.match(letterNumber)){
+			window.alert("use more chars in password");
+		}*/
+		
+		//test for proper chars in password
+		if (pw.search(/\d/) == -1) {
+			window.alert("no_num");
+		} else if (pw.search(/[a-zA-Z]/) == -1) {
+			window.alert("no_letter");
+		} else if (pw.search(/[^a-zA-Z0-9\!\@\#\$\%\^\&\*\(\)\_\+]/) != -1) {
+			window.alert("bad_char");
+		}
+		
+		//test length of pw string
+		if(pw.length < 8 && pw === pwVerify){
+			window.alert("The password is too short");
+		} else {
+			runAJAX();
+		}
+	}								
+		//ajax call to send data to php script							
+	function runAJAX(){	
+		$.ajax({
+			type:	'POST',
+			url:	'fac_reg_data_entry.php',
+			data:	{ FIRSTNAME: firstName, MIDNAME: midName, LASTNAME: lastName, IDNUM: idNum, EMAIL: email,
+						PW: pw, },
+			success: function(){ 
+						console.log('data stored successfully'); 
+			},
+			error:	function(a,b,c){ 
+						console.log(a);
+						console.log(b);
+						console.log(c);
+			}
+		});		
+	}
+</script>
+
+<script type='text/javascript'>
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+
+function myFunction2() {
+    document.getElementById("myDropdown2").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(e) {
+  if (!e.target.matches('.dropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    for (var d = 0; d < dropdowns.length; d++) {
+      var openDropdown = dropdowns[d];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
+
+</body>
+
+</html>
