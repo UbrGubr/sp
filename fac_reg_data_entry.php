@@ -1,9 +1,9 @@
 <?php
 
-	
-	
     // Define connection as a static variable, to avoid connecting more than once 
     static $connection;
+
+	$fName = $mName = $lName = $idNum = $email = $pw = '';
 
     // Try and connect to the database, if a connection has not been established yet
     if(!isset($connection)) {
@@ -31,7 +31,8 @@
 			$encryptedPW = password_hash($pw, PASSWORD_DEFAULT);	
 			
 		
-		/*	$fName = 'lisa';
+		/*	
+			$fName = 'lisa';
 			$mName = 'a';
 			$lName = 'solem';
 			$idNum = 123;
@@ -41,20 +42,42 @@
 			$day = 4;
 			$year = 1988;
 			
-			$fullName = $fName + ' ' + $mName + ' ' + $lName;*/
+			$fullName = $fName + ' ' + $mName + ' ' + $lName;
+		*/
 	
 	
 	
 	if(mysqli_query($connection,"INSERT INTO teacher (id, name, track_id, phone, address, auth_hash, email) 
 					VALUES ('$idNum', '$fullName', NULL, '', '', '$encryptedPW', '$email')")){
-		echo "successful\n";					
+		echo "successful\n";
+		
+		$config = parse_ini_file('./config.ini'); 
+		// Sends a verification email to the admin to request approval for account creation
+		$to = $config['admin'];
+		$subject = 'Approval required for new account request';
+		$message = '
+		A new account has been requested. Please review the following user information and either approve or deny their access.
+
+		First Name: '.$fName.'
+		Last Name: '.$lName.'
+		Email: '.$email.'
+		Employee ID: '.$idNum.'
+		
+		You can approve this request by clicking on the following link:
+
+		http://ecs.csus.edu/~jimisonp/sp/verify.php?fName='.$fName.'&lName='.$lName.'&email='.$email.'&idNum='.$idNum.'
+
+		If you do not recognize this person then no further action is required and their account will not be activated. 
+		';
+		$headers = 'noreply@seniorproject.com' . "\r\n";
+		mail($to, $subject, $message, $headers);	
+						
 	} else {
 		echo "not successful\n";
-	}	
+	}
 	
 	mysqli_close($connection);
 
 	echo "Complete";
-	
-	
+
 ?>
