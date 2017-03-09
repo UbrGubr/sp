@@ -39,6 +39,15 @@ button {
     padding: 16px;
 }
 
+.hidden {
+	display: none;
+}
+
+.errorMessage {
+	color: rgb(255,0,0);
+	font-size: 50%;
+}
+
 ul {
     list-style-type: none;
     margin: 0;
@@ -122,8 +131,9 @@ li.dropdown {
 		<input type="text" id="email" placeholder="Enter EGUSD email" @egsud required>
 		
 		<label><b>Password</b></label>
+			<div id="errMsg" class="hidden errorMessage">Password must include at least one number, letter and special character.</div>
+			<div id="errMsgTooShort" class="hidden errorMessage">Password must contain at least 8 characters.</div>
 		<input type="text" id="password" placeholder="Password" name="psw" required>
-		
 		<label><b>Verify Password</b></label>
 		<input type="text" id="verifyPassword" placeholder="Retype Password" name="psw" required>
 
@@ -145,39 +155,25 @@ li.dropdown {
 		pw = document.getElementById('password').value;
 		pwVerify = document.getElementById('verifyPassword').value;
 		<!--var track = document.getElementById('track').value;-->
-		
-		/*	console.log(firstName);
-			console.log(midName);
-			console.log(lastName);
-			console.log(idNum);
-			console.log(email);
-			console.log(pw);
-			console.log(pwVerify);
-			console.log(month);
-			console.log(day);
-			console.log(year);
-		*/
 
 		//check to see if passwords match
 		if(pw !== pwVerify){
 			window.alert("passwords don't match!");
 		}
 		
-		//check if password has correct char types
-		/*var letterNumber = /^[0-9a-zA-Z+$/;
-		if(!(pw.value.match(letterNumber)){
-			window.alert("use more chars in password");
-		}*/
-		
 		//test for proper chars in password
 		if (pw.search(/\d/) == -1) {
-			window.alert("please use numbers in your password");
+			//window.alert("please use numbers in your password");
+			$("#errMsg").toggle();
 		} else if (pw.search(/[a-zA-Z]/) == -1) {
-			window.alert("please use letters in your password");
-		} else if (pw.search(/[^a-zA-Z0-9\!\@\#\$\%\^\&\*\(\)\_\+]/) != -1) {
-			window.alert("please use at least 1 non-letter, non-number character in your password");
+			//window.alert("please use letters in your password");
+			$("#errMsg").toggle();
+		} else if (pw.search(/[!@#$%^&*()_+]/) == -1) {
+			//window.alert("please use at least 1 non-letter, non-number character in your password");
+			$("#errMsg").toggle();
 		} else if(pw.length < 8 && pw === pwVerify){
-			window.alert("The password is too short");
+			//window.alert("The password is too short");
+			$("#errMsgTooShort").toggle();
 		} else {
 			runAJAX();
 		}

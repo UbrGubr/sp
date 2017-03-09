@@ -1,3 +1,19 @@
+<?php
+
+    session_start();
+    //print all php session variables
+    //echo '<pre>' . print_r($_SESSION, TRUE) . '</pre>';
+
+    if(isset($_SESSION['authorized']) && $_SESSION['authorized'] === TRUE){
+        echo "authorized to enter this page!";
+        session_unset($_SESSION['authorized']);
+    } else {
+        echo "not authorized to enter this page";
+        session_unset($_SESSION['authorized']);
+        header('Location: login_page_with_session.php');
+    }
+?>
+
 <!DOCTYPE html>
 <html>
 <style>
