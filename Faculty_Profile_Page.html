@@ -28,7 +28,11 @@ button {
     margin: 8px 0;
     border: none;
     cursor: pointer;
+<<<<<<< HEAD
     width: 8%;
+=======
+    width: 5%;
+>>>>>>> 03c81361cc66cf48b83996f61911f21d54a980e0
 }
 
 .imgcontainer {
@@ -86,9 +90,22 @@ li.dropdown {
 
 .show {display:block;}
 
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+    span.psw {
+       display: block;
+       float: none;
+    }
+	
+	span.reg {
+       display: block;
+       float: none;
+    }
+}
 </style>
 
 <body style="background-color:#F0EEEE;">
+<<<<<<< HEAD
 
 <div class="imgcontainer">
 		<img src="http://blogs.egusd.net/prairie/files/2013/07/priaire-header-1r736jq.jpg" alt="priarie logo">
@@ -113,6 +130,42 @@ li.dropdown {
 			<input type="text" placeholder="Search">
 		
 			<label><b>Search by: </b></label>
+=======
+	
+	<div class="imgcontainer">
+		<img src="priaire.jpg" alt="priarie logo">
+	</div>
+	
+<form action="action_page.php">
+	<ul>
+		<li class="dropdown">
+			<a href="javascript:void(0)" class="dropbtn" onclick="myFunction()">Student</a>
+			<div class="dropdown-content" id="myDropdown">
+				<a href="Student Registration Page.html">Add</a>
+				<a href="#">Modify</a>
+			</div>
+		</li>
+		<li class="dropdown">
+			<a href="javascript:void(0)" class="dropbtn" onclick="myFunction2()">Calendar</a>
+			<div class="dropdown-content" id="myDropdown2">
+				<a href="#">Add</a>
+				<a href="#">Modify</a>
+			</div>
+		</li>
+		<li class="dropdown">
+			<a href="javascript:void(0)" class="dropbtn" onclick="myFunction3()">Teacher</a>
+			<div class="dropdown-content" id="myDropdown3">
+				<a href="Faculty Registration Page.html">Add</a>
+				<a href="#">Modify</a>
+			</div>
+		</li>		
+	</ul>
+	<div class="container">
+		<label><b>Search for student</b></label>
+		<input type="text" placeholder="Search">
+		
+		<label><b>Search by: </b></label>
+>>>>>>> 03c81361cc66cf48b83996f61911f21d54a980e0
 				<select id="search" name="search">
 					<option value=""> </option>
 					<option value="firstname">First Name</option>
@@ -122,6 +175,7 @@ li.dropdown {
 					<option value="readinglevel">Reading Level</option>
 					<option value="mathlevel">Math Level</option>
 					<option value="track">Track</option>
+<<<<<<< HEAD
 				</select>
 		
 			<button type="button" class="btn btn-default">
@@ -212,6 +266,21 @@ li.dropdown {
 			</div>
 		</div>
 	</div>
+=======
+		</select>
+		
+		<button type="search" value="search">Search</button>
+	</div>
+	
+	<div class="container">
+		<iframe src="https://calendar.google.com/calendar/embed?src=pablams14%40gmail.com&ctz=America/Los_Angeles" style="border: 0" width="1350" height="600" frameborder="0" scrolling="no"></iframe>
+	</div>
+	
+	</div>
+
+</form>
+
+>>>>>>> 03c81361cc66cf48b83996f61911f21d54a980e0
 </body>
 
 <script>
@@ -224,6 +293,13 @@ function myFunction() {
 function myFunction2() {
     document.getElementById("myDropdown2").classList.toggle("show");
 }
+<<<<<<< HEAD
+=======
+
+function myFunction3() {
+	document.getElementById("myDropdown3").classList.toggle("show");
+}
+>>>>>>> 03c81361cc66cf48b83996f61911f21d54a980e0
 	
 // Close the dropdown if the user clicks outside of it
 window.onclick = function(e) {
