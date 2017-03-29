@@ -10,7 +10,7 @@
 		#mysqli_select_db('sp_dev');
     }
 
-	if(isset($_GET['fname']) && !empty($_GET['fname']) AND isset($_GET['mname']) && !empty($_GET['mname']) AND isset($_GET['lname']) && !empty($_GET['lname']) AND isset($_GET['email']) && !empty($_GET['email']) AND isset($_GET['idnum']) && !empty($_GET['idnum']))
+	if(isset($_GET['fname']) && !empty($_GET['fname']) AND isset($_GET['lname']) && !empty($_GET['lname']) AND isset($_GET['email']) && !empty($_GET['email']) AND isset($_GET['idnum']) && !empty($_GET['idnum']))
 	{
     	// Verify data
 		$email = mysql_escape_string($_GET['email']); // Set email variable
@@ -20,13 +20,13 @@
 		$idnum = mysql_escape_string($_GET['idnum']); // Set idnum variable
 
 		$search = mysqli_query($connection,"SELECT tid, fname, mname, lname, email, activated FROM teacher 
-				WHERE email='".$email."' AND fname='".$fname."' AND lname='".$mname."' AND lname='".$lname."' AND tid='".$idnum."' AND activated='0'") or die(mysql_error()); 
+				WHERE email='".$email."' AND fname='".$fname."' AND lname='".$lname."' AND tid='".$idnum."' AND activated='0'") or die(mysql_error()); 
 		#$match  = mysql_num_rows($search);
 
 		mysqli_query($connection,"UPDATE teacher SET activated='1' 
-				WHERE email='".$email."' AND fname='".$fname."' AND mname='".$mname."' AND lname='".$lname."' AND tid='".$idnum."' AND activated='0'") or die(mysql_error());
+				WHERE email='".$email."' AND fname='".$fname."' AND lname='".$lname."' AND tid='".$idnum."' AND activated='0'") or die(mysql_error());
 		
-		echo '<div class="statusmsg">Your account has been activated, you can now login</div>';
+		echo '<div class="statusmsg">The account has been activated, and the user can now log in.</div>';
 		#echo "number of matches = ".$match;
 	}
 	else
