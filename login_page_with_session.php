@@ -192,7 +192,7 @@ span.reg {
 							var trim = $.trim(response);
 							if(trim != 'error'){
 								window.alert(response);
-								window.location.replace("http://athena.ecs.csus.edu/~solemt/seniorproject/Faculty_Profile_Page_with_session.php");
+								window.location.href = "Faculty_Profile_Page_with_session.php";
 							} else {
 								window.alert(reponse);
 							}
