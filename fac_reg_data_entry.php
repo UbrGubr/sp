@@ -25,14 +25,12 @@
 			$email = $_REQUEST['EMAIL'];
 			$pw = $_REQUEST['PW'];
 			
-			$fullName = $fName . ' ' . $mName . ' ' . $lName;
-			
 			//hash password; salt generated automatically
 			$encryptedPW = password_hash($pw, PASSWORD_DEFAULT);	
 			
 		
-		/*	
-			$fName = 'lisa';
+			
+/*			$fName = 'lisa';
 			$mName = 'a';
 			$lName = 'solem';
 			$idNum = 123;
@@ -41,14 +39,15 @@
 			$month = "may";
 			$day = 4;
 			$year = 1988;
+			$active = 1;
 			
-			$fullName = $fName + ' ' + $mName + ' ' + $lName;
-		*/
+			//$fullName = $fName + ' ' + $mName + ' ' + $lName;
+			$encryptedPW = password_hash($pw, PASSWORD_DEFAULT);
+	*/
 	
 	
-	
-	if(mysqli_query($connection,"INSERT INTO teacher (id, name, track_id, phone, address, auth_hash, email) 
-					VALUES ('$idNum', '$fullName', NULL, '', '', '$encryptedPW', '$email')")){
+	if(mysqli_query($connection,"INSERT INTO teacher (tid, fname, mname, lname, trackid, phone, address, hash, email, activated) VALUES ('$idNum', '$fName', '$mName', '$lName', NULL, '', '', '$encryptedPW', '$email', '$active')")){
+
 		echo "successful\n";
 		
 		$config = parse_ini_file('./config.ini'); 

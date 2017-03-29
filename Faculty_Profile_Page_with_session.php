@@ -4,6 +4,12 @@
     //print all php session variables
     //echo '<pre>' . print_r($_SESSION, TRUE) . '</pre>';
 
+    //test session id
+    echo session_id();
+
+    //test session domain
+        echo ini_get('session.cookie_domain');
+
     if(isset($_SESSION['authorized']) && $_SESSION['authorized'] === TRUE){
         echo "authorized to enter this page!";
         session_unset($_SESSION['authorized']);
@@ -121,7 +127,8 @@ li.dropdown {
 		<li class="dropdown">
 			<a href="javascript:void(0)" class="dropbtn" onclick="myFunction()">Student</a>
 			<div class="dropdown-content" id="myDropdown">
-				<a href="Student Registration Page.html">Add</a>
+                <!--Student registration page link-->
+				<a href="Student_Registration_Page_with_session.php">Add</a>
 				<a href="#">Modify</a>
 			</div>
 		</li>
@@ -135,7 +142,8 @@ li.dropdown {
 		<li class="dropdown">
 			<a href="javascript:void(0)" class="dropbtn" onclick="myFunction3()">Teacher</a>
 			<div class="dropdown-content" id="myDropdown3">
-				<a href="Faculty Registration Page.html">Add</a>
+                <!--faculty registration page link-->
+				<a href="Faculty_Registration_Page_with_session.php">Add</a>
 				<a href="#">Modify</a>
 			</div>
 		</li>		

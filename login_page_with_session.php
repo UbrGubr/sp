@@ -5,7 +5,7 @@
 	//session_unset($_SESSION['authorized']);
 	//$_SESSION['username'] = 'testing123';
 	//print all php session variables
-	echo '<pre>' . print_r($_SESSION, TRUE) . '</pre>';
+	//echo '<pre>' . print_r($_SESSION, TRUE) . '</pre>';
 ?>
 
 
