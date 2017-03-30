@@ -100,7 +100,7 @@ li a:hover, .dropdown:hover .dropbtn {
 						<a href="Forgot_Password_Page.html">Forgot Password</a>
 					</li>
 					<li class="dropdown">
-						<a href="Faculty_Profile_Page.html">Register</a>
+						<a href="Faculty_Registration_Page.html">Register</a>
 					</li>
 				</ul>
 

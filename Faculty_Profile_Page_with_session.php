@@ -96,8 +96,6 @@ li.dropdown {
 	<div class="imgcontainer">
 		<img src="http://blogs.egusd.net/prairie/files/2013/07/priaire-header-1r736jq.jpg" alt="priarie logo">
 	</div>
-	
-<<<<<<< HEAD
 	<div class="container-fluid">
 		<div class="container">
 			
@@ -120,53 +118,6 @@ li.dropdown {
 				</li>
 				<li><a href="Calendar.html">Calendar</a></li>
 			</ul>
-=======
-<form action="action_page.php">
-	<ul>
-		<li class="dropdown">
-			<a href="javascript:void(0)" class="dropbtn" onclick="myFunction()">Student</a>
-			<div class="dropdown-content" id="myDropdown">
-                <!--Student registration page link-->
-				<a href="Student_Registration_Page_with_session.php">Add</a>
-				<a href="#">Modify</a>
-			</div>
-		</li>
-		<li class="dropdown">
-			<a href="javascript:void(0)" class="dropbtn" onclick="myFunction2()">Calendar</a>
-			<div class="dropdown-content" id="myDropdown2">
-				<a href="#">Add</a>
-				<a href="#">Modify</a>
-			</div>
-		</li>
-		<li class="dropdown">
-			<a href="javascript:void(0)" class="dropbtn" onclick="myFunction3()">Teacher</a>
-			<div class="dropdown-content" id="myDropdown3">
-                <!--faculty registration page link-->
-				<a href="Faculty_Registration_Page_with_session.php">Add</a>
-				<a href="#">Modify</a>
-			</div>
-		</li>		
-	</ul>
-	<div class="container">
-		<label><b>Search for student</b></label>
-		<input type="text" placeholder="Search">
-		
-		<label><b>Search by: </b></label>
-				<select id="search" name="search">
-					<option value=""> </option>
-					<option value="firstname">First Name</option>
-					<option value="lastname">Last Name</option>
-					<option value="idnumber">ID Number</option>
-					<option value="gradelevel">Grade Level</option>
-					<option value="readinglevel">Reading Level</option>
-					<option value="mathlevel">Math Level</option>
-					<option value="track">Track</option>
-		</select>
-		
-		<button type="search" value="search">Search</button>
-	</div>
->>>>>>> c51cd2bf50de637ca2616749b70963cd1478f7b9
-	
 			<form action="action_page.php">
 				<div class="container">
 					<label><b>Search for student</b></label>
