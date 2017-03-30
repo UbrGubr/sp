@@ -4,6 +4,12 @@
     //print all php session variables
     //echo '<pre>' . print_r($_SESSION, TRUE) . '</pre>';
 
+    //test session id
+    echo session_id();
+
+    //test session domain
+        echo ini_get('session.cookie_domain');
+
     if(isset($_SESSION['authorized']) && $_SESSION['authorized'] === TRUE){
         echo "authorized to enter this page!";
         session_unset($_SESSION['authorized']);
@@ -15,29 +21,17 @@
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
 <style>
 form {
     border: 3px solid #f1f1f1;
-}
-
-input[type=text], input[type=password] {
-    width: 15%;
-    padding: 4px 10px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-}
-
-button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 4px 10px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 5%;
 }
 
 .imgcontainer {
@@ -54,7 +48,7 @@ ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
+    background-color: #f1f1f1;
 }
 
 li {
@@ -63,14 +57,14 @@ li {
 
 li a, .dropbtn {
     display: inline-block;
-    color: white;
+    color: Black;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
 }
 
 li a:hover, .dropdown:hover .dropbtn {
-    background-color: red;
+    background-color: #e0e0e0;
 }
 
 li.dropdown {
@@ -81,7 +75,6 @@ li.dropdown {
     position: absolute;
     background-color: #f9f9f9;
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
 
 .dropdown-content a {
@@ -96,106 +89,137 @@ li.dropdown {
 
 .show {display:block;}
 
-/* Change styles for span and cancel button on extra small screens */
-@media screen and (max-width: 300px) {
-    span.psw {
-       display: block;
-       float: none;
-    }
-	
-	span.reg {
-       display: block;
-       float: none;
-    }
-}
 </style>
 
 <body style="background-color:#F0EEEE;">
-	
+
 	<div class="imgcontainer">
-		<img src="priaire.jpg" alt="priarie logo">
+		<img src="http://blogs.egusd.net/prairie/files/2013/07/priaire-header-1r736jq.jpg" alt="priarie logo">
 	</div>
 	
-<form action="action_page.php">
-	<ul>
-		<li class="dropdown">
-			<a href="javascript:void(0)" class="dropbtn" onclick="myFunction()">Student</a>
-			<div class="dropdown-content" id="myDropdown">
-				<a href="Student Registration Page.html">Add</a>
-				<a href="#">Modify</a>
-			</div>
-		</li>
-		<li class="dropdown">
-			<a href="javascript:void(0)" class="dropbtn" onclick="myFunction2()">Calendar</a>
-			<div class="dropdown-content" id="myDropdown2">
-				<a href="#">Add</a>
-				<a href="#">Modify</a>
-			</div>
-		</li>
-		<li class="dropdown">
-			<a href="javascript:void(0)" class="dropbtn" onclick="myFunction3()">Teacher</a>
-			<div class="dropdown-content" id="myDropdown3">
-				<a href="Faculty Registration Page.html">Add</a>
-				<a href="#">Modify</a>
-			</div>
-		</li>		
-	</ul>
-	<div class="container">
-		<label><b>Search for student</b></label>
-		<input type="text" placeholder="Search">
-		
-		<label><b>Search by: </b></label>
-				<select id="search" name="search">
-					<option value=""> </option>
-					<option value="firstname">First Name</option>
-					<option value="lastname">Last Name</option>
-					<option value="idnumber">ID Number</option>
-					<option value="gradelevel">Grade Level</option>
-					<option value="readinglevel">Reading Level</option>
-					<option value="mathlevel">Math Level</option>
-					<option value="track">Track</option>
-		</select>
-		
-		<button type="search" value="search">Search</button>
-	</div>
+	<div class="container-fluid">
+		<div class="container">
+			
+			<h3>Teacher Profile</h3>
+			
+			<ul class="nav nav-tabs">
+				<li class="dropdown">
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#">Student <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="Student_Registration_Page.html">Add</a></li>
+							<li><a href="#">Modify</a></li>        
+						</ul>
+				</li>
+				<li class="dropdown">
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#">Teacher <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="Faculty_Registration_Page.html">Add</a></li>
+							<li><a href="#">Modify</a></li>          
+						</ul>
+				</li>
+				<li><a href="Calendar.html">Calendar</a></li>
+			</ul>
 	
-	<div class="container">
-		<iframe src="https://calendar.google.com/calendar/embed?src=pablams14%40gmail.com&ctz=America/Los_Angeles" style="border: 0" width="1350" height="600" frameborder="0" scrolling="no"></iframe>
-	</div>
-	
-	</div>
+			<form action="action_page.php">
+				<div class="container">
+					<label><b>Search for student</b></label>
+					<input type="text" placeholder="Search">
+					
+					<label><b>Search by: </b></label>
+							<select id="search" name="search">
+								<option value=""> </option>
+								<option value="firstname">First Name</option>
+								<option value="lastname">Last Name</option>
+								<option value="idnumber">ID Number</option>
+								<option value="gradelevel">Grade Level</option>
+								<option value="readinglevel">Reading Level</option>
+								<option value="mathlevel">Math Level</option>
+								<option value="track">Track</option>
 
-</form>
+							</select>
+					
+					<button type="button" class="btn btn-default">
+						<span class="glyphicon glyphicon-search"></span> Search
+					</button>
+				
+					<div class="row">
+						<div class="col-sm-3">
+							<div class="imgcontainer">
+								<img src="https://rlv.zcache.com/little_girl_silhouette_5_x_7_photo_print-rb397f23ed99f480da092c7450a3a342e_fk95_8byvr_324.jpg" alt="Girl">
+									<ul class="list-group">
+										<strong>User name</strong><br>
+										<strong>Change Avatar</strong>
+									</ul> 
+							</div>
+						</div>
 
+						<div class="col-sm-1">
+							<br><br><br>
+							<ul style="list-style-type:disc">
+								<li><strong>Tracks:</strong></li>
+								<br><br><br>
+								<li><strong>Number of Students:</strong></li>
+							</ul>
+							<br><br><br> 			  
+						</div>
+						
+						<h1 style="text-align:center">Alerts</h1>
+						
+						<div class="col-sm-8">
+							<div class="table-responsive">
+								<div class="container">
+									<div class="alert alert-success">
+										<strong>Success!</strong> The student has taken all required assessments!
+									</div>
+									<div class="alert alert-info">
+										<strong>Info!</strong> Updated the students info!
+									</div>
+									<div class="alert alert-warning">
+										<strong>Warning!</strong> Assessments approaching within 2 weeks!
+									</div>
+									<div class="alert alert-danger">
+										<strong>Danger!</strong> Assessments within 2 days!
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+	
+					<h2 style="text-align:center">Dates and Notes</h2>
+					<div class="col-sm-12">
+						<ul class="nav nav-tabs" id="myTab">
+							<li class="active"><a href="#home" data-toggle="tab">Dates</a></li>
+							<li><a href="#notes" data-toggle="tab">Notes</a></li>
+						</ul>
+						  
+						<div class="tab-content">
+							<div class="tab-pane active" id="home">
+								<div class="table-responsive">
+									<table class="table table-hover">
+										<ul class="list-group">
+										  <li class="list-group-item text-right"><a class="pull-left">Here is your a link to the latest summary report from the..</a> 2.13.2014</li>
+										  <li class="list-group-item text-right"><a class="pull-left">Hi Joe, There has been a request on your account since that was..</a> 2.11.2014</li>
+										  <li class="list-group-item text-right"><a class="pull-left">Nullam sapien massaortor. A lobortis vitae, condimentum justo...</a> 2.11.2014</li>
+										  <li class="list-group-item text-right"><a class="pull-left">Thllam sapien massaortor. A lobortis vitae, condimentum justo...</a> 2.11.2014</li>
+										  <li class="list-group-item text-right"><a class="pull-left">Wesm sapien massaortor. A lobortis vitae, condimentum justo...</a> 2.11.2014</li>
+										  <li class="list-group-item text-right"><a class="pull-left">For therepien massaortor. A lobortis vitae, condimentum justo...</a> 2.11.2014</li>
+										  <li class="list-group-item text-right"><a class="pull-left">Also we, havesapien massaortor. A lobortis vitae, condimentum justo...</a> 2.11.2014</li>
+										  <li class="list-group-item text-right"><a class="pull-left">Swedish chef is assaortor. A lobortis vitae, condimentum justo...</a> 2.11.2014</li>
+										</ul>
+									</table>
+								</div>
+							</div>
+							
+							<div class="tab-pane" id="notes">
+								<textarea rows="20" cols="80">
+									Enter notes here. 
+								</textarea>
+							</div>							  
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
 </body>
-<script>
-/* When the user clicks on the button, 
-toggle between hiding and showing the dropdown content */
-function myFunction() {
-    document.getElementById("myDropdown").classList.toggle("show");
-}
-
-function myFunction2() {
-    document.getElementById("myDropdown2").classList.toggle("show");
-}
-
-function myFunction3() {
-	document.getElementById("myDropdown3").classList.toggle("show");
-}
-	
-// Close the dropdown if the user clicks outside of it
-window.onclick = function(e) {
-  if (!e.target.matches('.dropbtn')) {
-
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    for (var d = 0; d < dropdowns.length; d++) {
-      var openDropdown = dropdowns[d];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
-    }
-  }
-}
-</script>
-
 </html>

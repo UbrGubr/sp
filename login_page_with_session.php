@@ -5,19 +5,17 @@
 	//session_unset($_SESSION['authorized']);
 	//$_SESSION['username'] = 'testing123';
 	//print all php session variables
-	echo '<pre>' . print_r($_SESSION, TRUE) . '</pre>';
+	//echo '<pre>' . print_r($_SESSION, TRUE) . '</pre>';
 ?>
-
-
 <!DOCTYPE html>
-
-<html>
-
+<html lang="en">
 <head>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
-	</script>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
-
 <style>
 form {
     border: 3px solid #f1f1f1;
@@ -84,89 +82,43 @@ li a:hover, .dropdown:hover .dropbtn {
     background-color: red;
 }
 
-li.dropdown {
-    display: inline-block;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-}
-
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-}
-
-.dropdown-content a:hover {background-color: #f1f1f1}
-
-.show {display:block;}
-
-span.psw {
-    float: right;
-    padding-top: 16px;
-}
-
-span.reg {
-    float: left;
-    padding-top: 16px;
-}
-
-/* Change styles for span and cancel button on extra small screens */
-@media screen and (max-width: 300px) {
-    span.psw {
-       display: block;
-       float: none;
-    }
-	
-	span.reg {
-       display: block;
-       float: none;
-    }
-}
 </style>
-
-</style>
-<body style="background-color:#F0EEEE;">
 
 <body style="background-color:#F0EEEE;">
 
-<form id = "id" action="login_page.html" title method = "post">
+	<form id = "id" action="login_page.html" title method = "post">
 	
-	<div class="imgcontainer">
-		<img src="priaire.jpg" alt="priarie logo" class="avatar">
-	</div>
-
-	<ul>
-		<li class="dropdown">
-			<a href="#">Forgot password</a>
-		</li>
-		<li class="dropdown">
-			<a href="Faculty_Registration_Page.html">Register</a>
-		</li>
-	</ul>
-
-	<div class="container">
-		<label><b>Email</label><div id="error" class="hidden errorMessage">Invalid username or password.</div></b>
-		<input type="text" placeholder="Enter email" name="email" id="email">
-		<br>
-		<label><b>Password</b></label>
-		<input type="password" placeholder="Enter Password" name="psw" id="password">
-        
-		
-		<!--LOGIN BUTTON-->
-		<button type="button" id="test">Login</button>
-<!--		<a href="Faculty_Registration_Page.html" class="dropbtn">Register New Teacher</a> -->
-	</div>
-
+		<div class="imgcontainer">
+			<img src="http://blogs.egusd.net/prairie/files/2013/07/priaire-header-1r736jq.jpg" alt="priarie logo" class="avatar">
+		</div>
 	
-</form>
+		<div class="container-fluid">
+			<div class="container">
+
+				<ul class="nav nav-tabs">
+					<li class="dropdown">
+						<a href="Forgot_Password_Page.html">Forgot Password</a>
+					</li>
+					<li class="dropdown">
+						<a href="Faculty_Profile_Page.html">Register</a>
+					</li>
+				</ul>
+
+				<div class="container">
+					<label><b>Email</b></label>
+					<input type="text" placeholder="Enter email" name="email" id="email">
+					<br>
+					<label><b>Password</b></label>
+					<input type="password" placeholder="Enter Password" name="psw" id="password">
+					
+					<!--LOGIN BUTTON-->
+					<button type="button" id="test">Login</button>
+			<!--		<a href="Faculty_Registration_Page.html" class="dropbtn">Register New Teacher</a> -->
+				</div>
+			</div>
+		</div>
+	</form>
+</body>
 
 <!--this function corresponds to button click to login-->
 <script type="text/javascript">
@@ -192,7 +144,7 @@ span.reg {
 							var trim = $.trim(response);
 							if(trim != 'error'){
 								window.alert(response);
-								window.location.replace("http://athena.ecs.csus.edu/~solemt/seniorproject/Faculty_Profile_Page_with_session.php");
+								window.location.href = "Faculty_Profile_Page_with_session.php";
 							} else {
 								window.alert(reponse);
 							}
@@ -273,5 +225,4 @@ span.reg {
 -->
 </script>
 
-</body>
 </html>

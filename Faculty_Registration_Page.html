@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
 <style>
@@ -53,7 +55,7 @@ ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
+    background-color: #f1f1f1;
 }
 
 li {
@@ -62,90 +64,57 @@ li {
 
 li a, .dropbtn {
     display: inline-block;
-    color: white;
+    color: black;
     text-align: center;
     padding: 14px 16px;
-    text-decoration: none;
 }
-
-li a:hover, .dropdown:hover .dropbtn {
-    background-color: red;
-}
-
-li.dropdown {
-    display: inline-block;
-}
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-}
-
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-}
-
-.dropdown-content a:hover {background-color: #f1f1f1}
-
-.show {display:block;}
 
 </style>
-<body>
+<body style="background-color:#F0EEEE;">
 
 	<div class="imgcontainer">
 		<img src="http://blogs.egusd.net/prairie/files/2013/07/priaire-header-1r736jq.jpg" alt="priarie logo">
 	</div>
 
-	<form>
-	<ul>
-		<li class="dropdown">
-			<a href="javascript:void(0)" class="dropbtn" onclick="myFunction()">Login</a>
-			<div class="dropdown-content" id="myDropdown">
-				<a href="Login.html">Back To Login</a>
-			</div>
-		</li>
-		<li class="dropdown">
-			<a href="javascript:void(0)" class="dropbtn" onclick="myFunction2()">Home</a>
-			<div class="dropdown-content" id="myDropdown2">
-				<a href="Faculty Profile Page.html">Back To Home</a>
-			</div>
-		</li>
-	</ul>
-<h2>Register New Faculty<h2>
+	<div class="container-fluid">
+		<div class="container">
+		
+			<h3>Register New Faculty<h3>
+		
+			<ul class="nav nav-tabs">
+				<li><a href="login_page.html">Login</a></li>
+			</ul>
 
-<form>
-	<div class="container">
-		<label><b>First Name</b></label>
-		<input type="text" id="firstName" placeholder="Enter first name" required>
-		
-		<label><b>Middle Name</b></label>
-		<input type="text" id="middleName" placeholder="Enter middle name" value="">
-		
-		<label><b>Last Name</b></label>
-		<input type="text" id="lastName" placeholder="Enter last name" required>
-		
-		<label><b>ID Number</b></label>
-		<input type="text" id="idNumber" placeholder="Enter ID number" required>
-		
-		<label><b>Email</b></label>
-		<input type="text" id="email" placeholder="Enter EGUSD email" @egsud required>
-		
-		<label><b>Password</b></label>
-			<div id="errMsg" class="hidden errorMessage">Password must include at least one number, letter and special character.</div>
-			<div id="errMsgTooShort" class="hidden errorMessage">Password must contain at least 8 characters.</div>
-		<input type="text" id="password" placeholder="Password" name="psw" required>
-		<label><b>Verify Password</b></label>
-		<input type="text" id="verifyPassword" placeholder="Retype Password" name="psw" required>
+			<form action="action_page.php">
+				<div class="container">
+					<label><b>First Name</b></label>
+					<input type="text" id="firstName" placeholder="Enter first name" required>
+					
+					<label><b>Middle Name</b></label>
+					<input type="text" id="middleName" placeholder="Enter middle name" value="">
+					
+					<label><b>Last Name</b></label>
+					<input type="text" id="lastName" placeholder="Enter last name" required>
+					
+					<label><b>ID Number</b></label>
+					<input type="text" id="idNumber" placeholder="Enter ID number" required>
+					
+					<label><b>Email</b></label>
+					<input type="text" id="email" placeholder="Enter EGUSD email" @egsud required>
+					
+					<label><b>Password</b></label>
+						<div id="errMsg" class="hidden errorMessage">Password must include at least one number, letter and special character.</div>
+						<div id="errMsgTooShort" class="hidden errorMessage">Password must contain at least 8 characters.</div>
+					<input type="text" id="password" placeholder="Password" name="psw" required>
+					<label><b>Verify Password</b></label>
+					<input type="text" id="verifyPassword" placeholder="Retype Password" name="psw" required>
 
-		<button type="button" value="Submit" id="submitData" onclick="whenClicked()">Submit</button>
-
-</form>
+					<button type="button" value="Submit" id="submitData" onclick="whenClicked()">Submit</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
 
 <script type="text/javascript">
 	
@@ -162,15 +131,34 @@ li.dropdown {
 		pwVerify = document.getElementById('verifyPassword').value;
 		<!--var track = document.getElementById('track').value;-->
 
-		//check to see if passwords match
-		if(pw !== pwVerify){
-			window.alert("passwords don't match!");
-		}
+		if(firstName.length < 1 || firstName.length > 20){ //check to see if first name length between 1-20 chars
+
+			$('#errFName').toggle();
+
+		} else if(midName.length < 1 || midName.length > 20){ //check to see if middle name length between 1-20 chars
+
+			$('#errMName').toggle();
+
+		} else if(lastName.length < 1 || lastName.length > 20){ //check to see if last name length between 1-20 chars
+
+			$('#errLName').toggle();
+
+		} else if(idNum.length < 7 || idNum.length > 7){ 	//check length of teacher id; must == 7
+			
+			$('#errID').toggle();
 		
-		//test for proper chars in password
-		if (pw.search(/\d/) == -1) {
-			//window.alert("please use numbers in your password");
+		} else if(email.indexOf("@prairieschool") == -1){ //check to see if email is valid format '@prairieschool.com'
+			
+			$('#errEmail').toggle();
+		
+		} else if(pw !== pwVerify){ 	//check to see if passwords match
+		
+			window.alert("passwords don't match!");
+		
+		} else if (pw.search(/\d/) == -1) {	//test for proper chars in password
+			
 			$("#errMsg").toggle();
+		
 		} else if (pw.search(/[a-zA-Z]/) == -1) {
 			//window.alert("please use letters in your password");
 			$("#errMsg").toggle();
@@ -185,7 +173,7 @@ li.dropdown {
 		}
 	}								
 		//ajax call to send data to php script	
-<!--								
+								
 	function runAJAX(){	
 		$.ajax({
 			type:	'POST',
@@ -195,7 +183,7 @@ li.dropdown {
 			success: function(){ 
 						console.log('data stored successfully'); 
 						window.alert("succesfully registered!");
-						window.location.replace("http://athena.ecs.csus.edu/~solemt/seniorproject/login_page.html");
+						window.location.replace("http://athena.ecs.csus.edu/~solemt/seniorproject/SuccessfulRegistration.html");
 			},
 			error:	function(a,b,c){ 
 						console.log(a);
@@ -204,58 +192,8 @@ li.dropdown {
 			}
 		});		
 	}
--->
+
 </script>
 
-
-<!-- AJAX function to insert data into database -->
-<script type='text/javascript'>
-	function runAJAX(){	
-		$.ajax({
-			type:	'POST',
-			url:	'fac_reg_data_entry.php',
-			data:	{ FIRSTNAME: firstName, MIDNAME: midName, LASTNAME: lastName, IDNUM: idNum, EMAIL: email,
-						PW: pw, },
-			success: function(){ 
-						console.log('data stored successfully'); 
-						window.alert("succesfully registered!");
-						window.location.replace("http://athena.ecs.csus.edu/~solemt/seniorproject/login_page.html");
-			},
-			error:	function(a,b,c){ 
-						console.log(a);
-						console.log(b);
-						console.log(c);
-			}
-		});		
-	}
-</script>
-
-<script type='text/javascript'>
-/* When the user clicks on the button, 
-toggle between hiding and showing the dropdown content */
-function myFunction() {
-    document.getElementById("myDropdown").classList.toggle("show");
-}
-
-function myFunction2() {
-    document.getElementById("myDropdown2").classList.toggle("show");
-}
-
-// Close the dropdown if the user clicks outside of it
-window.onclick = function(e) {
-  if (!e.target.matches('.dropbtn')) {
-
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    for (var d = 0; d < dropdowns.length; d++) {
-      var openDropdown = dropdowns[d];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
-    }
-  }
-}
-</script>
-
-</body>
 
 </html>
