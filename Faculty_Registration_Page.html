@@ -1,11 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-<meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	
 </head>
 
 <style>
@@ -55,7 +53,7 @@ ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #f1f1f1;
+    background-color: #333;
 }
 
 li {
@@ -64,59 +62,46 @@ li {
 
 li a, .dropbtn {
     display: inline-block;
-    color: black;
+    color: white;
     text-align: center;
     padding: 14px 16px;
+    text-decoration: none;
 }
 
+li a:hover, .dropdown:hover .dropbtn {
+    background-color: red;
+}
+
+li.dropdown {
+    display: inline-block;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.show {display:block;}
+
 </style>
-<body style="background-color:#F0EEEE;">
+<body>
 
 	<div class="imgcontainer">
 		<img src="http://blogs.egusd.net/prairie/files/2013/07/priaire-header-1r736jq.jpg" alt="priarie logo">
 	</div>
 
-<<<<<<< HEAD
-	<div class="container-fluid">
-		<div class="container">
-		
-			<h3>Register New Faculty<h3>
-		
-			<ul class="nav nav-tabs">
-				<li><a href="login_page.html">Login</a></li>
-			</ul>
-
-			<form action="action_page.php">
-				<div class="container">
-					<label><b>First Name</b></label>
-					<input type="text" id="firstName" placeholder="Enter first name" required>
-					
-					<label><b>Middle Name</b></label>
-					<input type="text" id="middleName" placeholder="Enter middle name" value="">
-					
-					<label><b>Last Name</b></label>
-					<input type="text" id="lastName" placeholder="Enter last name" required>
-					
-					<label><b>ID Number</b></label>
-					<input type="text" id="idNumber" placeholder="Enter ID number" required>
-					
-					<label><b>Email</b></label>
-					<input type="text" id="email" placeholder="Enter EGUSD email" @egsud required>
-					
-					<label><b>Password</b></label>
-						<div id="errMsg" class="hidden errorMessage">Password must include at least one number, letter and special character.</div>
-						<div id="errMsgTooShort" class="hidden errorMessage">Password must contain at least 8 characters.</div>
-					<input type="text" id="password" placeholder="Password" name="psw" required>
-					<label><b>Verify Password</b></label>
-					<input type="text" id="verifyPassword" placeholder="Retype Password" name="psw" required>
-
-					<button type="button" value="Submit" id="submitData" onclick="whenClicked()">Submit</button>
-				</div>
-			</form>
-		</div>
-	</div>
-</body>
-=======
 	<form>
 	<ul>
 		<li class="dropdown">
@@ -166,7 +151,6 @@ li a, .dropbtn {
 		<button type="button" value="Submit" id="submitData" onclick="whenClicked()">Submit</button>
 
 </form>
->>>>>>> c51cd2bf50de637ca2616749b70963cd1478f7b9
 
 <script type="text/javascript">
 	
@@ -235,7 +219,7 @@ li a, .dropbtn {
 			success: function(){ 
 						console.log('data stored successfully'); 
 						window.alert("succesfully registered!");
-						window.location.replace("http://athena.ecs.csus.edu/~solemt/seniorproject/SuccessfulRegistration.html");
+						window.location.href = "SuccessfulRegistration.html";
 			},
 			error:	function(a,b,c){ 
 						console.log(a);
@@ -244,9 +228,6 @@ li a, .dropbtn {
 			}
 		});		
 	}
-<<<<<<< HEAD
-
-=======
 
 </script>
 
@@ -272,9 +253,35 @@ li a, .dropbtn {
 			}
 		});		
 	}
->>>>>>> c51cd2bf50de637ca2616749b70963cd1478f7b9
 </script>
 -->
 
+<script type='text/javascript'>
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+
+function myFunction2() {
+    document.getElementById("myDropdown2").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(e) {
+  if (!e.target.matches('.dropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    for (var d = 0; d < dropdowns.length; d++) {
+      var openDropdown = dropdowns[d];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
+
+</body>
 
 </html>
