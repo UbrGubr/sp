@@ -1,25 +1,19 @@
 
 <?php
-
+	//start session
     session_start();
-    //check session id
-    //echo session_id();
 
-    //check session domain
-    echo ini_get('session.cookie_domain');
+    echo $_SESSION['authorized'];
 
-    //print all php session variables
-    echo '<pre>' . print_r($_SESSION, TRUE) . '</pre>';
-/*
+    //check whether user is authorized to enter this page
     if(isset($_SESSION['authorized']) && $_SESSION['authorized'] === TRUE){
-        echo "authorized to enter this page!";
-        session_unset($_SESSION['authorized']);
+        //echo "authorized to enter this page!";
     } else {
         echo "not authorized to enter this page";
         session_unset($_SESSION['authorized']);
         header('Location: login_page_with_session.php');
     }
-*/
+
 ?>
 <<<<<<< HEAD
 <!DOCTYPE html>
@@ -156,6 +150,11 @@ li.dropdown {
 		
 			<ul class="list-inline">
 				<li><a href="Faculty_Profile_Page.html">Home</a></li>
+
+				<li class="dropdown">
+					<a href="#" class="dropbtn" id="logoff">Log Off</a>
+				</li>
+
 			</ul>
 
 			<form action="action_page.php">
@@ -343,6 +342,35 @@ li.dropdown {
 			</form>
 		</div>
 	</div>
+
+	<!--script for logoff operation -->
+	<script type="text/javascript">
+
+		$('#logoff').click(function(){
+			$.ajax({
+				type: 'POST',
+				url: 'logoff.php',
+				data: '',
+				success: function(response){
+							var trim = $.trim(response);
+							if(trim == 'ok'){
+								//window.alert(response);
+								window.location.href = "login_page_with_session.php";
+							} else {
+								//console.log(response);
+								console.log("unable to logout!");
+							}
+						},
+				error: function(a,b,c){
+						console.log(a);
+						console.log(b);
+						console.log(c);
+					}
+			});
+		});
+	</script>
+
+
 </body>
 
 

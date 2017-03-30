@@ -1,21 +1,17 @@
 <?php
 
+    //start session
     session_start();
-    //print all php session variables
-    //echo '<pre>' . print_r($_SESSION, TRUE) . '</pre>';
 
-    //test session id
-    echo session_id();
+    echo $_SESSION['authorized'];
 
-    //test session domain
-        echo ini_get('session.cookie_domain');
-
+    //verify user authenticity
     if(isset($_SESSION['authorized']) && $_SESSION['authorized'] === TRUE){
-        echo "authorized to enter this page!";
-        session_unset($_SESSION['authorized']);
+        //echo "authorized to enter this page!";
+        //session_unset($_SESSION['authorized']);
     } else {
         echo "not authorized to enter this page";
-        session_unset($_SESSION['authorized']);
+        //session_unset($_SESSION['authorized']);
         header('Location: login_page_with_session.php');
     }
 ?>
@@ -117,6 +113,9 @@ li.dropdown {
 						</ul>
 				</li>
 				<li><a href="Calendar.html">Calendar</a></li>
+				<li class="dropdown">
+            		<a href="#" class="dropbtn" id="logoff">Log Off</a>
+        		</li>
 			</ul>
 			<form action="action_page.php">
 				<div class="container">
@@ -219,5 +218,32 @@ li.dropdown {
 			</form>
 		</div>
 	</div>
+
+	<script type="text/javascript">
+
+	    $('#logoff').click(function(){
+	        $.ajax({
+	            type: 'POST',
+	            url: 'logoff.php',
+	            data: '',
+	            success: function(response){
+	                        var trim = $.trim(response);
+	                        if(trim == 'ok'){
+	                            //window.alert(response);
+	                            window.location.href = "login_page_with_session.php";
+	                        } else {
+	                            
+	                            console.log("unable to logout!");
+	                        }
+	                    },
+	            error: function(a,b,c){
+	                    console.log(a);
+	                    console.log(b);
+	                    console.log(c);
+	                }
+	        });
+	    });
+	</script>
+
 </body>
 </html>
