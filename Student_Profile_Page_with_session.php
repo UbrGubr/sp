@@ -87,7 +87,11 @@ li a, .dropbtn {
 }
 
 li a:hover, .dropdown:hover .dropbtn {
+<<<<<<< HEAD
     background-color: #e0e0e0;
+=======
+    background-color: #C0C0C0;
+>>>>>>> c51cd2bf50de637ca2616749b70963cd1478f7b9
 }
 
 li.dropdown {
@@ -126,7 +130,11 @@ li.dropdown {
 			<h3>Student Profile</h3>
 		
 			<ul class="list-inline">
+<<<<<<< HEAD
 				<li><a href="Faculty_Profile_Page.html">Home</a></li>
+=======
+				<li><a href="Faculty Profile Page.html">Home</a></li>
+>>>>>>> c51cd2bf50de637ca2616749b70963cd1478f7b9
 			</ul>
 	
 			<label><b>Search for student</b></label>
@@ -155,7 +163,11 @@ li.dropdown {
 			<div class="row">
 				<div class="col-sm-3"><!--left col-->
           			<div class="imgcontainer">
+<<<<<<< HEAD
 						<img src="https://rlv.zcache.com/little_girl_silhouette_5_x_7_photo_print-rb397f23ed99f480da092c7450a3a342e_fk95_8byvr_324.jpg" alt="girl">
+=======
+						<img src="Girl Silhouette.png" alt="girl">
+>>>>>>> c51cd2bf50de637ca2616749b70963cd1478f7b9
 						
 						<ul class="list-group">
 							<strong>Joined:</strong><br>
