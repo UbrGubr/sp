@@ -94,29 +94,32 @@ li.dropdown {
 	</div>
 	<div class="container-fluid">
 		<div class="container">
-			
 			<h3>Teacher Profile</h3>
-			
-			<ul class="nav nav-tabs">
-				<li class="dropdown">
-					<a class="dropdown-toggle" data-toggle="dropdown" href="#">Student <span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="Student_Registration_Page.html">Add</a></li>
-							<li><a href="#">Modify</a></li>        
-						</ul>
-				</li>
-				<li class="dropdown">
-					<a class="dropdown-toggle" data-toggle="dropdown" href="#">Teacher <span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="Faculty_Registration_Page.html">Add</a></li>
-							<li><a href="#">Modify</a></li>          
-						</ul>
-				</li>
-				<li><a href="Calendar.html">Calendar</a></li>
-				<li class="dropdown">
-            		<a href="#" class="dropbtn" id="logoff">Log Off</a>
-        		</li>
-			</ul>
+				<div class="row">
+					<div class="col-sm-1">
+						<div class="dropdown">
+							<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Student <span class="caret"></span></button>
+							<ul class="dropdown-menu">
+								<li><a href="Student_Registration_Page.html">Add</a></li>
+								<li><a href="#">Modify</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-sm-1">
+						<div class="dropdown">
+							<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Teacher <span class="caret"></span></button>
+							<ul class="dropdown-menu">
+								<li><a href="Student_Registration_Page.html">Add</a></li>
+								<li><a href="#">Modify</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-sm-1">
+						<div class="dropdown">
+							<button class="btn btn-default dropdown-toggle" type="button"><a href="Calendar.html">Calendar</a></button>
+						</div>
+					</div>
+				</div>
 			<form action="action_page.php">
 				<div class="container">
 					<label><b>Search for student</b></label>
