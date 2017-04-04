@@ -32,6 +32,16 @@ button {
     width: 8%;
 }
 
+button2 {
+    background-color: #4CAF50;
+    color: white;
+    padding: 4px 10px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
 .imgcontainer {
     text-align: center;
 	margin: 24px 0 12px 0;
@@ -100,9 +110,13 @@ li.dropdown {
 			
 			<h3>Student Profile</h3>
 		
-			<ul class="list-inline">
-				<li><a href="Faculty_Profile_Page.html">Home</a></li>
-			</ul>
+			<div class="row">
+				<div class="col-sm-1">
+					<div class="dropdown">
+						<button2 class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><a href="Faculty_Profile_Page.html">Home</a></button2>
+					</div>
+				</div>
+			</div>
 	
 			<label><b>Search for student</b></label>
 			<input type="text" placeholder="Search">

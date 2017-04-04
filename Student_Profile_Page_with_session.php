@@ -57,6 +57,16 @@ button {
     width: 8%;
 }
 
+button2 {
+    background-color: #4CAF50;
+    color: white;
+    padding: 4px 10px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
 .imgcontainer {
     text-align: center;
 	margin: 24px 0 12px 0;
@@ -87,11 +97,8 @@ li a, .dropbtn {
 }
 
 li a:hover, .dropdown:hover .dropbtn {
-<<<<<<< HEAD
+
     background-color: #e0e0e0;
-=======
-    background-color: #C0C0C0;
->>>>>>> c51cd2bf50de637ca2616749b70963cd1478f7b9
 }
 
 li.dropdown {
@@ -129,13 +136,13 @@ li.dropdown {
 			
 			<h3>Student Profile</h3>
 		
-			<ul class="list-inline">
-<<<<<<< HEAD
-				<li><a href="Faculty_Profile_Page.html">Home</a></li>
-=======
-				<li><a href="Faculty Profile Page.html">Home</a></li>
->>>>>>> c51cd2bf50de637ca2616749b70963cd1478f7b9
-			</ul>
+			<div class="row">
+				<div class="col-sm-1">
+					<div class="dropdown">
+						<button2 class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><a href="Faculty_Profile_Page.html">Home</a></button2>
+					</div>
+				</div>
+			</div>
 	
 			<label><b>Search for student</b></label>
 			<input type="text" placeholder="Search">
@@ -163,11 +170,7 @@ li.dropdown {
 			<div class="row">
 				<div class="col-sm-3"><!--left col-->
           			<div class="imgcontainer">
-<<<<<<< HEAD
 						<img src="https://rlv.zcache.com/little_girl_silhouette_5_x_7_photo_print-rb397f23ed99f480da092c7450a3a342e_fk95_8byvr_324.jpg" alt="girl">
-=======
-						<img src="Girl Silhouette.png" alt="girl">
->>>>>>> c51cd2bf50de637ca2616749b70963cd1478f7b9
 						
 						<ul class="list-group">
 							<strong>Joined:</strong><br>
