@@ -106,6 +106,7 @@ li a:hover, .dropdown:hover .dropbtn {
 
 				<div class="container">
 					<label><b>Email</b></label>
+					<div id="error" class="hidden errorMessage">Incorrect username or password</div>
 					<input type="text" placeholder="Enter email" name="email" id="email">
 					<br>
 					<label><b>Password</b></label>

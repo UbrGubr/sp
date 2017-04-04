@@ -219,6 +219,8 @@ li.dropdown {
 		</div>
 	</div>
 
+
+	<!--log off script -->
 	<script type="text/javascript">
 
 	    $('#logoff').click(function(){
