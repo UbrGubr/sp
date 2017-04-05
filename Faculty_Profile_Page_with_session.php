@@ -3,7 +3,7 @@
     //start session
     session_start();
 
-    echo $_SESSION['authorized'];
+    //echo $_SESSION['authorized'];
 
     //verify user authenticity
     if(isset($_SESSION['authorized']) && $_SESSION['authorized'] === TRUE){
@@ -100,7 +100,7 @@ li.dropdown {
 						<div class="dropdown">
 							<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Student <span class="caret"></span></button>
 							<ul class="dropdown-menu">
-								<li><a href="Student_Registration_Page.html">Add</a></li>
+								<li><a href="Student_Registration_Page_with_session.php">Add</a></li>
 								<li><a href="#">Modify</a></li>
 							</ul>
 						</div>
@@ -109,7 +109,7 @@ li.dropdown {
 						<div class="dropdown">
 							<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Teacher <span class="caret"></span></button>
 							<ul class="dropdown-menu">
-								<li><a href="Student_Registration_Page.html">Add</a></li>
+								<li><a href="Faculty_Registration_Page_with_session.php">Add</a></li>
 								<li><a href="#">Modify</a></li>
 							</ul>
 						</div>
@@ -118,6 +118,9 @@ li.dropdown {
 						<div class="dropdown">
 							<button class="btn btn-default dropdown-toggle" type="button"><a href="Calendar.html">Calendar</a></button>
 						</div>
+					</div>
+					<div class="col-sm-1">
+						<button class="btn btn-default" type="button" id="logoff">Logoff</button>
 					</div>
 				</div>
 			<form action="action_page.php">

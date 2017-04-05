@@ -167,7 +167,7 @@ li a:hover, .dropdown:hover .dropbtn {
 						success: function(response){
 							var trim = $.trim(response);
 							if(trim != 'error'){
-								window.alert(response);
+								//window.alert(response);
 								window.location.href = "Faculty_Profile_Page_with_session.php";
 							} else {
 								window.alert(reponse);

@@ -3,7 +3,7 @@
 	//start session
     session_start();
 
-    echo $_SESSION['authorized'];
+    //echo $_SESSION['authorized'];
 
     //check whether user is authorized to enter this page
     if(isset($_SESSION['authorized']) && $_SESSION['authorized'] === TRUE){
@@ -104,7 +104,12 @@ li a, .dropbtn {
 			<div class="row">
 				<div class="col-sm-1">
 					<div class="dropdown">
-						<button2 class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><a href="Faculty_Profile_Page.html">Home</a></button2>
+						<button2 class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><a href="Faculty_Profile_Page_with_session.php">Home</a></button2>
+					</div>
+				</div>
+				<div class="col-sm-1">
+					<div class="dropdown">
+						<button2 class="btn btn-default" type="button" id="logoff">Logoff</button>
 					</div>
 				</div>
 			</div>
