@@ -71,10 +71,6 @@ button3 {
 
 .errorMessage {
 	color: rgb(255,0,0);
-	font-size: 50%;
-}
-
-.hidden {
 	display: none;
 }
 
@@ -129,7 +125,7 @@ li a:hover, .dropdown:hover .dropbtn {
 
 				<div class="container">
 					<label><b>Email</b></label>
-					<div id="error" class="hidden errorMessage">Incorrect username or password</div>
+					<div id="error" class="errorMessage">Incorrect username or password</div>
 					<input type="text" placeholder="Enter email" name="email" id="email">
 					<br>
 					<label><b>Password</b></label>
