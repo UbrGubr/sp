@@ -139,13 +139,14 @@ li.dropdown {
 		
 		<label><b>Email</b></label>
 		<div id="errEmail" class="hidden errorMessage">Invalid email address.</div>
-		<input type="text" id="email" placeholder="Enter EGUSD email" @egsud required>
+		<input type="text" id="email" placeholder="Enter @prairieschool.com email address" @prairieschool required>
 		
 		<label><b>Password</b></label>
 			<div id="errMsg" class="hidden errorMessage">Password must include at least one number, letter and special character.</div>
-			<div id="errMsgTooShort" class="hidden errorMessage">Password must contain at least 8 characters.</div>
+			<div id="lengthError" class="hidden errorMessage">Password must contain at least 8 characters.</div>
 		<input type="password" id="password" placeholder="Password" name="psw" required>
 		<label><b>Verify Password</b></label>
+			<div id="errVerify" class="hidden errorMessage">Passwords must match.</div>
 		<input type="password" id="verifyPassword" placeholder="Retype Password" name="psw" required>
 
 		<button type="button" value="Submit" id="submitData" onclick="whenClicked()">Submit</button>
@@ -157,6 +158,18 @@ li.dropdown {
 	var firstName, midName, lastName, idNum, email, pw, pwVerify;
 	
 	function whenClicked(){	
+
+		//field true/false values for submit button
+		var fNameSuccess = new Boolean();
+		var midNameSuccess = new Boolean();
+		var lastNameSuccess = new Boolean();
+		var idNumSuccess = new Boolean();
+		var emailSuccess = new Boolean();
+		var pwSuccess = new Boolean();
+		var pwVerifySuccess = new Boolean();
+		var pwCharSuccess = new Boolean();
+		var pwLengthSuccess = new Boolean();
+
 		//save all values of data except track into a variable
 		firstName = document.getElementById('firstName').value;
 		midName = document.getElementById('middleName').value;
@@ -165,47 +178,89 @@ li.dropdown {
 		email = document.getElementById('email').value;
 		pw = document.getElementById('password').value;
 		pwVerify = document.getElementById('verifyPassword').value;
-		<!--var track = document.getElementById('track').value;-->
+		//<!--var track = document.getElementById('track').value;-->
 
-		if(firstName.length < 1 || firstName.length > 20){ //check to see if first name length between 1-20 chars
-
-			$('#errFName').toggle();
-
-		} else if(midName.length < 1 || midName.length > 20){ //check to see if middle name length between 1-20 chars
-
-			$('#errMName').toggle();
-
-		} else if(lastName.length < 1 || lastName.length > 20){ //check to see if last name length between 1-20 chars
-
-			$('#errLName').toggle();
-
-		} else if(idNum.length < 7 || idNum.length > 7){ 	//check length of teacher id; must == 7
-			
-			$('#errID').toggle();
-		
-		} else if(email.indexOf("@prairieschool") == -1){ //check to see if email is valid format '@prairieschool.com'
-			
-			$('#errEmail').toggle();
-		
-		} else if(pw !== pwVerify){ 	//check to see if passwords match
-		
-			window.alert("passwords don't match!");
-		
-		} else if (pw.search(/\d/) == -1) {	//test for proper chars in password
-			
-			$("#errMsg").toggle();
-		
-		} else if (pw.search(/[a-zA-Z]/) == -1) {
-			//window.alert("please use letters in your password");
-			$("#errMsg").toggle();
-		} else if (pw.search(/[!@#$%^&*()_+]/) == -1) {
-			//window.alert("please use at least 1 non-letter, non-number character in your password");
-			$("#errMsg").toggle();
-		} else if(pw.length < 8 && pw === pwVerify){
-			//window.alert("The password is too short");
-			$("#errMsgTooShort").toggle();
+		if(firstName.length < 1 || firstName.length > 20){ //check to see if first name length between 1-20 chars			
+			fNameSuccess = false;	
+			$('#errFName').show();
 		} else {
-			runAJAX();
+			fNameSuccess = true;
+			$('#errFName').hide();
+		}
+
+		if(midName.length < 1 || midName.length > 20){ //check to see if middle name length between 1-20 chars	
+			midNameSuccess = false;
+			$('#errMName').show();
+		} else {
+			midNameSuccess = true;
+			$('#errMName').hide();
+		}
+
+		if(lastName.length < 1 || lastName.length > 20){ //check to see if last name length between 1-20 chars	
+			lastNameSuccess = false;
+			$('#errLName').show();
+		} else {
+			lastNameSuccess = true;
+			$('#errLName').hide();
+		} 
+
+		if(idNum.length < 7 || idNum.length > 7){ 	//check length of teacher id; must == 7
+			idNumSuccess = false;
+			$('#errID').show();
+		} else {
+			idNumSuccess = true;
+			$('#errID').hide();
+		}
+
+		if(email.indexOf("@prairieschool") == -1){ //check to see if email is valid format '@prairieschool.com'
+			emailSuccess = false;
+			$('#errEmail').show();
+		} else {
+			emailSuccess = true;
+			$('#errEmail').hide();
+		}
+
+		if(pw !== pwVerify){ 	//check to see if passwords match
+			pwVerifySuccess = false;
+			$('#errVerify').show();
+		} else {
+			pwVerifySuccess = true;
+			$('#errVerify').hide();
+		}
+
+		if (pw.search(/\d/) == -1) {	//test for proper chars in password
+			
+			pwCharSuccess = false;
+			$('#errMsg').show();
+
+		} else if (pw.search(/[a-zA-Z]/) == -1) {
+			
+			pwCharSuccess = false;
+			$('#errMsg').show();
+
+		} else if (pw.search(/[!@#$%^&*()_+]/) == -1) {
+			
+			pwCharSuccess = false;
+			$('#errMsg').show();
+
+		} else {			
+			
+			pwCharSuccess = true;
+			$('#errMsg').hide();
+		}
+
+		if(pw.length < 8 && pw === pwVerify){
+			pwLengthSuccess = false;
+			$('#lengthErr').show();
+		} else {
+			pwLengthSuccess = true;
+			$('#lengthErr').hide();
+		}
+
+		if(fNameSuccess == true && midNameSuccess == true && lastNameSuccess == true && idNumSuccess == true && 
+			emailSuccess == true && pwVerifySuccess == true && pwCharSuccess == true){
+
+				runAJAX();
 		}
 	}								
 		//ajax call to send data to php script	
@@ -219,7 +274,7 @@ li.dropdown {
 			success: function(){ 
 						console.log('data stored successfully'); 
 						window.alert("succesfully registered!");
-						window.location.href = "SuccessfulRegistration.html";
+						window.location.href("SuccessfulRegistration.html");
 			},
 			error:	function(a,b,c){ 
 						console.log(a);
