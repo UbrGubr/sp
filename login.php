@@ -35,8 +35,22 @@
 	$result = mysqli_query($connection,$query);
 	$storedHash = mysqli_fetch_assoc($result);
 	
-	//verify password with $storedHash
-	if(password_verify($pw, $storedHash["hash"])){
+	//select authentication variable for account activation verification
+	$authQuery = "SELECT  activated FROM teacher WHERE email='$email'";
+	$authResult = mysqli_query($connection,$authQuery);
+	$storedAuthVal = mysqli_fetch_assoc($authResult);
+
+	//store query array keys into an array
+	$arrayKeys = array_keys($storedAuthVal);
+	//echo $storedAuthVal[$arrayKeys[0]];				<---test value
+
+	
+	$authVal = $storedAuthVal[$arrayKeys[0]];
+	
+	//check account validation; password match
+	if($authVal != 1){
+		echo "notApproved";
+	}else if(password_verify($pw, $storedHash["hash"])){		//verify password with $storedHash
 		echo "ok";
 	}else{
 		echo "password authentication failed";

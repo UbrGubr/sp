@@ -126,6 +126,7 @@ li a:hover, .dropdown:hover .dropbtn {
 				<div class="container">
 					<label><b>Email</b></label>
 					<div id="error" class="errorMessage">Incorrect username or password</div>
+					<div id="notApprovedError" class="errorMessage">We're sorry but your account hasn't been approved yet!</div>
 					<input type="text" placeholder="Enter email" name="email" id="email">
 					<br>
 					<label><b>Password</b></label>
@@ -152,6 +153,7 @@ li a:hover, .dropdown:hover .dropbtn {
 			//on successful return response trim string and test for validity
 			success: function(response) { 
 				var trimmedResult = $.trim(response);
+				console.log(trimmedResult);
 				if(trimmedResult == "ok"){
 					$('#result').html(trimmedResult);
 					
@@ -176,6 +178,9 @@ li a:hover, .dropdown:hover .dropbtn {
 						}
 					});
 
+				}else if(trimmedResult == "notApproved"){ 		//if user registered but not approved
+					$('#notApprovedError').show();
+					console.log(trimmedResult);
 				} else {
 					//window.alert(trimmedResult);
 					$('#error').show();

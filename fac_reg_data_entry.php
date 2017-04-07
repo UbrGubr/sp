@@ -64,7 +64,7 @@
 		
 		You can approve this request by clicking on the following link:
 
-		http://ecs.csus.edu/~jimisonp/sp/verify.php?fname='.$fname.'&lname='.$lname.'&email='.$email.'&idnum='.$idnum.'
+		http://athena.ecs.csus.edu/~solemt/seniorproject/verify.php?fname='.$fname.'&lname='.$lname.'&email='.$email.'&idnum='.$idnum.'
 
 		If you do not recognize this person then no further action is required and their account will not be activated. 
 		';
