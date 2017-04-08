@@ -1,3 +1,29 @@
+<?php
+
+	static $connection;
+
+	if(!isset($connection)){
+	   $config = parse_ini_file('./config.ini');
+	   $connection = mysqli_connect('athena.ecs.csus.edu', $config['username'], $config['password'], $config['dbname']);
+	}
+	
+	if(mysqli_connect_errno()){
+		echo "failed to connect to MYSQL: " . mysqli_connect_error();
+	}
+	
+	$sql = "SELECT sid, fname, lname FROM student";
+	$result = $connection->query($sql);
+
+	if($result->num_rows > 0)
+	   while($row =$result->fetch_assoc()){
+	   	echo "<br> id: ". $row["sid"]. " - First Name: ". $row["fname"]. " Last Name: ". $row["lname"]. "<br>";
+	}else {
+	   echo "0 results";
+	}
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
