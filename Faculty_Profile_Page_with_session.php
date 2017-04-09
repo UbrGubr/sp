@@ -56,16 +56,12 @@ li a, .dropbtn {
     color: Black;
     text-align: center;
     padding: 14px 16px;
-    text-decoration: none;
 }
 
 li a:hover, .dropdown:hover .dropbtn {
     background-color: #e0e0e0;
 }
 
-li.dropdown {
-    display: inline-block;
-}
 .dropdown-content {
     display: none;
     position: absolute;
@@ -92,6 +88,7 @@ li.dropdown {
 	<div class="imgcontainer">
 		<img src="http://blogs.egusd.net/prairie/files/2013/07/priaire-header-1r736jq.jpg" alt="priarie logo">
 	</div>
+	
 	<div class="container-fluid">
 		<div class="container">
 			<h3>Teacher Profile</h3>
@@ -109,7 +106,6 @@ li.dropdown {
 						<div class="dropdown">
 							<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Teacher <span class="caret"></span></button>
 							<ul class="dropdown-menu">
-								<li><a href="Faculty_Registration_Page_with_session.php">Add</a></li>
 								<li><a href="#">Modify</a></li>
 							</ul>
 						</div>
@@ -119,8 +115,8 @@ li.dropdown {
 							<button class="btn btn-default dropdown-toggle" type="button"><a href="Calendar.html">Calendar</a></button>
 						</div>
 					</div>
-					<div class="col-sm-1">
-						<button class="btn btn-default" type="button" id="logoff">Logoff</button>
+					<div class="col-sm-9">
+						<button class="btn btn-default pull-right" type="button" id="logoff">Logoff</button>
 					</div>
 				</div>
 			<form action="action_page.php">
@@ -224,7 +220,7 @@ li.dropdown {
 			</form>
 		</div>
 	</div>
-
+</body>
 
 	<!--log off script -->
 	<script type="text/javascript">
@@ -252,6 +248,5 @@ li.dropdown {
 	        });
 	    });
 	</script>
-
-</body>
+	
 </html>

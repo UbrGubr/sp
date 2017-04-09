@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
 <style>
@@ -24,10 +26,20 @@ button {
     background-color: #4CAF50;
     color: white;
     padding: 14px 20px;
-    margin: 8px 550px;
+    margin: 8px 475px;
     border: none;
     cursor: pointer;
-    width: 15%;
+    width: 10%;
+}
+
+button2 {
+    background-color: #4CAF50;
+    color: white;
+    padding: 4px 10px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
 }
 
 .imgcontainer {
@@ -53,7 +65,7 @@ ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
+    background-color: #f1f1f1;
 }
 
 li {
@@ -68,90 +80,68 @@ li a, .dropbtn {
     text-decoration: none;
 }
 
-li a:hover, .dropdown:hover .dropbtn {
-    background-color: red;
-}
-
-li.dropdown {
-    display: inline-block;
-}
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-}
-
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-}
-
-.dropdown-content a:hover {background-color: #f1f1f1}
-
-.show {display:block;}
-
 </style>
-<body>
+<body style="background-color:#F0EEEE;">
 
 	<div class="imgcontainer">
 		<img src="http://blogs.egusd.net/prairie/files/2013/07/priaire-header-1r736jq.jpg" alt="priarie logo">
 	</div>
 
-	<form>
-	<ul>
-		<li class="dropdown">
-			<a href="javascript:void(0)" class="dropbtn" onclick="myFunction()">Login</a>
-			<div class="dropdown-content" id="myDropdown">
-				<a href="Login.html">Back To Login</a>
-			</div>
-		</li>
-		<li class="dropdown">
-			<a href="javascript:void(0)" class="dropbtn" onclick="myFunction2()">Home</a>
-			<div class="dropdown-content" id="myDropdown2">
-				<a href="Faculty Profile Page.html">Back To Home</a>
-			</div>
-		</li>
-	</ul>
-<h2>Register New Faculty<h2>
+	<div class="container-fluid">	 
+		<div class="container">
+			
+			<h3>Register New Faculty</h3>
+		
+			<div class="row">
+				<div class="col-sm-1">
+					<div class="dropdown">
+						<button2 class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><a href="Faculty_Profile_Page.html">Home</a></button2>
+					</div>
+				</div>
+				<div class="col-sm-10"></div>
+				<div class="col-sm-1">
+					<div class="dropdown">
+						<button2 class="btn btn-default pull-right" type="button" id="logoff">Logoff</button2>
+					</div>
+				</div>
+			</div>		
 
-<form>
-	<div class="container">
-		<label><b>First Name</b></label>
-		<div id="errFName" class="hidden errorMessage">First Name must be between 1-20 characters.</div>
-		<input type="text" id="firstName" placeholder="Enter first name" required>
-		
-		<label><b>Middle Name</b></label>
-		<div id="errMName" class="hidden errorMessage">Middle Name must be between 1-20 characters.</div>
-		<input type="text" id="middleName" placeholder="Enter middle name" value="">
-		
-		<label><b>Last Name</b></label>
-		<div id="errLName" class="hidden errorMessage">Last Name must be between 1-20 characters.</div>
-		<input type="text" id="lastName" placeholder="Enter last name" required>
-		
-		<label><b>ID Number</b></label>
-			<div id="errID" class="hidden errorMessage">Invalid teacher ID.</div>
-		<input type="text" id="idNumber" placeholder="Enter ID number" required>
-		
-		<label><b>Email</b></label>
-		<div id="errEmail" class="hidden errorMessage">Invalid email address.</div>
-		<input type="text" id="email" placeholder="Enter @prairieschool.com email address" @prairieschool required>
-		
-		<label><b>Password</b></label>
-			<div id="errMsg" class="hidden errorMessage">Password must include at least one number, letter and special character.</div>
-			<div id="lengthError" class="hidden errorMessage">Password must contain at least 8 characters.</div>
-		<input type="password" id="password" placeholder="Password" name="psw" required>
-		<label><b>Verify Password</b></label>
-			<div id="errVerify" class="hidden errorMessage">Passwords must match.</div>
-		<input type="password" id="verifyPassword" placeholder="Retype Password" name="psw" required>
+			<form action="action_page.php">
+				<div class="container">
+					<label><b>First Name</b></label>
+					<div id="errFName" class="hidden errorMessage">First Name must be between 1-20 characters.</div>
+					<input type="text" id="firstName" placeholder="Enter first name" required>
+					
+					<label><b>Middle Name</b></label>
+					<div id="errMName" class="hidden errorMessage">Middle Name must be between 1-20 characters.</div>
+					<input type="text" id="middleName" placeholder="Enter middle name" value="">
+					
+					<label><b>Last Name</b></label>
+					<div id="errLName" class="hidden errorMessage">Last Name must be between 1-20 characters.</div>
+					<input type="text" id="lastName" placeholder="Enter last name" required>
+					
+					<label><b>ID Number</b></label>
+						<div id="errID" class="hidden errorMessage">Invalid teacher ID.</div>
+					<input type="text" id="idNumber" placeholder="Enter ID number" required>
+					
+					<label><b>Email</b></label>
+					<div id="errEmail" class="hidden errorMessage">Invalid email address.</div>
+					<input type="text" id="email" placeholder="Enter @prairieschool.com email address" @prairieschool required>
+					
+					<label><b>Password</b></label>
+						<div id="errMsg" class="hidden errorMessage">Password must include at least one number, letter and special character.</div>
+						<div id="lengthError" class="hidden errorMessage">Password must contain at least 8 characters.</div>
+					<input type="password" id="password" placeholder="Password" name="psw" required>
+					<label><b>Verify Password</b></label>
+						<div id="errVerify" class="hidden errorMessage">Passwords must match.</div>
+					<input type="password" id="verifyPassword" placeholder="Retype Password" name="psw" required>
 
-		<button type="button" value="Submit" id="submitData" onclick="whenClicked()">Submit</button>
-
-</form>
+					<button type="button" value="Submit" id="submitData" onclick="whenClicked()">Submit</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
 
 <script type="text/javascript">
 	
@@ -285,58 +275,5 @@ li.dropdown {
 	}
 
 </script>
-
-
-<!-- AJAX function to insert data into database -->
-<!--
-<script type='text/javascript'>
-	function runAJAX(){	
-		$.ajax({
-			type:	'POST',
-			url:	'fac_reg_data_entry.php',
-			data:	{ FIRSTNAME: firstName, MIDNAME: midName, LASTNAME: lastName, IDNUM: idNum, EMAIL: email,
-						PW: pw, },
-			success: function(){ 
-						console.log('data stored successfully'); 
-						window.alert("succesfully registered!");
-						window.location.replace("http://athena.ecs.csus.edu/~solemt/seniorproject/SuccessfulRegistration.html");
-			},
-			error:	function(a,b,c){ 
-						console.log(a);
-						console.log(b);
-						console.log(c);
-			}
-		});		
-	}
-</script>
--->
-
-<script type='text/javascript'>
-/* When the user clicks on the button, 
-toggle between hiding and showing the dropdown content */
-function myFunction() {
-    document.getElementById("myDropdown").classList.toggle("show");
-}
-
-function myFunction2() {
-    document.getElementById("myDropdown2").classList.toggle("show");
-}
-
-// Close the dropdown if the user clicks outside of it
-window.onclick = function(e) {
-  if (!e.target.matches('.dropbtn')) {
-
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    for (var d = 0; d < dropdowns.length; d++) {
-      var openDropdown = dropdowns[d];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
-    }
-  }
-}
-</script>
-
-</body>
 
 </html>

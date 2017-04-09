@@ -93,35 +93,7 @@ li a, .dropbtn {
     color: Blue;
     text-align: center;
     padding: 14px 16px;
-    text-decoration: none;
 }
-
-li a:hover, .dropdown:hover .dropbtn {
-
-    background-color: #e0e0e0;
-}
-
-li.dropdown {
-    display: inline-block;
-}
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-}
-
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-}
-
-.dropdown-content a:hover {background-color: #f1f1f1}
-
-.show {display:block;}
 
 </style>
 
@@ -142,6 +114,10 @@ li.dropdown {
 						<button2 class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><a href="Faculty_Profile_Page.html">Home</a></button2>
 					</div>
 				</div>
+				<div class="col-sm-10"></div>
+				<div class="col-sm-1">
+					<button2 class="btn btn-default pull-right" type="button" id="logoff">Logoff</button2>
+				</div>	
 			</div>
 	
 			<label><b>Search for student</b></label>
@@ -168,7 +144,7 @@ li.dropdown {
 			</div>
 		
 			<div class="row">
-				<div class="col-sm-3"><!--left col-->
+				<div class="col-sm-4"><!--left col-->
           			<div class="imgcontainer">
 						<img src="https://rlv.zcache.com/little_girl_silhouette_5_x_7_photo_print-rb397f23ed99f480da092c7450a3a342e_fk95_8byvr_324.jpg" alt="girl">
 						
@@ -180,7 +156,7 @@ li.dropdown {
 					</div>    
 				</div><!--/col-3-->
 			
-				<div class="col-sm-9">
+				<div class="col-sm-8">
 			  
 					<ul class="nav nav-tabs" id="myTab">
 						<li class="active"><a href="#home" data-toggle="tab">Assessments</a></li>
