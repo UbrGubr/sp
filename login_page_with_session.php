@@ -113,12 +113,12 @@ li a:hover, .dropdown:hover .dropbtn {
 				<div class="row">
 					<div class="col-sm-1">
 						<div class="dropdown">
-							<button2 class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><a href="Forgot_Password_Page.html">Forgot Password</a></button2>
+							<button2 class="btn btn-default dropdown-toggle" type="button"><a href="Forgot_Password_Page.html">Forgot Password</a></button2>
 						</div>
 					</div>
 					<div class="col-sm-1">
 						<div class="dropdown">
-							<button3 class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><a href="Faculty_Registration_Page.html">Register</a></button3>
+							<button3 class="btn btn-default dropdown-toggle" type="button"><a href="Faculty_Registration_Page.html">Register</a></button3>
 						</div>
 					</div>
 				</div>
