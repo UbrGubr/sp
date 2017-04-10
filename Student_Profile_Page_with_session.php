@@ -20,6 +20,104 @@
         header('Location: login_page_with_session.php');
     }
 */
+	function convertNumToText($num)
+	{
+		switch($num)
+		{
+			case 0:
+				return "Kin";
+			case 1:
+				return "1st";
+			case 2:
+				return "2nd";
+			case 3:
+				return "3rd";
+			case 4:
+				return "4th";
+			case 5:
+				return "5th";
+			case 6:
+				return "6th";
+			default:
+				return "---";
+		}
+	}
+
+	function convertBoolToText($bool)
+	{
+		if($bool)
+			return "Positive";
+		else
+			return "Negative";
+	}
+
+	static $conn;
+
+	if(isset($_GET['fname']) && !empty($_GET['fname']) AND isset($_GET['lname']) && !empty($_GET['lname']) AND isset($_GET['idnum']) && !empty($_GET['idnum'])) {
+
+		$fname = mysql_escape_string($_GET['fname']); // Set fname variable
+        $lname = mysql_escape_string($_GET['lname']); // Set lname variable
+        $idnum = mysql_escape_string($_GET['idnum']); // Set idnum variable
+
+
+		if(!isset($conn))
+		{
+	      	$config = parse_ini_file('./config.ini');
+			$conn = mysqli_connect('athena.ecs.csus.edu',$config['username'],$config['password'],$config['dbname']);
+		}
+		
+		if(!$conn) {
+			printf("Connect failed: %s\n", mysqli_connect_error());
+			exit();
+		}
+
+		$query = mysqli_prepare($conn, "SELECT * FROM student WHERE fname=? AND lname=? AND sid=?"); // prepare query
+		mysqli_stmt_bind_param($query, 'ssi', $fname, $lname, $idnum); // bind student information to query paramaters
+		mysqli_stmt_execute($query);
+		$result = mysqli_stmt_get_result($query);
+		$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+
+//		printf("fname=%s", $row['fname']);
+//		printf("lname=%s", $row['lname']);
+//		printf("sid=%d", $row['sid']);
+
+		mysqli_stmt_close($query);
+		mysqli_close($conn);
+
+		// Convert numerical values to text for more informative display
+
+		// Initialize our text values
+		$gradeText = $readingText = $mathText = $behavioralText = $emotionalText = $cognitiveText = $speechText = '';
+
+		foreach($row as $key => $val)
+		{
+			switch($key)
+			{
+				case 'gradelvl':
+					$gradeText = convertNumToText($val);
+					break;
+				case 'readinglvl':
+					$readingText = convertNumToText($val);
+					break;
+				case 'mathlvl':
+					$mathText = convertNumToText($val);
+					break;
+				case 'behavioral':
+					$behavioralText = convertBoolToText($val);
+					break;
+				case 'emotional':
+					$emotionalText = convertBoolToText($val);
+					break;
+				case 'cognitive':
+					$cognitiveText = convertBoolToText($val);
+					break;
+				case 'speech':
+					$speechText = convertBoolToText($val);
+					break;
+			}
+
+		}
+	}
 ?>
 
 
@@ -126,7 +224,6 @@ li.dropdown {
 </style>
 
 <body style="background-color:#F0EEEE;">
-	
 	<div class="imgcontainer">
 		<img src="http://blogs.egusd.net/prairie/files/2013/07/priaire-header-1r736jq.jpg" alt="priarie logo">
 	</div>
@@ -164,7 +261,7 @@ li.dropdown {
 			</button>
 		
 			<div class="row">
-				<div class="col-sm-10"><h2>Student Name</h2></div>
+				<div class="col-sm-10"><h2><?php echo $row['fname']." ".$row['lname']?></h2></div>
 			</div>
 		
 			<div class="row">
@@ -174,8 +271,8 @@ li.dropdown {
 						
 						<ul class="list-group">
 							<strong>Joined:</strong><br>
-							<strong>Grade Level:</strong><br>
-							<strong>Track:</strong>
+							<strong>Grade Level: <?php echo $gradeText?></strong><br>
+							<strong>Track: <?php echo $row['trackid']?></strong>
 						</ul> 
 					</div>    
 				</div><!--/col-3-->
@@ -203,12 +300,12 @@ li.dropdown {
 									</thead>
 									<tbody id="items">
 										<tr>
-											<td>###</td>
-											<td>###</td>
-											<td>y/s</td>
-											<td>y/s</td>
-											<td>y/s</td>
-											<td>y/s</td>
+											<td><?php echo $readingText?></td>
+											<td><?php echo $mathText?></td>
+											<td><?php echo $behavioralText?></td>
+											<td><?php echo $emotionalText?></td>
+											<td><?php echo $cognitiveText?></td>
+											<td><?php echo $speechText?></td>
 										</tr>
 									</tbody>
 								</table>

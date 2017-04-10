@@ -1,6 +1,6 @@
  <html ng-app="fetch">
     <head>
-    <title>AngularJS GET request with PHP</title>
+    <title>Student Search Page</title>
       <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
             <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.24/angular.min.js"></script>
     </head>
@@ -9,22 +9,20 @@
     <br>
       <div class="row">
         <div class="container">
-          <h1>Angular Test</h1>
+          <h1>Search for Student</h1>
           <div ng-controller="dbCtrl">
           <input type="text" ng-model="searchFilter" class="form-control">
             <table class="table table-hover">
                 <thead>
                     <tr>
+                        <th>Name</th>
 						<th>Student ID</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr ng-repeat="students in data | filter:searchFilter">
+                        <td><a ng-href="Student_Profile_Page_with_session.php?fname={{students.fname}}&lname={{students.lname}}&idnum={{students.sid}}">{{students.fname}} {{students.lname}}</a></td>
 						<td>{{students.sid}}</td>
-                        <td>{{students.fname}}</td>
-                        <td>{{students.lname}}</td>
                     </tr>
                 </tbody>
             </table>
