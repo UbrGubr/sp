@@ -208,7 +208,7 @@ li a, .dropbtn {
 			<div class="row">
 				<div class="col-sm-1">
 					<div class="dropdown">
-						<button2 class="btn btn-default dropdown-toggle" type="button"><a href="Faculty_Profile_Page.html">Home</a></button2>
+						<button2 class="btn btn-default dropdown-toggle" type="button"><a href="Faculty_Profile_Page_with_session.php">Home</a></button2>
 					</div>
 				</div>
 				<div class="col-sm-10"></div>
