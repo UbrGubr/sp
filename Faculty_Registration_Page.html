@@ -52,7 +52,8 @@ button2 {
 }
 
 .hidden {
-	display: none;
+	display: none !important;
+	visibility: hidden !important;
 }
 
 .errorMessage {
@@ -172,79 +173,79 @@ li a, .dropbtn {
 
 		if(firstName.length < 1 || firstName.length > 20){ //check to see if first name length between 1-20 chars			
 			fNameSuccess = false;	
-			$('#errFName').show();
+			$('#errFName').removeClass('hidden');		//show error message if failcase
 		} else {
 			fNameSuccess = true;
-			$('#errFName').hide();
+			$('#errFName').addClass('hidden');
 		}
 
 		if(midName.length < 1 || midName.length > 20){ //check to see if middle name length between 1-20 chars	
 			midNameSuccess = false;
-			$('#errMName').show();
+			$('#errMName').removeClass('hidden');		//show error message if failcase
 		} else {
 			midNameSuccess = true;
-			$('#errMName').hide();
+			$('#errMName').addClass('hidden');
 		}
 
 		if(lastName.length < 1 || lastName.length > 20){ //check to see if last name length between 1-20 chars	
 			lastNameSuccess = false;
-			$('#errLName').show();
+			$('#errLName').removeClass('hidden');		//show error message if failcase
 		} else {
 			lastNameSuccess = true;
-			$('#errLName').hide();
+			$('#errLName').addClass('hidden');
 		} 
 
 		if(idNum.length < 7 || idNum.length > 7){ 	//check length of teacher id; must == 7
 			idNumSuccess = false;
-			$('#errID').show();
+			$('#errID').removeClass('hidden');			//show error message if failcase
 		} else {
 			idNumSuccess = true;
-			$('#errID').hide();
+			$('#errID').addClass('hidden');
 		}
 
 		if(email.indexOf("@prairieschool") == -1){ //check to see if email is valid format '@prairieschool.com'
 			emailSuccess = false;
-			$('#errEmail').show();
+			$('#errEmail').removeClass('hidden');		//show error message if failcase
 		} else {
 			emailSuccess = true;
-			$('#errEmail').hide();
+			$('#errEmail').addClass('hidden');
 		}
 
-		if(pw !== pwVerify){ 	//check to see if passwords match
+		if(pw !== pwVerify){ 			//check to see if passwords match
 			pwVerifySuccess = false;
-			$('#errVerify').show();
+			$('#errVerify').removeClass('hidden');		//show error message if failcase
 		} else {
 			pwVerifySuccess = true;
-			$('#errVerify').hide();
+			$('#errVerify').addClass('hidden');
 		}
 
 		if (pw.search(/\d/) == -1) {	//test for proper chars in password
 			
 			pwCharSuccess = false;
-			$('#errMsg').show();
+			$('#errMsg').removeClass('hidden');		//show error message if failcase
 
 		} else if (pw.search(/[a-zA-Z]/) == -1) {
 			
 			pwCharSuccess = false;
-			$('#errMsg').show();
+			$('#errMsg').removeClass('hidden');		//show error message if failcase
 
 		} else if (pw.search(/[!@#$%^&*()_+]/) == -1) {
 			
 			pwCharSuccess = false;
-			$('#errMsg').show();
+			$('#errMsg').removeClass('hidden');		//show error message if failcase
 
 		} else {			
 			
 			pwCharSuccess = true;
-			$('#errMsg').hide();
+			$('#errMsg').addClass('hidden');
 		}
 
 		if(pw.length < 8 && pw === pwVerify){
 			pwLengthSuccess = false;
-			$('#lengthErr').show();
+			$('#lengthErr').removeClass('hidden');		//show error message if failcase
 		} else {
 			pwLengthSuccess = true;
-			$('#lengthErr').hide();
+			$('#lengthErr').addClass('hidden');
 		}
 
 		if(fNameSuccess == true && midNameSuccess == true && lastNameSuccess == true && idNumSuccess == true && 
