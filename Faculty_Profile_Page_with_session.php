@@ -62,25 +62,6 @@ li a:hover, .dropdown:hover .dropbtn {
     background-color: #e0e0e0;
 }
 
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-}
-
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-}
-
-.dropdown-content a:hover {background-color: #f1f1f1}
-
-.show {display:block;}
-
 </style>
 
 <body style="background-color:#F0EEEE;">
@@ -91,34 +72,17 @@ li a:hover, .dropdown:hover .dropbtn {
 	
 	<div class="container-fluid">
 		<div class="container">
-			<h3>Teacher Profile</h3>
-				<div class="row">
-					<div class="col-sm-1">
-						<div class="dropdown">
-							<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Student <span class="caret"></span></button>
-							<ul class="dropdown-menu">
-								<li><a href="Student_Registration_Page_with_session.php">Add</a></li>
-								<li><a href="#">Modify</a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-sm-1">
-						<div class="dropdown">
-							<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Teacher <span class="caret"></span></button>
-							<ul class="dropdown-menu">
-								<li><a href="#">Modify</a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-sm-1">
-						<div class="dropdown">
-							<button class="btn btn-default dropdown-toggle" type="button"><a href="Calendar.html">Calendar</a></button>
-						</div>
-					</div>
-					<div class="col-sm-9">
-						<button class="btn btn-default pull-right" type="button" id="logoff">Logoff</button>
-					</div>
-				</div>
+			<div class="row">
+				<h3>Teacher Profile</h3>
+				<ul class="list-inline">
+					<li><a href="Student_Registration_Page.html">Add Student</a></li>
+					<li><a href="#">Modify Student</a></li>
+					<li><a href="Calendar.html">Calendar</a></li>
+					<li><a href="#">Modify Teacher</a></li>
+					<button class="btn btn-default pull-right" type="button" id="logoff">Logoff</button>
+				</ul>
+			</div>
+		</div>
 			<form action="action_page.php">
 				<div class="container">
 					<label><b>Search for student</b></label>
@@ -142,78 +106,86 @@ li a:hover, .dropdown:hover .dropbtn {
 					</button>
 				
 					<div class="row">
-						<div class="col-sm-3">
-							<div class="imgcontainer">
-								<img src="https://rlv.zcache.com/little_girl_silhouette_5_x_7_photo_print-rb397f23ed99f480da092c7450a3a342e_fk95_8byvr_324.jpg" alt="Girl">
-									<ul class="list-group">
-										<strong>User name</strong><br>
-										<strong>Change Avatar</strong>
-									</ul> 
-							</div>
-						</div>
-
-						<div class="col-sm-1">
-							<br><br><br>
-							<ul style="list-style-type:disc">
-								<li><strong>Tracks:</strong></li>
-								<br><br><br>
-								<li><strong>Number of Students:</strong></li>
-							</ul>
-							<br><br><br> 			  
-						</div>
-						
-						<h1 style="text-align:center">Alerts</h1>
-						
-						<div class="col-sm-8">
-							<div class="table-responsive">
-								<div class="container">
-									<div class="alert alert-success">
-										<strong>Success!</strong> The student has taken all required assessments!
-									</div>
-									<div class="alert alert-info">
-										<strong>Info!</strong> Updated the students info!
-									</div>
-									<div class="alert alert-warning">
-										<strong>Warning!</strong> Assessments approaching within 2 weeks!
-									</div>
-									<div class="alert alert-danger">
-										<strong>Danger!</strong> Assessments within 2 days!
-									</div>
-								</div>
-							</div>
-						</div>
+						<h2>Teacher Name</h2>
+						<strong>Tracks:</strong><br>						
+						<strong>Number of Students:</strong>
+					
 					</div>
-	
-					<h2 style="text-align:center">Dates and Notes</h2>
-					<div class="col-sm-12">
-						<ul class="nav nav-tabs" id="myTab">
-							<li class="active"><a href="#home" data-toggle="tab">Dates</a></li>
-							<li><a href="#notes" data-toggle="tab">Notes</a></li>
-						</ul>
-						  
-						<div class="tab-content">
-							<div class="tab-pane active" id="home">
-								<div class="table-responsive">
-									<table class="table table-hover">
-										<ul class="list-group">
-										  <li class="list-group-item text-right"><a class="pull-left">Here is your a link to the latest summary report from the..</a> 2.13.2014</li>
-										  <li class="list-group-item text-right"><a class="pull-left">Hi Joe, There has been a request on your account since that was..</a> 2.11.2014</li>
-										  <li class="list-group-item text-right"><a class="pull-left">Nullam sapien massaortor. A lobortis vitae, condimentum justo...</a> 2.11.2014</li>
-										  <li class="list-group-item text-right"><a class="pull-left">Thllam sapien massaortor. A lobortis vitae, condimentum justo...</a> 2.11.2014</li>
-										  <li class="list-group-item text-right"><a class="pull-left">Wesm sapien massaortor. A lobortis vitae, condimentum justo...</a> 2.11.2014</li>
-										  <li class="list-group-item text-right"><a class="pull-left">For therepien massaortor. A lobortis vitae, condimentum justo...</a> 2.11.2014</li>
-										  <li class="list-group-item text-right"><a class="pull-left">Also we, havesapien massaortor. A lobortis vitae, condimentum justo...</a> 2.11.2014</li>
-										  <li class="list-group-item text-right"><a class="pull-left">Swedish chef is assaortor. A lobortis vitae, condimentum justo...</a> 2.11.2014</li>
-										</ul>
-									</table>
-								</div>
+					  
+					<div class="row">
+						<div class="col-sm-6">
+							<h2>Alerts</h2>
+							<div class="table-responsive">
+								<ul class="nav nav-tabs" id="myTab">
+									<li><a href="#success" data-toggle="tab">Success</a></li>
+									<li><a href="#info" data-toggle="tab">Info</a></li>
+									<li><a href="#warning" data-toggle="tab">Warning</a></li>
+									<li><a href="#danger" data-toggle="tab">Danger</a></li>
+								</ul>
 							</div>
-							
-							<div class="tab-pane" id="notes">
-								<textarea rows="20" cols="80">
+							<div class="tab-content">
+								<div class="tab-pane" id="success">
+									<div class="table-responsive">
+										<div class="alert alert-success">
+											The student has taken all required assessments!
+										</div>
+									</div>
+								</div>
+								<div class="tab-pane" id="info">
+									<div class="table-responsive">
+										<div class="alert alert-info">
+											Updated the students info!
+										</div>
+									</div>
+								</div>
+								<div class="tab-pane" id="warning">
+									<div class="table-responsive">
+										<div class="alert alert-warning">
+											Assessments approaching within 2 weeks!
+										</div>
+									</div>
+								</div>		
+								<div class="tab-pane" id="danger">
+									<div class="table-responsive">
+										<div class="alert alert-danger">
+											Assessments within 2 days!
+										</div>
+									</div>
+								</div>							
+							</div>
+						</div>
+					
+						<div class="col-sm-6">
+							<h2>Dates and Notes</h2>
+							<ul class="nav nav-tabs" id="myTab">
+								<li><a href="#home" data-toggle="tab">Dates</a></li>
+								<li><a href="#notes" data-toggle="tab">Notes</a></li>
+							</ul>
+							  
+							<div class="tab-content">
+								<div class="tab-pane active" id="home">
+									<div class="table-responsive">
+										<table class="table table-hover">
+											<ul class="list-group">
+											  <li class="list-group-item text-right"><a href="#">Here is your a link to the latest summary report from the..</a> 2.13.2014</li>
+											  <li class="list-group-item text-right"><a href="#">Hi Joe, There has been a request on your account since that was..</a> 2.11.2014</li>
+											  <li class="list-group-item text-right"><a href="#">Nullam sapien massaortor. A lobortis vitae, condimentum justo...</a> 2.11.2014</li>
+											  <li class="list-group-item text-right"><a href="#">Thllam sapien massaortor. A lobortis vitae, condimentum justo...</a> 2.11.2014</li>
+											  <li class="list-group-item text-right"><a href="#">Wesm sapien massaortor. A lobortis vitae, condimentum justo...</a> 2.11.2014</li>
+											  <li class="list-group-item text-right"><a href="#">For therepien massaortor. A lobortis vitae, condimentum justo...</a> 2.11.2014</li>
+											  <li class="list-group-item text-right"><a href="#">Also we, havesapien massaortor. A lobortis vitae, condimentum justo...</a> 2.11.2014</li>
+											  <li class="list-group-item text-right"><a href="#">Swedish chef is assaortor. A lobortis vitae, condimentum justo...</a> 2.11.2014</li>
+											</ul>
+										</table>
+									</div>
+								</div>
+								
+								<div class="tab-pane" id="notes">
+									<textarea rows="20" cols="80">
 									Enter notes here. 
-								</textarea>
-							</div>							  
+									</textarea>
+								</div>		
+							</div>
 						</div>
 					</div>
 				</div>
