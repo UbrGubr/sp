@@ -219,7 +219,8 @@ li a, .dropbtn {
 			$('#errVerify').addClass('hidden');
 		}
 
-		if (pw.search(/\d/) == -1) {	//test for proper chars in password
+		//test for proper chars in password
+		if (pw.search(/\d/) == -1) {	
 			
 			pwCharSuccess = false;
 			$('#errMsg').removeClass('hidden');		//show error message if failcase

@@ -39,6 +39,15 @@ form {
     padding: 16px;
 }
 
+.list-group-item {
+	position: relative;
+	display: block;
+	padding: 10px 15px;
+	background-color: #fff;
+	border: 1px solid #ddd;
+	width: 100%;
+}
+
 ul {
     list-style-type: none;
     margin: 0;
@@ -79,7 +88,7 @@ li a:hover, .dropdown:hover .dropbtn {
 					<li><a href="#">Modify Student</a></li>
 					<li><a href="Calendar.html">Calendar</a></li>
 					<li><a href="#">Modify Teacher</a></li>
-					<button class="btn btn-default pull-right" type="button" id="logoff">Logoff</button>
+					<button class="btn btn-default pull-left" type="button" id="logoff">Logoff</button>
 				</ul>
 			</div>
 		</div>
@@ -167,14 +176,14 @@ li a:hover, .dropdown:hover .dropbtn {
 									<div class="table-responsive">
 										<table class="table table-hover">
 											<ul class="list-group">
-											  <li class="list-group-item text-right"><a href="#">Here is your a link to the latest summary report from the..</a> 2.13.2014</li>
-											  <li class="list-group-item text-right"><a href="#">Hi Joe, There has been a request on your account since that was..</a> 2.11.2014</li>
-											  <li class="list-group-item text-right"><a href="#">Nullam sapien massaortor. A lobortis vitae, condimentum justo...</a> 2.11.2014</li>
-											  <li class="list-group-item text-right"><a href="#">Thllam sapien massaortor. A lobortis vitae, condimentum justo...</a> 2.11.2014</li>
-											  <li class="list-group-item text-right"><a href="#">Wesm sapien massaortor. A lobortis vitae, condimentum justo...</a> 2.11.2014</li>
-											  <li class="list-group-item text-right"><a href="#">For therepien massaortor. A lobortis vitae, condimentum justo...</a> 2.11.2014</li>
-											  <li class="list-group-item text-right"><a href="#">Also we, havesapien massaortor. A lobortis vitae, condimentum justo...</a> 2.11.2014</li>
-											  <li class="list-group-item text-right"><a href="#">Swedish chef is assaortor. A lobortis vitae, condimentum justo...</a> 2.11.2014</li>
+											  <li class="list-group-item text-left"><a href="#">Here is your a link to the latest summary report from the..</a> 2.13.2014</li>
+											  <li class="list-group-item text-left"><a href="#">Hi Joe, There has been a request on your account since that was..</a> 2.11.2014</li>
+											  <li class="list-group-item text-left"><a href="#">Nullam sapien massaortor. A lobortis vitae, condimentum justo...</a> 2.11.2014</li>
+											  <li class="list-group-item text-left"><a href="#">Thllam sapien massaortor. A lobortis vitae, condimentum justo...</a> 2.11.2014</li>
+											  <li class="list-group-item text-left"><a href="#">Wesm sapien massaortor. A lobortis vitae, condimentum justo...</a> 2.11.2014</li>
+											  <li class="list-group-item text-left"><a href="#">For therepien massaortor. A lobortis vitae, condimentum justo...</a> 2.11.2014</li>
+											  <li class="list-group-item text-left"><a href="#">Also we, havesapien massaortor. A lobortis vitae, condimentum justo...</a> 2.11.2014</li>
+											  <li class="list-group-item text-left"><a href="#">Swedish chef is assaortor. A lobortis vitae, condimentum justo...</a> 2.11.2014</li>
 											</ul>
 										</table>
 									</div>
