@@ -34,7 +34,7 @@ button {
     background-color: #4CAF50;
     color: white;
     padding: 14px 20px;
-    margin: 8px 750px;
+ 	position: center;
     border: none;
     cursor: pointer;
     width: 15%;
@@ -123,7 +123,7 @@ li a:hover, .dropdown:hover .dropbtn {
 					</div>
 				</div>
 
-				<div class="container">
+				<div class="container row">
 					<label><b>Email</b></label>
 					<div id="error" class="errorMessage">Incorrect username or password</div>
 					<div id="notApprovedError" class="errorMessage">We're sorry but your account hasn't been approved yet!</div>
@@ -132,9 +132,12 @@ li a:hover, .dropdown:hover .dropbtn {
 					<label><b>Password</b></label>
 					<input type="password" placeholder="Enter Password" name="psw" id="password">
 					
-					<!--LOGIN BUTTON-->
-					<button type="button" id="test">Login</button>
-			<!--		<a href="Faculty_Registration_Page.html" class="dropbtn">Register New Teacher</a> -->
+					
+					<div class="col">
+						<!--LOGIN BUTTON-->
+						<button type="button" id="test">Login</button>
+					</div>
+					
 				</div>
 			</div>
 		</div>
