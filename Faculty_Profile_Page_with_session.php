@@ -85,10 +85,10 @@ li a:hover, .dropdown:hover .dropbtn {
 				<h3>Teacher Profile</h3>
 				<ul class="list-inline">
 					<li><a href="Student_Registration_Page.html">Add Student</a></li>
-					<li><a href="#">Modify Student</a></li>
+					<li><a href="Student_Search_Page.html">Modify Student</a></li>
 					<li><a href="Calendar.html">Calendar</a></li>
 					<li><a href="#">Modify Teacher</a></li>
-					<button class="btn btn-default pull-left" type="button" id="logoff">Logoff</button>
+					<button class="btn btn-default pull-right" type="button" id="logoff">Logoff</button>
 				</ul>
 			</div>
 		</div>

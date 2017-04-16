@@ -39,7 +39,7 @@ button2 {
     margin: 8px 0;
     border: none;
     cursor: pointer;
-    width: 100%;
+    width: 6%;
 }
 
 .imgcontainer {
@@ -75,7 +75,7 @@ li {
 
 li a, .dropbtn {
     display: inline-block;
-    color: white;
+    color: black;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -90,23 +90,14 @@ li a, .dropbtn {
 
 	<div class="container-fluid">	 
 		<div class="container">
-			
-			<h3>Register New Faculty</h3>
-		
 			<div class="row">
-				<div class="col-sm-2">
-					<div class="dropdown">
-						<button2 class="btn btn-default dropdown-toggle" type="button"><a href="login_page.html">Back Login</a></button2>
-					</div>
-				</div>
-				<div class="col-sm-9"></div>
-				<div class="col-sm-1">
-					<div class="dropdown">
-						<button2 class="btn btn-default pull-right" type="button" id="logoff">Logoff</button2>
-					</div>
-				</div>
-			</div>		
-
+				<h3>Register New Faculty</h3>
+				<ul class="list-inline">
+					<li><a href="login_page.html">Back To Login</a></li>		
+					<button2 class="btn btn-default pull-right" type="button" id="logoff">Logoff</button2>
+				</ul>
+			</div>	
+		</div>
 			<form action="action_page.php">
 				<div class="container">
 					<label><b>First Name</b></label>
