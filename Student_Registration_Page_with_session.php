@@ -57,7 +57,7 @@ button2 {
     margin: 8px 0;
     border: none;
     cursor: pointer;
-    width: 100%;
+    width: 6%;
 }
 
 .imgcontainer {
@@ -102,16 +102,10 @@ li a, .dropbtn {
 			<h3>Register New Student</h3>
 		
 			<div class="row">
-				<div class="col-sm-1">
-					<div class="dropdown">
-						<button2 class="btn btn-default dropdown-toggle" type="button"><a href="Faculty_Profile_Page_with_session.php">Home</a></button2>
-					</div>
-				</div>
-				<div class="col-sm-1">
-					<div class="dropdown">
-						<button2 class="btn btn-default" type="button" id="logoff">Logoff</button>
-					</div>
-				</div>
+				<ul class="list-inline">
+					<li><a href="Faculty_Profile_Page.html">Home</a></li>		
+					<button2 class="btn btn-default pull-right" type="button" id="logoff">Logoff</button2>
+				</ul>	
 			</div>
 
 			<form action="action_page.php">

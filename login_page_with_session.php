@@ -40,26 +40,6 @@ button {
     width: 15%;
 }
 
-button2 {
-    background-color: #4CAF50;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0px;
-    border: none;
-    cursor: pointer;
-    width: 200%;
-}
-
-button3 {
-    background-color: #4CAF50;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 40px;
-    border: none;
-    cursor: pointer;
-    width: 120%;
-}
-
 .imgcontainer {
     text-align: center;
     margin: 13px 16px 5px 0;
@@ -111,18 +91,12 @@ li a:hover, .dropdown:hover .dropbtn {
 		<div class="container-fluid">
 			<div class="container">
 				<div class="row">
-					<div class="col-sm-1">
-						<div class="dropdown">
-							<button2 class="btn btn-default dropdown-toggle" type="button"><a href="Forgot_Password_Page.html">Forgot Password</a></button2>
-						</div>
-					</div>
-					<div class="col-sm-1">
-						<div class="dropdown">
-							<button3 class="btn btn-default dropdown-toggle" type="button"><a href="Faculty_Registration_Page.html">Register</a></button3>
-						</div>
-					</div>
+					<ul class="list-inline">
+						<li><a href="Forgot_Password_Page.html">Forgot Password</a></li>		
+						<li><a href="Faculty_Registration_Page.html">Register</a></li>
+					</ul>
 				</div>
-
+				
 				<div class="container row">
 					<label><b>Email</b></label>
 					<div id="error" class="errorMessage">Incorrect username or password</div>
