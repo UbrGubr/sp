@@ -13,38 +13,23 @@ form {
     border: 3px solid #f1f1f1;
 }
 
-input[type=text], input[type=password] {
-    width: 15%;
-    padding: 4px 10px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-}
-
-button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 4px 10px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 8%;
-}
-
-button2 {
-    background-color: #4CAF50;
-    color: white;
-    padding: 4px 10px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-}
-
 .imgcontainer {
     text-align: center;
-	margin: 24px 0 12px 0;
+    margin: 14px 0 12px 0;
+}
+
+.effectfront{
+	border: none;
+	margin: 0 auto;
+}
+
+.effectfront:hover{
+	-webkit-transform: scale(1.5);
+	-moz-transform: scale(1.5);
+	-o-transform: scale(1.5);
+	transform; scale(1.5);
+	transform: all 0.3s;
+	-webkit-transform: all 0.3s;
 }
 
 .container {
@@ -65,36 +50,36 @@ li {
 
 li a, .dropbtn {
     display: inline-block;
-    color: Blue;
+    
     text-align: center;
     padding: 14px 16px;
 }
 
+li a:hover, .dropdown:hover .dropbtn {
+    
+}
 </style>
 
 <body style="background-color:#F0EEEE;">
 	
 	<div class="imgcontainer">
+		
 		<img src="http://blogs.egusd.net/prairie/files/2013/07/priaire-header-1r736jq.jpg" alt="priarie logo">
+		
 	</div>
 	
 	<div class="container-fluid">	 
 		<div class="container">
-			
-			<h3>Student Profile</h3>
-		
 			<div class="row">
-				<div class="col-sm-1">
-					<div class="dropdown">
-						<button2 class="btn btn-default dropdown-toggle" type="button"><a href="Faculty_Profile_Page.html">Home</a></button2>
-					</div>
-				</div>
-				<div class="col-sm-10"></div>
-				<div class="col-sm-1">
-					<button2 class="btn btn-default pull-right" type="button" id="logoff">Logoff</button2>
-				</div>
+			<h3>Student Profile</h3>
+			<ul class="list-inline">	
+				<li><a href="Faculty_Profile_Page.html">Home</a></li>
+				<button class="btn btn-default pull-right" type="button" id="logoff">Logoff</button>
+			</ul>
 			</div>
-	
+		</div>
+			
+			<div class="container">
 			<label><b>Search for student</b></label>
 			<input type="text" placeholder="Search">
 			
@@ -121,13 +106,13 @@ li a, .dropbtn {
 			<div class="row">
 				<div class="col-sm-4"><!--left col-->
           			<div class="imgcontainer">
-						<img src="https://rlv.zcache.com/little_girl_silhouette_5_x_7_photo_print-rb397f23ed99f480da092c7450a3a342e_fk95_8byvr_324.jpg" alt="girl">
-						
-						<ul class="list-group">
-							<strong>Joined:</strong><br>
-							<strong>Grade Level:</strong><br>
-							<strong>Track:</strong>
-						</ul> 
+						<img class="effectfront" img src="https://rlv.zcache.com/little_girl_silhouette_5_x_7_photo_print-rb397f23ed99f480da092c7450a3a342e_fk95_8byvr_324.jpg" alt="girl" class="image  width="120" height="120">			
+							<br><br><br>
+							<ul class="list-group">
+								<strong>Joined:</strong><br>
+								<strong>Grade Level:</strong><br>
+								<strong>Track:</strong>
+							</ul> 
 					</div>    
 				</div><!--/col-3-->
 			
@@ -136,6 +121,7 @@ li a, .dropbtn {
 					<ul class="nav nav-tabs" id="myTab">
 						<li class="active"><a href="#home" data-toggle="tab">Assessments</a></li>
 						<li><a href="#messages" data-toggle="tab">Upcoming Dates</a></li>
+						<li><a href="#notes" data-toggle="tab">Student Notes</a></li>
 					</ul>
 				  
 					<div class="tab-content">
@@ -162,7 +148,9 @@ li a, .dropbtn {
 											<td>y/s</td>
 										</tr>
 									</tbody>
-								</table>
+								</div>
+							</table>
+								
 							
 								<div class="row">
 									<div class="col-md-4 col-md-offset-4 text-center">
@@ -171,24 +159,49 @@ li a, .dropbtn {
 								</div>
 							</div><!--/table-resp-->
 
-							<h4>Alerts</h4>
+							
 						  
-								<div class="table-responsive">
-									<div class="container">
+						
+							<h2>Alerts</h2>
+							<div class="table-responsive">
+								<ul class="nav nav-tabs" id="myTab">
+									<li><a href="#success" data-toggle="tab">Success</a></li>
+									<li><a href="#info" data-toggle="tab">Info</a></li>
+									<li><a href="#warning" data-toggle="tab">Warning</a></li>
+									<li><a href="#danger" data-toggle="tab">Danger</a></li>
+								</ul>
+							</div>
+							<div class="tab-content">
+								<div class="tab-pane" id="success">
+									<div class="table-responsive">
 										<div class="alert alert-success">
-											<strong>Success!</strong> The student has taken all required assessments!
-										</div>
-										<div class="alert alert-info">
-											<strong>Info!</strong> Updated the students info!
-										</div>
-										<div class="alert alert-warning">
-											<strong>Warning!</strong> Assessments approaching within 2 weeks!
-										</div>
-										<div class="alert alert-danger">
-											<strong>Danger!</strong> Assessments within 2 days!
+											The student has taken all required assessments!
 										</div>
 									</div>
 								</div>
+								<div class="tab-pane" id="info">
+									<div class="table-responsive">
+										<div class="alert alert-info">
+											Updated the students info!
+										</div>
+									</div>
+								</div>
+								<div class="tab-pane" id="warning">
+									<div class="table-responsive">
+										<div class="alert alert-warning">
+											Assessments approaching within 2 weeks!
+										</div>
+									</div>
+								</div>		
+								<div class="tab-pane" id="danger">
+									<div class="table-responsive">
+										<div class="alert alert-danger">
+											Assessments within 2 days!
+										</div>
+									</div>
+								</div>							
+							</div>
+						
 
 						</div><!--/tab-pane-->
 						
@@ -206,11 +219,18 @@ li a, .dropbtn {
 							</ul> 
 
 						</div>
+						
+						<div class="tab-pane" id="notes">
+							<textarea rows="20" cols="80">
+								Enter notes here. 
+							</textarea>
+						</div>
+						
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
+	
 	
 </body>
 
