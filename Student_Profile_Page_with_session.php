@@ -46,9 +46,9 @@
 	function convertBoolToText($bool)
 	{
 		if($bool)
-			return "Positive";
+			return "Yes";
 		else
-			return "Negative";
+			return "No";
 	}
 
 	static $conn;

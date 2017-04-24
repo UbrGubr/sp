@@ -14,6 +14,35 @@
         //session_unset($_SESSION['authorized']);
         header('Location: login_page_with_session.php');
     }
+
+	static $conn;
+
+	if(!isset($conn)) {
+    	$config = parse_ini_file('./config.ini');
+        $conn = mysqli_connect('athena.ecs.csus.edu',$config['username'],$config['password'],$config['dbname']);
+    }
+
+   	if(!$conn) {
+    	printf("Connect failed: %s\n", mysqli_connect_error());
+       	exit();
+    }
+
+    //$query = mysqli_prepare($conn, "SELECT * FROM teacher WHERE fname=? AND lname=? AND sid=?"); // prepare query
+    //mysqli_stmt_bind_param($query, 'ssi', $fname, $lname, $idnum); // bind student information to query paramaters
+	$fname = "Sample";
+	$lname = "Teacher";
+	$query = mysqli_prepare($conn, "SELECT * FROM teacher where fname=? AND lname=?");
+	mysqli_stmt_bind_param($query, 'ss', $fname, $lname);
+    mysqli_stmt_execute($query);
+    $result = mysqli_stmt_get_result($query);
+    $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+
+//  printf("fname=%s", $row['fname']);
+// 	printf("lname=%s", $row['lname']);
+// 	printf("sid=%d", $row['sid']);
+
+    mysqli_stmt_close($query);
+    mysqli_close($conn);
 ?>
 
 <!DOCTYPE html>
@@ -87,7 +116,7 @@ li a:hover, .dropdown:hover .dropbtn {
 					<li><a href="Student_Registration_Page.html">Add Student</a></li>
 					<li><a href="Student_Search_Page.html">Modify Student</a></li>
 					<li><a href="Calendar.html">Calendar</a></li>
-					<li><a href="#">Modify Teacher</a></li>
+					<li><a href="Faculty_Search_Page.html">Modify Teacher</a></li>
 					<button class="btn btn-default pull-right" type="button" id="logoff">Logoff</button>
 				</ul>
 			</div>
