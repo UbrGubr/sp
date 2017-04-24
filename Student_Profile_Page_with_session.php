@@ -173,6 +173,14 @@ button2 {
 	float: bottom;
 }
 
+.deleteButton{
+	background-color: red;
+	color: white;
+	border: none;
+	width: 100%;
+	float: bottom
+}
+
 .hiddenButton{
 	background-color: green;
 	color: white;
@@ -253,7 +261,7 @@ li a, .dropbtn {
 			</button>
 		
 			<div class="row">
-				<div class="col-sm-10">
+				<div class="col-sm-6">
 					<h2 id='fname' style='display:inline-block'><?php echo $row['fname']/*." ".$row['lname']*/?></h2>
 					<h2 id='lname' style='display:inline-block'><?php echo $row['lname']?></h2>
 					<h2 style='display:inline-block; padding-left:80px'>ID: </h2>
@@ -261,6 +269,7 @@ li a, .dropbtn {
 					<p  id='errorMessage' class='hidden' style='color:red; display: inline-block; padding-left: 100px'>Error in a data field. Please try again.</p>
 				</div>
 				<div class="col-sm-2"><button id="edButton" class="editButton" onclick="editStudent()">Edit Student</button></div>
+				<div class="col-sm-2"><button id="deleteButton" class="deleteButton hidden" onclick="deleteStudent()">Delete Student</button></div>
 				<div class="col-sm-2"><button id="changesButton" class="submitButton hidden" onclick="submitChanges()">Submit Changes</button></div>
 			</div>
 		
@@ -479,6 +488,9 @@ li a, .dropbtn {
 		$('#editGrade').removeClass('hidden');
 		$('#editTrack').removeClass('hidden');
 
+		//show hidden delete student button
+		$('#deleteButton').removeClass('hidden');
+
 	}
 	</script>
 
@@ -531,35 +543,35 @@ li a, .dropbtn {
 		}
 
 		//search for positive or negative value in true false db fields
-		if(behavioral === 'Negative'){
+		if(behavioral === 'No'){
 			behavioral = '0';
 		}
 
-		if(behavioral === 'Positive'){
+		if(behavioral === 'Yes'){
 			behavioral = '1';
 		}
 
-		if(emotional === 'Negative'){
+		if(emotional === 'No'){
 			emotional = '0';
 		}
 
-		if(emotional === 'Positive'){
+		if(emotional === 'Yes'){
 			emotional = '1';
 		}
 
-		if(cognitive === 'Negative'){
+		if(cognitive === 'No'){
 			cognitive = '0';
 		}
 
-		if(cognitive === 'Positive'){
+		if(cognitive === 'Yes'){
 			cognitive = '1';
 		}
 
-		if(speech === 'Negative'){
+		if(speech === 'No'){
 			speech = '0';
 		}
 
-		if(speech === 'Positive'){
+		if(speech === 'Yes'){
 			speech = '1';
 		}
 
@@ -624,6 +636,36 @@ li a, .dropbtn {
 		});
 
 	}
+	</script>
+
+	<script type='text/javascript'>
+
+	function deleteStudent(){
+		console.log("student shit-canned!");
+
+		var sid = $('#sid').html();
+
+		$.ajax({
+			type: 'POST',
+			url: 'delete_student.php',
+			data: {SID: sid};
+			success: function(response){
+				var trimmedResponse = $.trim(response);
+
+				if(trimmedResponse == 'ok'){
+					console.log('successfully deleted student');
+					window.location.href = 'Student_Search_Page.html';
+				}
+			},
+			error: function(a,b,c){
+				console.log(a);
+				console.log(b);
+				console.log(c);
+			}
+		});
+
+	}
+
 	</script>
 	
 </body>
