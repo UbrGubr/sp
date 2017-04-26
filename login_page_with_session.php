@@ -17,6 +17,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <style>
+
 form {
     border: 3px solid #f1f1f1;
 }
@@ -34,7 +35,7 @@ button {
     background-color: #4CAF50;
     color: white;
     padding: 14px 20px;
- 	position: center;
+    margin: 8px 450px;
     border: none;
     cursor: pointer;
     width: 15%;
@@ -59,7 +60,7 @@ ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
+    background-color: #f1f1f1;
 }
 
 li {
@@ -68,14 +69,13 @@ li {
 
 li a, .dropbtn {
     display: inline-block;
-    color: white;
+    color: black;
     text-align: center;
     padding: 14px 16px;
-    text-decoration: none;
 }
 
 li a:hover, .dropdown:hover .dropbtn {
-    background-color: red;
+    background-color: #e0e0e0;
 }
 
 </style>
@@ -97,7 +97,7 @@ li a:hover, .dropdown:hover .dropbtn {
 					</ul>
 				</div>
 				
-				<div class="container row">
+				<div class="container">
 					<label><b>Email</b></label>
 					<div id="error" class="errorMessage">Incorrect username or password</div>
 					<div id="notApprovedError" class="errorMessage">We're sorry but your account hasn't been approved yet!</div>
