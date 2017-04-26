@@ -43,7 +43,6 @@
 	//store query array keys into an array
 	$arrayKeys = array_keys($storedAuthVal);
 	//echo $storedAuthVal[$arrayKeys[0]];				<---test value
-
 	
 	$authVal = $storedAuthVal[$arrayKeys[0]];
 	

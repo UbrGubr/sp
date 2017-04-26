@@ -648,7 +648,7 @@ li a, .dropbtn {
 		$.ajax({
 			type: 'POST',
 			url: 'delete_student.php',
-			data: {SID: sid};
+			data: {SID: sid},
 			success: function(response){
 				var trimmedResponse = $.trim(response);
 

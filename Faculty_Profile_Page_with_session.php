@@ -1,9 +1,12 @@
 <?php
 
     //start session
+	//session_save_path("./session_vars");
     session_start();
 
-    //echo $_SESSION['authorized'];
+   // echo $_SESSION['authorized'];
+   // echo '';
+    //echo $_SESSION['tid'];
 
     //verify user authenticity
     if(isset($_SESSION['authorized']) && $_SESSION['authorized'] === TRUE){
@@ -113,7 +116,7 @@ li a:hover, .dropdown:hover .dropbtn {
 			<div class="row">
 				<h3>Teacher Profile</h3>
 				<ul class="list-inline">
-					<li><a href="Student_Registration_Page.html">Add Student</a></li>
+					<li><a href="Student_Registration_Page_with_session.php">Add Student</a></li>
 					<li><a href="Student_Search_Page.html">Modify Student</a></li>
 					<li><a href="Calendar.html">Calendar</a></li>
 					<li><a href="Faculty_Search_Page.html">Modify Teacher</a></li>

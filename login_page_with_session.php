@@ -141,11 +141,11 @@ li a:hover, .dropdown:hover .dropbtn {
 						data: '',
 						success: function(response){
 							var trim = $.trim(response);
-							if(trim != 'error'){
+							if(trim == 'authorized'){
 								//window.alert(response);
 								window.location.href = "Faculty_Profile_Page_with_session.php";
 							} else {
-								window.alert(reponse);
+								console.log(trim);
 							}
 						},
 						error: function(a,b,c){

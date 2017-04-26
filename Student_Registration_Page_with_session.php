@@ -103,7 +103,7 @@ li a, .dropbtn {
 		
 			<div class="row">
 				<ul class="list-inline">
-					<li><a href="Faculty_Profile_Page.html">Home</a></li>		
+					<li><a href="Faculty_Profile_Page_with_session.php">Home</a></li>		
 					<button2 class="btn btn-default pull-right" type="button" id="logoff">Logoff</button2>
 				</ul>	
 			</div>
