@@ -104,7 +104,7 @@ li a, .dropbtn {
 			<div class="row">
 				<div class="col-sm-1">
 					<div class="dropdown">
-						<button2 class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><a href="Faculty_Profile_Page_with_session.php">Home</a></button2>
+						<button2 class="btn btn-default dropdown-toggle" type="button" onclick="linkHome()"><a href="Faculty_Profile_Page_with_session.php">Home</a></button2>
 					</div>
 				</div>
 				<div class="col-sm-10"></div>
@@ -447,7 +447,11 @@ li a, .dropbtn {
 </script>
 
 	
-	
+	<script type="text/javascript">
+		function linkHome(){
+			window.location.href = "Faculty_Profile_Page_with_session.php";
+		}
+	</script>
 	
 	
 	<!--script for logoff operation -->
