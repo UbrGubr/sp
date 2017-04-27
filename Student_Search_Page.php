@@ -1,3 +1,16 @@
+<?php
+	session_start();
+
+    if(isset($_SESSION['authorized']) && $_SESSION['authorized'] === TRUE){
+        //echo "authorized to enter this page!";
+       // session_unset($_SESSION['authorized']);
+    } else {
+        //echo "not authorized to enter this page";
+        session_unset($_SESSION['authorized']);
+        header('Location: login_page_with_session.php');
+    }
+?>
+
 <!DOCTYPE html>
 <html ng-app="fetch">
 <head>
@@ -71,10 +84,10 @@ li a, .dropbtn {
 	<div class="container-fluid">
 		<div class="container">
 			<div class="row">
-				
 					<class="sm-col-6"><a href="Faculty_Profile_Page_with_session.php">Home</a>
 					<button class="sm-col-6 button pull-right" type="button" style="background-color: #58D68D" id="logoff">Logoff</button>
 			</div>	
+
 				<h1>Search for Student</h1>
 				<div ng-controller="dbCtrl">
 					<input type="text" ng-model="searchFilter" class="form-control">
