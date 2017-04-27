@@ -25,8 +25,8 @@ input[type=text], input[type=password] {
 
 button {
     
-    color: white;
-    padding: 14px 20px;
+    color: black;
+    padding: 8px 15px;
     border: none;
     cursor: pointer;
     text-align: none;
@@ -75,8 +75,7 @@ li a, .dropbtn {
 				
 					<class="sm-col-6"><a href="Faculty_Profile_Page_with_session.php">Home</a>
 					<button class="sm-col-6 button pull-right" type="button" style="background-color: #58D68D" id="logoff">Logoff</button>
-			</div>
-					
+			</div>	
 				<h1>Faculty Members</h1>
 				<div ng-controller="dbCtrl">
 					<input type="text" ng-model="searchFilter" class="form-control">
@@ -93,8 +92,7 @@ li a, .dropbtn {
 									<td>{{teachers.fname}} {{teachers.lname}}</td>
 									<td>{{teachers.tid}}</td>
 									<td>
-										<a ng-href="#">Modify</a>
-										<a ng-href="#">Remove</a>
+										<button class="button" type="button" style="background-color: #DB6D52" id="herrrrooooo">Remove</button>
 									</td>
 								</tr>
 							</tbody>
