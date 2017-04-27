@@ -35,7 +35,7 @@
 	
 	// Add student into database
 	if(mysqli_query($connection,"INSERT INTO student VALUES ('$idnum', '$fname', '$mname',
-					'$lname', '$gender', '$track', '$phone', '$address', '19900823', 12345, $grade, $read, $math, $behave, $cognitive, $speech, $emotion)")){
+					'$lname', '$gender', '$track', '$phone', '$address', '19900823', 12345, $grade, $read, $math, $behave, $cognitive, $speech, $emotion, NULL)")){
 
 		echo "successful\n";
 	} else {
