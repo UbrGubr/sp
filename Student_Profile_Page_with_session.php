@@ -652,9 +652,9 @@ li a, .dropbtn {
 			success: function(response){
 				var trimmedResponse = $.trim(response);
 
-				if(trimmedResponse == 'ok'){
+				if(trimmedResponse == 'successful'){
 					console.log('successfully deleted student');
-					window.location.href = 'Student_Search_Page.html';
+					window.location.replace('Student_Search_Page.html');
 				}
 			},
 			error: function(a,b,c){
