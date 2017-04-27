@@ -654,7 +654,7 @@ li a, .dropbtn {
 
 				if(trimmedResponse == 'successful'){
 					console.log('successfully deleted student');
-					window.location.replace('Student_Search_Page.html');
+					window.location.href = 'Student_Search_Page.php';
 				}
 			},
 			error: function(a,b,c){
