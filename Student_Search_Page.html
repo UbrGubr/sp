@@ -27,10 +27,8 @@ button {
     background-color: #4CAF50;
     color: white;
     padding: 14px 20px;
-    margin: 8px 450px;
     border: none;
     cursor: pointer;
-    width: 6%;
 }
 
 .imgcontainer {
@@ -73,10 +71,10 @@ li a, .dropbtn {
 	<div class="container-fluid">
 		<div class="container">
 			<div class="row">
-				<ul class="list-inline">
-					<li><a href="Faculty_Profile_Page_with_session.php">Home</a></li>
-					<button class="btn btn-default pull-right" type="button" id="logoff">Logoff</button>
-				</ul>	
+				
+					<class="sm-col-6"><a href="Faculty_Profile_Page_with_session.php">Home</a>
+					<button class="sm-col-6 button pull-right" type="button" style="background-color: #58D68D" id="logoff">Logoff</button>
+			</div>	
 				<h1>Search for Student</h1>
 				<div ng-controller="dbCtrl">
 					<input type="text" ng-model="searchFilter" class="form-control">
