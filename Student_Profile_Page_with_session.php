@@ -5,21 +5,21 @@
     //echo session_id();
 
     //test session domain
-        echo ini_get('session.cookie_domain');
+    //echo ini_get('session.cookie_domain');
 
 
     //print all php session variables
     //echo '<pre>' . print_r($_SESSION, TRUE) . '</pre>';
 
-/*    if(isset($_SESSION['authorized']) && $_SESSION['authorized'] === TRUE){
-        echo "authorized to enter this page!";
-        session_unset($_SESSION['authorized']);
+    if(isset($_SESSION['authorized']) && $_SESSION['authorized'] === TRUE){
+        //echo "authorized to enter this page!";
+       // session_unset($_SESSION['authorized']);
     } else {
-        echo "not authorized to enter this page";
+        //echo "not authorized to enter this page";
         session_unset($_SESSION['authorized']);
         header('Location: login_page_with_session.php');
     }
-*/
+
 	function convertNumToText($num)
 	{
 		switch($num)
@@ -46,9 +46,9 @@
 	function convertBoolToText($bool)
 	{
 		if($bool)
-			return "Positive";
+			return "Yes";
 		else
-			return "Negative";
+			return "No";
 	}
 
 	static $conn;
@@ -145,6 +145,22 @@ input[type=text], input[type=password] {
     box-sizing: border-box;
 }
 
+
+.effectfront{
+	border: none;
+	margin: 0 auto;
+}
+
+.effectfront:hover{
+	-webkit-transform: scale(1.5);
+	-moz-transform: scale(1.5);
+	-o-transform: scale(1.5);
+	transform; scale(1.5);
+	transform: all 0.3s;
+	-webkit-transform: all 0.3s;
+}
+
+
 button {
     background-color: #4CAF50;
     color: white;
@@ -152,7 +168,7 @@ button {
     margin: 8px 0;
     border: none;
     cursor: pointer;
-    width: 8%;
+    
 }
 
 button2 {
@@ -163,6 +179,30 @@ button2 {
     border: none;
     cursor: pointer;
     width: 100%;
+}
+
+.editButton{
+	background-color: red;
+	color: white;
+	border: none;
+	width: 100%;
+	float: bottom;
+}
+
+.deleteButton{
+	background-color: red;
+	color: white;
+	border: none;
+	width: 100%;
+	float: bottom
+}
+
+.hiddenButton{
+	background-color: green;
+	color: white;
+	border: none;
+	width: 100%;
+	float: bottom;
 }
 
 .imgcontainer {
@@ -216,7 +256,9 @@ li a, .dropbtn {
 					<button2 class="btn btn-default pull-right" type="button" id="logoff">Logoff</button2>
 				</div>	
 			</div>
-	
+			
+		<div class "row">
+			<div class="col-sm-6">
 			<label><b>Search for student</b></label>
 			<input type="text" placeholder="Search">
 			
@@ -231,24 +273,60 @@ li a, .dropbtn {
 						<option value="mathlevel">Math Level</option>
 						<option value="track">Track</option>
 					</select>
-		
+					
 			<button type="button" class="btn btn-default">
 				<span class="glyphicon glyphicon-search"></span> Search
 			</button>
+			
+			</div>	
+				<div class="col-sm-2"><button id="edButton" class="editButton" onclick="editStudent()">Edit Student</button></div>
+				<div class="col-sm-2"><button id="deleteButton" class="deleteButton hidden" onclick="deleteStudent()">Delete Student</button></div>
+				<div class="col-sm-2"><button id="changesButton" class="submitButton hidden" onclick="submitChanges()">Submit Changes</button></div>
+		</div>
+
 		
 			<div class="row">
-				<div class="col-sm-10"><h2><?php echo $row['fname']." ".$row['lname']?></h2></div>
+				<div class="col-sm-12">
+					<h2 id='fname' style='display:inline-block'><?php echo $row['fname']/*." ".$row['lname']*/?></h2>
+					<h2 id='lname' style='display:inline-block'><?php echo $row['lname']?></h2>
+				
+					<h2 style='display:inline-block; padding-left:80px'>ID: </h2>
+					<h3 id='sid' style='display:inline-block'><?php echo $row['sid']?></h3>
+					<p  id='errorMessage' class='hidden' style='color:red; display: inline-block; padding-left: 100px'>Error in a data field. Please try again.</p>
+				</div>
 			</div>
 		
 			<div class="row">
 				<div class="col-sm-4"><!--left col-->
           			<div class="imgcontainer">
-						<img src="https://rlv.zcache.com/little_girl_silhouette_5_x_7_photo_print-rb397f23ed99f480da092c7450a3a342e_fk95_8byvr_324.jpg" alt="girl">
+						<img class="effectfront" img src="https://rlv.zcache.com/little_girl_silhouette_5_x_7_photo_print-rb397f23ed99f480da092c7450a3a342e_fk95_8byvr_324.jpg" alt="girl" width="120" height="120">
+						<br><br><br>
 						
 						<ul class="list-group">
 							<strong>Joined:</strong><br>
-							<strong>Grade Level: <?php echo $gradeText?></strong><br>
-							<strong>Track: <?php echo $row['trackid']?></strong>
+							
+							<strong>Grade Level: 
+								<select id='editGrade' style='width:50px' class='hidden'>
+									<option hidden><?php echo $gradeText?></option>
+									<option value='0'>Kin</option>
+									<option value='1'>1st</option>
+									<option value='2'>2nd</option>
+									<option value='3'>3rd</option>
+									<option value='4'>4th</option>
+									<option value='5'>5th</option>
+									<option value='6'>6th</option>
+								</select>
+								<div id='gradeInfo' style='display:inline'><?php echo $gradeText?></div></strong><br>
+							
+							<strong>Track: 
+								<select id='editTrack' style='width:50px' class='hidden'>
+									<option hidden><?php echo $row['trackid']?></option>
+									<option value='A'>A</option>
+									<option value='B'>B</option>
+									<option value='C'>C</option>
+									<option value='D'>D</option>
+								</select>
+								<div id='trackInfo' style='display:inline'><?php echo $row['trackid']?></div></strong>
 						</ul> 
 					</div>    
 				</div><!--/col-3-->
@@ -258,6 +336,7 @@ li a, .dropbtn {
 					<ul class="nav nav-tabs" id="myTab">
 						<li class="active"><a href="#home" data-toggle="tab">Assessments</a></li>
 						<li><a href="#messages" data-toggle="tab">Upcoming Dates</a></li>
+						<li><a href="#notes" data-toggle="tab">Student Notes</a></li>
 					</ul>
 				  
 					<div class="tab-content">
@@ -276,12 +355,72 @@ li a, .dropbtn {
 									</thead>
 									<tbody id="items">
 										<tr>
-											<td><?php echo $readingText?></td>
-											<td><?php echo $mathText?></td>
-											<td><?php echo $behavioralText?></td>
-											<td><?php echo $emotionalText?></td>
-											<td><?php echo $cognitiveText?></td>
-											<td><?php echo $speechText?></td>
+											<td id='readingData'><?php echo $readingText?></td>
+											<td id='mathData'><?php echo $mathText?></td>
+											<td id='behavioralData'><?php echo $behavioralText?></td>
+											<td id='emotionalData'><?php echo $emotionalText?></td>
+											<td id='cognitiveData'><?php echo $cognitiveText?></td>
+											<td id='speechData'><?php echo $speechText?></td>
+
+											<!--hidden text boxes to be toggled on student edit -->
+											<td id='editReadingData' class="hidden">
+												<select id='editReadingDataText' class='hidden' style='width:90px'>
+													<option hidden><?php echo $readingText?></option>
+													<option value='0'>Kin</option>
+													<option value='1'>1st</option>
+													<option value='2'>2nd</option>
+													<option value='3'>3rd</option>
+													<option value='4'>4th</option>
+													<option value='5'>5th</option>
+													<option value='6'>6th</option>
+												</select>
+											</td>
+											
+
+											<td id='editMathData' class="hidden">
+												<select id='editMathDataText' class='hidden' style='width:90px'>
+												<option hidden><?php echo $mathText?></option>
+													<option value='0'>Kin</option>
+													<option value='1'>1st</option>
+													<option value='2'>2nd</option>
+													<option value='3'>3rd</option>
+													<option value='4'>4th</option>
+													<option value='5'>5th</option>
+													<option value='6'>6th</option>
+												</select>
+											</td>
+
+											<td id='editBehavioralData' class="hidden">
+												<select id='editBehavioralDataText' class='hidden' style='width:90px'>
+												<option hidden><?php echo $behavioralText?></option>
+													<option value='0'>Negative</option>
+													<option value='1'>Positive</option>
+												</select>
+											</td>
+
+											<td id='editEmotionalData' class="hidden">
+												<select id='editEmotionalDataText' class='hidden' style='width:90px'>
+													<option hidden><?php echo $emotionalText?></option>
+													<option value='0'>Negative</option>
+													<option value='1'>Positive</option>
+												</select>
+											</td>
+
+											<td id='editCognitiveData' class="hidden">
+												<select id='editCognitiveDataText' class='hidden' style='width:90px'>
+												<option hidden><?php echo $cognitiveText?></option>
+													<option value='0'>Negative</option>
+													<option value='1'>Positive</option>
+												</select>
+											</td>
+
+											<td id='editSpeechData' class="hidden">
+												<select id='editSpeechDataText' class='hidden' style='width:90px'>
+												<option hidden><?php echo $speechText?></option>
+													<option value='0'>Negative</option>
+													<option value='1'>Positive</option>
+												</select>
+											</td>
 										</tr>
 									</tbody>
 								</table>
@@ -295,22 +434,44 @@ li a, .dropbtn {
 
 							<h4>Alerts</h4>
 						  
-								<div class="table-responsive">
-									<div class="container">
+							<div class="table-responsive">
+								<ul class="nav nav-tabs" id="myTab">
+									<li><a href="#success" data-toggle="tab">Success</a></li>
+									<li><a href="#info" data-toggle="tab">Info</a></li>
+									<li><a href="#warning" data-toggle="tab">Warning</a></li>
+									<li><a href="#danger" data-toggle="tab">Danger</a></li>
+								</ul>
+							</div>
+							<div class="tab-content">
+								<div class="tab-pane" id="success">
+									<div class="table-responsive">
 										<div class="alert alert-success">
-											<strong>Success!</strong> The student has taken all required assessments!
-										</div>
-										<div class="alert alert-info">
-											<strong>Info!</strong> Updated the students info!
-										</div>
-										<div class="alert alert-warning">
-											<strong>Warning!</strong> Assessments approaching within 2 weeks!
-										</div>
-										<div class="alert alert-danger">
-											<strong>Danger!</strong> Assessments within 2 days!
+											The student has taken all required assessments!
 										</div>
 									</div>
 								</div>
+								<div class="tab-pane" id="info">
+									<div class="table-responsive">
+										<div class="alert alert-info">
+											Updated the students info!
+										</div>
+									</div>
+								</div>
+								<div class="tab-pane" id="warning">
+									<div class="table-responsive">
+										<div class="alert alert-warning">
+											Assessments approaching within 2 weeks!
+										</div>
+									</div>
+								</div>		
+								<div class="tab-pane" id="danger">
+									<div class="table-responsive">
+										<div class="alert alert-danger">
+											Assessments within 2 days!
+										</div>
+									</div>
+								</div>							
+							</div>
 
 						</div><!--/tab-pane-->
 						
@@ -326,6 +487,13 @@ li a, .dropbtn {
 							  <li class="list-group-item text-right"><a class="pull-left">Also we, havesapien massaortor. A lobortis vitae, condimentum justo...</a> 2.11.2014</li>
 							  <li class="list-group-item text-right"><a class="pull-left">Swedish chef is assaortor. A lobortis vitae, condimentum justo...</a> 2.11.2014</li> 
 							</ul> 
+							
+						</div>
+							<div class="tab-pane" id="notes">
+								<textarea rows="20" cols="80">
+									Enter notes here. 
+								</textarea>
+							</div>
 
 						</div>
 					</div>
@@ -333,6 +501,226 @@ li a, .dropbtn {
 			</div>
 		</div>
 	</div>
+
+
+	<!--edit mode; toggle editable fields-->
+	<script type="text/javascript">
+
+	function editStudent(){
+
+		//console.log("button clicked!");
+
+		//hide edit button and show submit button
+		$('#edButton').addClass('hidden');
+		$('#changesButton').removeClass('hidden');
+
+		//hide default table cells 
+		$('#readingData').addClass('hidden');
+		$('#mathData').addClass('hidden');
+		$('#behavioralData').addClass('hidden');
+		$('#emotionalData').addClass('hidden');
+		$('#cognitiveData').addClass('hidden');
+		$('#speechData').addClass('hidden');
+		$('#gradeInfo').addClass('hidden');
+		$('#trackInfo').addClass('hidden');
+
+		//show hidden table cells
+		$('#editReadingData').removeClass('hidden');
+		$('#editMathData').removeClass('hidden');
+		$('#editBehavioralData').removeClass('hidden');
+		$('#editEmotionalData').removeClass('hidden');
+		$('#editCognitiveData').removeClass('hidden');
+		$('#editSpeechData').removeClass('hidden');
+
+		//show dropdowns on corresponding table cells
+		$('#editReadingDataText').removeClass('hidden');
+		$('#editMathDataText').removeClass('hidden');
+		$('#editBehavioralDataText').removeClass('hidden');
+		$('#editEmotionalDataText').removeClass('hidden');
+		$('#editCognitiveDataText').removeClass('hidden');
+		$('#editSpeechDataText').removeClass('hidden');
+		$('#editGrade').removeClass('hidden');
+		$('#editTrack').removeClass('hidden');
+
+		//show hidden delete student button
+		$('#deleteButton').removeClass('hidden');
+
+	}
+	</script>
+
+	<script type='text/javascript'>
+
+	//when Submit Changes button is clicked submit to database
+	function submitChanges(){
+		//console.log('Student Info Submitted!');
+
+		//save values in all text fields
+		var readinglvl = document.getElementById('editReadingDataText').value;
+		var mathlvl = document.getElementById('editMathDataText').value;
+		var behavioral = document.getElementById('editBehavioralDataText').value;
+		var emotional = document.getElementById('editEmotionalDataText').value;
+		var cognitive = document.getElementById('editCognitiveDataText').value;
+		var speech = document.getElementById('editSpeechDataText').value;
+		var gradelvl = document.getElementById('editGrade').value;
+		var trackid = document.getElementById('editTrack').value;
+		var sid = $('#sid').html();
+		var fname = $('#fname').html();
+		var lname = $('#lname').html();
+
+
+		//scrub values for database compatibility
+
+		//check for kin lvl grades
+		if(readinglvl.search('Kin') !== -1){
+			readinglvl = '0';
+		}
+
+		if(mathlvl.search('Kin') !== -1){
+			mathlvl = '0';
+		}
+
+		if(gradelvl.search('Kin') !== -1){
+			gradelvl = '0';
+		}
+
+		//check for alpha chars in int only db fields
+		if(readinglvl.search(/[a-zA-Z]/)){
+			readinglvl = readinglvl.substring(0,1);
+		}
+
+		if(mathlvl.search(/[a-zA-Z]/)){
+			mathlvl = mathlvl.substring(0,1);
+		}
+
+		if(gradelvl.search(/[a-zA-Z]/)){
+			gradelvl = gradelvl.substring(0,1);
+		}
+
+		//search for positive or negative value in true false db fields
+		if(behavioral === 'No'){
+			behavioral = '0';
+		}
+
+		if(behavioral === 'Yes'){
+			behavioral = '1';
+		}
+
+		if(emotional === 'No'){
+			emotional = '0';
+		}
+
+		if(emotional === 'Yes'){
+			emotional = '1';
+		}
+
+		if(cognitive === 'No'){
+			cognitive = '0';
+		}
+
+		if(cognitive === 'Yes'){
+			cognitive = '1';
+		}
+
+		if(speech === 'No'){
+			speech = '0';
+		}
+
+		if(speech === 'Yes'){
+			speech = '1';
+		}
+
+		$.ajax({
+			type: 'POST',
+			url: 'edit_student_data.php',
+			data: {READINGLVL: readinglvl, MATHLVL: mathlvl, BEHAVIORAL: behavioral, EMOTIONAL: emotional,
+					COGNITIVE: cognitive, SPEECH: speech, GRADELVL: gradelvl, TRACKID: trackid, SID: sid },
+			//on success remove editable fields
+			success: function(response){
+
+						var trimmedResponse = $.trim(response);
+						console.log(trimmedResponse);
+
+						if(trimmedResponse === 'successful'){
+							//hide dropdowns
+							$('#editReadingDataText').addClass('hidden');
+							$('#editMathDataText').addClass('hidden');
+							$('#editBehavioralDataText').addClass('hidden');
+							$('#editEmotionalDataText').addClass('hidden');
+							$('#editCognitiveDataText').addClass('hidden');
+							$('#editSpeechDataText').addClass('hidden');
+							$('#editGrade').addClass('hidden');
+							$('#editTrack').addClass('hidden');
+
+							//hide table cells containing dropdowns
+							$('#editReadingData').addClass('hidden');
+							$('#editMathData').addClass('hidden');
+							$('#editBehavioralData').addClass('hidden');
+							$('#editEmotionalData').addClass('hidden');
+							$('#editCognitiveData').addClass('hidden');
+							$('#editSpeechData').addClass('hidden');
+
+							//show default table cells 
+							$('#readingData').removeClass('hidden');
+							$('#mathData').removeClass('hidden');
+							$('#behavioralData').removeClass('hidden');
+							$('#emotionalData').removeClass('hidden');
+							$('#cognitiveData').removeClass('hidden');
+							$('#speechData').removeClass('hidden');
+							$('#gradeInfo').removeClass('hidden');
+							$('#trackInfo').removeClass('hidden');
+
+							//show edit student button && hide submit button
+/*							$('#edButton').removeClass('hidden');
+							$('#submitButton').addClass('hidden');
+*/
+							window.location.href = 'Student_Profile_Page_with_session.php?fname='+fname+'&lname='+lname+
+													'&idnum='+sid;
+
+						} else {
+							console.log('error in changes');
+							$('#errorMessage').removeClass('hidden');
+						}
+					},
+			//on error show error message 
+			error: function(a,b,c){
+						console.log(a);
+						console.log(b);
+						console.log(c);	
+					}
+		});
+
+	}
+	</script>
+
+	<script type='text/javascript'>
+
+	function deleteStudent(){
+		console.log("student shit-canned!");
+
+		var sid = $('#sid').html();
+
+		$.ajax({
+			type: 'POST',
+			url: 'delete_student.php',
+			data: {SID: sid},
+			success: function(response){
+				var trimmedResponse = $.trim(response);
+
+				if(trimmedResponse == 'successful'){
+					console.log('successfully deleted student');
+					window.location.href = 'Student_Search_Page.php';
+				}
+			},
+			error: function(a,b,c){
+				console.log(a);
+				console.log(b);
+				console.log(c);
+			}
+		});
+
+	}
+
+	</script>
 	
 </body>
 
