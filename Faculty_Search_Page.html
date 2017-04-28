@@ -24,13 +24,12 @@ input[type=text], input[type=password] {
 }
 
 button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 450px;
+    
+    color: black;
+    padding: 8px 15px;
     border: none;
     cursor: pointer;
-    width: 6%;
+    text-align: none;
 }
 
 .imgcontainer {
@@ -73,24 +72,28 @@ li a, .dropbtn {
 	<div class="container-fluid">
 		<div class="container">
 			<div class="row">
-				<ul class="list-inline">
-					<li><a href="Faculty_Profile_Page.html">Home</a></li>
-					<button class="btn btn-default pull-right" type="button" id="logoff">Logoff</button>
-				</ul>	
-				<h1>Search for Student</h1>
+				
+					<class="sm-col-6"><a href="Faculty_Profile_Page_with_session.php">Home</a>
+					<button class="sm-col-6 button pull-right" type="button" style="background-color: #58D68D" id="logoff">Logoff</button>
+			</div>	
+				<h1>Faculty Members</h1>
 				<div ng-controller="dbCtrl">
 					<input type="text" ng-model="searchFilter" class="form-control">
 						<table class="table table-hover">
 							<thead>
 								<tr>
 									<th>Name</th>
-									<th>Student ID</th>
+									<th>Employee ID</th>
+									<th>Action</th>
 								</tr>
 							</thead>
 							<tbody>
-								<tr ng-repeat="students in data | filter:searchFilter">
-									<td><a ng-href="Student_Profile_Page_with_session.php?fname={{students.fname}}&lname={{students.lname}}&idnum={{students.sid}}">{{students.fname}} {{students.lname}}</a></td>
-									<td>{{students.sid}}</td>
+								<tr ng-repeat="teachers in data | filter:searchFilter">
+									<td>{{teachers.fname}} {{teachers.lname}}</td>
+									<td>{{teachers.tid}}</td>
+									<td>
+										<button class="button" type="button" style="background-color: #DB6D52" id="herrrrooooo">Remove</button>
+									</td>
 								</tr>
 							</tbody>
 						</table>
@@ -104,7 +107,7 @@ li a, .dropbtn {
         var fetch = angular.module('fetch', []);
 
         fetch.controller('dbCtrl', ['$scope', '$http', function ($scope, $http) {
-            $http.get("get_students.php")
+            $http.get("get_faculty.php")
                 .success(function(data){
                     $scope.data = data;
                 })

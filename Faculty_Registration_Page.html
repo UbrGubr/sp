@@ -58,7 +58,7 @@ button2 {
 
 .errorMessage {
 	color: rgb(255,0,0);
-	font-size: 50%;
+	font-size: 100%;
 }
 
 ul {
@@ -93,7 +93,7 @@ li a, .dropbtn {
 			<div class="row">
 				<h3>Register New Faculty</h3>
 				<ul class="list-inline">
-					<li><a href="login_page.html">Back To Login</a></li>		
+					<li><a href="login_page_with_session.php">Back To Login</a></li>		
 					<button2 class="btn btn-default pull-right" type="button" id="logoff">Logoff</button2>
 				</ul>
 			</div>	
@@ -260,9 +260,7 @@ li a, .dropbtn {
 						window.location.href="SuccessfulRegistration.html";
 			},
 			error:	function(a,b,c){ 
-						console.log(a);
-						console.log(b);
-						console.log(c);
+				console.log("Oops! Something went wrong!");
 			}
 		});		
 	}

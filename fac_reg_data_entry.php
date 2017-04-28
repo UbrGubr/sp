@@ -18,38 +18,19 @@
 	}
 
 	
-			$fname = $_REQUEST['FIRSTNAME'];
-			$mname = $_REQUEST['MIDNAME'];
-			$lname = $_REQUEST['LASTNAME'];
-			$idnum = $_REQUEST['IDNUM'];
-			$email = $_REQUEST['EMAIL'];
-			$pw = $_REQUEST['PW'];
+	$fname = $_REQUEST['FIRSTNAME'];
+	$mname = $_REQUEST['MIDNAME'];
+	$lname = $_REQUEST['LASTNAME'];
+	$idnum = $_REQUEST['IDNUM'];
+	$email = $_REQUEST['EMAIL'];
+	$pw = $_REQUEST['PW'];
 			
-			//hash password; salt generated automatically
-			$encryptedPW = password_hash($pw, PASSWORD_DEFAULT);	
+	//hash password; salt generated automatically
+	$encryptedPW = password_hash($pw, PASSWORD_DEFAULT);	
 			
-		
-			
-/*			$fname = 'lisa';
-			$mname = 'a';
-			$lname = 'solem';
-			$idnum = 123;
-			$email = "abc@yahoo.com";
-			$pw = 12345;
-			$month = "may";
-			$day = 4;
-			$year = 1988;
-			$active = 1;
-			
-			//$fullname = $fname + ' ' + $mname + ' ' + $lname;
-			$encryptedPW = password_hash($pw, PASSWORD_DEFAULT);
-	*/
 	
-	
-	if(mysqli_query($connection,"INSERT INTO teacher (tid, fname, mname, lname, trackid, phone, address, hash, email, activated) VALUES ('$idnum', '$fname', '$mname', '$lname', NULL, '', '', '$encryptedPW', '$email', '$active')")){
-
-		echo "successful\n";
-		
+	if(mysqli_query($connection,"INSERT INTO teacher (tid, fname, mname, lname, trackid, phone, address, hash, email, activated) VALUES ('$idnum', '$fname', '$mname', '$lname', '', '', '', '$encryptedPW', '$email', '0')"))
+	{
 		$config = parse_ini_file('./config.ini'); 
 		// Sends a verification email to the admin to request approval for account creation
 		$to = $config['admin'];
@@ -72,7 +53,9 @@
 		mail($to, $subject, $message, $headers);	
 						
 	} else {
-		echo "not successful\n";
+		header('HTTP/1.1 500 Internal Server Booboo');
+        header('Content-Type: application/json; charset=UTF-8');
+        die(json_encode(array('message' => 'ERROR', 'code' => 1337)));
 	}
 	
 	mysqli_close($connection);

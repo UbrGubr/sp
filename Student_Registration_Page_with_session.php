@@ -44,7 +44,7 @@ button {
     background-color: #4CAF50;
     color: white;
     padding: 14px 20px;
-    margin: 8px 450px;
+    margin: 8px 475px;
     border: none;
     cursor: pointer;
     width: 10%;
@@ -57,7 +57,7 @@ button2 {
     margin: 8px 0;
     border: none;
     cursor: pointer;
-    width: 6%;
+    width: 100%;
 }
 
 .imgcontainer {
@@ -102,31 +102,36 @@ li a, .dropbtn {
 			<h3>Register New Student</h3>
 		
 			<div class="row">
-				<ul class="list-inline">
-					<li><a href="Faculty_Profile_Page.html">Home</a></li>		
-					<button2 class="btn btn-default pull-right" type="button" id="logoff">Logoff</button2>
-				</ul>	
+				<div class="col-sm-1">
+					<div class="dropdown">
+						<button2 class="btn btn-default dropdown-toggle" type="button" onclick="linkHome()"><a href="Faculty_Profile_Page_with_session.php">Home</a></button2>
+					</div>
+				</div>
+				<div class="col-sm-10"></div>
+				<div class="col-sm-1">
+						<button2 class="btn btn-default pull-right" type="button" id="logoff">Logoff</button2>
+				</div>
 			</div>
 
-			<form action="action_page.php">
+			<form action="">
 				<div class="container">
 					<label><b>First Name</b></label>
-					<input type="text" placeholder="Enter first name" required>
+					<input type="text" id="firstName" placeholder="Enter first name" required>
 					
 					<label><b>Middle Name</b></label>
-					<input type="text" placeholder="Enter middle name" required>
+					<input type="text" id="middleName" placeholder="Enter middle name" required>
 					
 					<label><b>Last Name</b></label>
-					<input type="text" placeholder="Enter last name" required>
+					<input type="text" id="lastName" placeholder="Enter last name" required>
 
 					<label><b>ID Number</b></label>
-					<input type="text" placeholder="Enter ID number" required>
+					<input type="text" id="ID" placeholder="Enter ID number" required>
 					
 					<label><b>Phone Number</b></label>
-					<input type="text" placeholder="Enter phone number" required>
+					<input type="text" id="phoneNumber" placeholder="Enter phone number" required>
 					
 					<label><b>Address</b></label>
-					<input type="text" placeholder="Enter address" required>
+					<input type="text" id="address" placeholder="Enter address" required>
 					
 					<div class="row">
 						<div class="col-sm-3">
@@ -139,9 +144,9 @@ li a, .dropbtn {
 						</div>
 						<div class="col-sm-3">
 							<label><b>Grade Level<b></label><br>
-							<select name="gradelevel">
+							<select id="gradeLvl" name="gradelevel">
 								<option value="grade">Grade</option>
-								<option value="k">Kindergarten</option>
+								<option value="0">Kindergarten</option>
 								<option value="1">1st grade</option>
 								<option value="2">2nd grade</option>
 								<option value="3">3rd grade</option>
@@ -152,9 +157,9 @@ li a, .dropbtn {
 						</div>
 						<div class="col-sm-3">
 							<label><b>Reading Level<b></label><br>
-							<select name="readinglevel">
+							<select id="readLvl" name="readinglevel">
 								<option value="grade">Grade</option>
-								<option value="k">Kindergarten</option>
+								<option value="0">Kindergarten</option>
 								<option value="1">1st grade</option>
 								<option value="2">2nd grade</option>
 								<option value="3">3rd grade</option>
@@ -165,9 +170,9 @@ li a, .dropbtn {
 						</div>
 						<div class="col-sm-3">
 							<label><b>Math Level<b></label><br>
-							<select name="mathlevel">
+							<select id="mathLvl" name="mathlevel">
 								<option value="grade">Grade</option>
-								<option value="k">Kindergarten</option>
+								<option value="0">Kindergarten</option>
 								<option value="1">1st grade</option>
 								<option value="2">2nd grade</option>
 								<option value="3">3rd grade</option>
@@ -183,32 +188,32 @@ li a, .dropbtn {
 							<label><b>Behavioral<b></label><br>
 							<select id="behavioral" name="behavioral">
 								<option value="">Y/N</option>
-								<option value="yes">Yes</option>
-								<option value="no">No</option>
+								<option value="1">Yes</option>
+								<option value="0">No</option>
 							</select><br><br>
 						</div>
 						<div class="col-sm-1">
 							<label><b>Emotional<b></label><br>
 							<select id="emotional" name="emotional">
 								<option value="">Y/N</option>
-								<option value="yes">Yes</option>
-								<option value="no">No</option>
+								<option value="1">Yes</option>
+								<option value="0">No</option>
 							</select><br><br>	
 						</div>
 						<div class="col-sm-1">
 							<label><b>Cognitive<b></label><br>
 							<select id="cognitive" name="cognitive">
 								<option value="">Y/N</option>
-								<option value="yes">Yes</option>
-								<option value="no">No</option>
+								<option value="1">Yes</option>
+								<option value="0">No</option>
 							</select><br><br>
 						</div>
 						<div class="col-sm-1">
 							<label><b>Speech/Language<b></label><br>
 							<select id="speech/language" name="speech/language">
 								<option value="">Y/N</option>
-								<option value="yes">Yes</option>
-								<option value="no">No</option>
+								<option value="1">Yes</option>
+								<option value="0">No</option>
 							</select><br><br>
 						</div>
 					</div>
@@ -216,23 +221,23 @@ li a, .dropbtn {
 					<div class="row">
 						<div class="col-sm-3">
 							<label><b>Date of Birth<b></label><br>
-							<select name="months">
+							<select id="birthdayMonth" name="months">
 								<option value="">Month</option>
-								<option value="Jan">January</option>
-								<option value="Feb">February</option>
-								<option value="Mar">March</option>
-								<option value="Apr">April</option>
-								<option value="May">May</option>
-								<option value="Jun">June</option>
-								<option value="Jul">July</option>
-								<option value="Aug">August</option>
-								<option value="Sept">September</option>
-								<option value="Oct">October</option>
-								<option value="Nov">November</option>
-								<option value="Dec">December</option>
+								<option value="01">January</option>
+								<option value="02">February</option>
+								<option value="03">March</option>
+								<option value="04">April</option>
+								<option value="05">May</option>
+								<option value="06">June</option>
+								<option value="07">July</option>
+								<option value="08">August</option>
+								<option value="09">September</option>
+								<option value="10">October</option>
+								<option value="11">November</option>
+								<option value="12">December</option>
 							</select>
 				  
-							<select name="days">
+							<select id="birthdayDay" name="days">
 								<option>Day</option>
 								<option value="1">1</option>
 								<option value="2">2</option>
@@ -267,10 +272,10 @@ li a, .dropbtn {
 								<option value="31">31</option>
 							</select>
 
-							<select name="year">
+							<select id="birthdayYear" name="year">
 								<option>Year</option>
-								<option value="2011">2018</option>
-								<option value="2004">2017</option>
+								<option value="2018">2018</option>
+								<option value="2017">2017</option>
 								<option value="2016">2016</option>
 								<option value="2015">2015</option>
 								<option value="2014">2014</option>
@@ -296,15 +301,159 @@ li a, .dropbtn {
 								<option value="B">B</option>
 								<option value="C">C</option>
 								<option value="D">D</option>
-							</select>
+							</select><br><br>
 						</div>
 					</div>
-			  	  <button type="submit" value="Submit">Submit</button>
+					<h3>Emergency Contact Info</h3>
+						
+					<label><b>First Name</b></label>
+					<input type="text" id="eFirstName" placeholder="Enter first name" required>
+									
+					<label><b>Last Name</b></label>
+					<input type="text" id="eLastName" placeholder="Enter last name" required>
+
+					<label><b>Relationship</b></label>
+					<input type="text" id="eRelationship" placeholder="Enter relationship" required>
+					
+					<label><b>Phone Number</b></label>
+					<input type="text" id="ePhone" placeholder="Enter phone number" required>
+					
+					<label><b>Email</b></label>
+					<input type="text" id="eEmail" placeholder="Enter email" required>
+				
+			  	  <button type="submit" value="Submit" id="submitData" onclick="whenClicked()">Submit</button>
 				</div>
 			</form>
 		</div>
 	</div>
 </body>
+
+<script type="text/javascript">
+	
+	var err = 0;
+	var firstName, midName, lastName, idNum, phone, addr, gend, grade, read, math, behave, emote, cog, speech, trackID, eFName, eLName, eRelation, ePh, eMail;
+	
+	function whenClicked(){	
+
+		console.log("Got here1!");
+		
+		//save all student values of data except track into a variable
+		firstName = document.getElementById('firstName').value;
+		midName = document.getElementById('middleName').value;
+		lastName = document.getElementById('lastName').value;
+		idNum = document.getElementById('ID').value;
+		phone = document.getElementById('phoneNumber').value;
+		addr = document.getElementById('address').value;
+		
+		if(document.getElementById('gender').value=="male"){
+			gend = "M";
+		}else if(document.getElementById('gender').value=="female"){
+			gend = "F";
+		}else{
+			err++;
+			window.alert("Include gender for student.");
+		}
+		
+		if(document.getElementById('gradeLvl').value=="grade"){
+			err++;
+			window.alert("Include grade level for student.");
+		}else{
+			grade = document.getElementById('gradeLvl').value;
+		}
+		
+		if(document.getElementById('readLvl').value=="grade"){
+			err++;
+			window.alert("Include reading level for student.");
+		}else{
+			read = document.getElementById('readLvl').value;
+		}
+		
+		if(document.getElementById('mathLvl').value=="grade"){
+			err++;
+			window.alert("Include math level for student.");
+		}else{
+			math = document.getElementById('mathLvl').value;
+		}
+		
+		if(document.getElementById('behavioral').value==""){
+			err++;
+			window.alert("Include behavioral result for student.");
+		}else{
+			behave = document.getElementById('behavioral').value;
+		}
+		
+		if(document.getElementById('emotional').value==""){
+			err++;
+			window.alert("Include emotional result for student.");
+		}else{
+			emote = document.getElementById('emotional').value;
+		}
+		
+		if(document.getElementById('cognitive').value==""){
+			err++;
+			window.alert("Include cognitive result for student.");
+		}else{
+			cog = document.getElementById('cognitive').value;
+		}
+		
+		if(document.getElementById('speech/language').value==""){
+			err++;
+			window.alert("Include speech/language result for student.");
+		}else{
+			speech = document.getElementById('speech/language').value;
+		}
+		
+		if(document.getElementById('track').value==""){
+			err++;
+			window.alert("Include track path for student.");
+		}else{
+			trackID = document.getElementById('track').value;
+		}
+		
+		//Emergency stuff
+		eFName = document.getElementById('eFirstName').value;
+		eLName = document.getElementById('eLastName').value;
+		eRelation = document.getElementById('eRelationship').value;
+		ePh = document.getElementById('ePhone').value;
+		eMail = document.getElementById('eEmail').value;
+		
+		if(err==0){
+			runAJAX();
+		}
+	}								
+		//ajax call to send data to php script	
+								
+	function runAJAX(){	
+		// run AJAX for student info
+		$.ajax({
+			type:	'POST',
+			url:	'student_reg.php',
+			data:	{ FIRSTNAME: firstName, MIDNAME: midName, LASTNAME: lastName, IDNUM: idNum, PHONE: phone, ADDRESS: addr, GENDER: gend, GRADE: grade,
+						READLVL: read, MATHLVL: math, BEHAVE: behave, EMOTIONAL: emote, COGNITIVE: cog, SPEECH: speech, TRACK: trackID, },
+			success: function(){ 
+						console.log('data stored successfully'); 
+						//window.alert("succesfully registered!");
+						window.location.href="Student_Registration_Page_with_session.php";
+			},
+			error:	function(a,b,c){ 
+						console.log(a);
+						console.log(b);
+						console.log(c);
+			}
+		});	
+		
+	}
+
+</script>
+
+	
+	<script type="text/javascript">
+		function linkHome(){
+			window.location.href = "Faculty_Profile_Page_with_session.php";
+		}
+	</script>
+	
+	
 	<!--script for logoff operation -->
 	<script type="text/javascript">
 
