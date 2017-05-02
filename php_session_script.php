@@ -1,26 +1,48 @@
 <?php
 
+	static $connection;
 
-/*	$email = 'tomtheteacher@prairieschool.com';
+	$log_file = 'auth.log';
+	$email = mysql_escape_string($_POST['email']);
 
-	$config = parse_ini_file('./config.ini');
+	// Try and connect to the database, if a connection has not been established yet
+    if(!isset($connection)) {
+		$config = parse_ini_file('./config.ini');
+        $connection = mysqli_connect('athena.ecs.csus.edu',$config['username'],$config['password'],$config['dbname']);
+    }
 
-	//datatbase connection to get teacher session info
-	$connect = mysqli_connect("athena.ecs.csus.edu", $config['username'], $config['password'], $config['dbname']);
-	//get tid
-	$result = mysqli_query($connect, "SELECT tid FROM teacher WHERE email='".$email."'");
-*/
-//	session_save_path("./session_vars");
+
+    // If connection was not successful, handle the error
+    if(mysqli_connect_errno()){
+		$error = mysqli_connect_error();
+		file_put_contents($log_file, "Connect failed: $error\n");
+		exit();
+    }
+
+    $query = mysqli_prepare($connection, "SELECT tid FROM teacher WHERE email=?"); // prepare query
+    mysqli_stmt_bind_param($query, 's', $email); // bind student information to query paramaters
+   	mysqli_stmt_execute($query);
+    $result = mysqli_stmt_get_result($query);
+	$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+	$tid = $row['tid'];
+
+
+	mysqli_stmt_close($query);
+    mysqli_close($connection);
+
+
 	session_start();
+    $_SESSION['authorized'] = true;
+    $_SESSION['tid'] = $tid;
 
-	$_SESSION['authorized'] = true;
-	//store tid value as session data
-//	$_SESSION['tid'] = $result;
 
-	if(isset($_SESSION['authorized'])) {
-		echo "authorized";
-	} else {
-		echo "error";
-	} 
+    if(isset($_SESSION['authorized'])) {
+    	$message = "authorized";
+    } else {
+    	$message = "error";
+    }
 
+	file_put_contents($log_file, "$message: $email\n", FILE_APPEND | LOCK_EX);
+
+	echo $message;
 ?>

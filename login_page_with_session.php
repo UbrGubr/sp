@@ -138,7 +138,7 @@ li a:hover, .dropdown:hover .dropbtn {
 					$.ajax({
 						type: 'POST',
 						url: 'php_session_script.php',
-						data: '',
+						data: { email: email },
 						success: function(response){
 							var trim = $.trim(response);
 							if(trim == 'authorized'){

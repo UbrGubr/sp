@@ -77,18 +77,15 @@
 		$result = mysqli_stmt_get_result($query);
 		$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 
-//		printf("fname=%s", $row['fname']);
-//		printf("lname=%s", $row['lname']);
-//		printf("sid=%d", $row['sid']);
 
 		mysqli_stmt_close($query);
 		mysqli_close($conn);
 
-		// Convert numerical values to text for more informative display
 
 		// Initialize our text values
 		$gradeText = $readingText = $mathText = $behavioralText = $emotionalText = $cognitiveText = $speechText = '';
 
+		// Convert numerical values to text for more informative display
 		foreach($row as $key => $val)
 		{
 			switch($key)

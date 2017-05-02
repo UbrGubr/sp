@@ -9,7 +9,7 @@
     //echo $_SESSION['tid'];
 
     //verify user authenticity
-    if(isset($_SESSION['authorized']) && $_SESSION['authorized'] === TRUE){
+    if(isset($_SESSION['authorized']) && isset($_SESSION['tid']) && ($_SESSION['authorized'] === TRUE)){
         //echo "authorized to enter this page!";
         //session_unset($_SESSION['authorized']);
     } else {
@@ -30,19 +30,12 @@
        	exit();
     }
 
-    //$query = mysqli_prepare($conn, "SELECT * FROM teacher WHERE fname=? AND lname=? AND sid=?"); // prepare query
-    //mysqli_stmt_bind_param($query, 'ssi', $fname, $lname, $idnum); // bind student information to query paramaters
-	$fname = "Sample";
-	$lname = "Teacher";
-	$query = mysqli_prepare($conn, "SELECT * FROM teacher where fname=? AND lname=?");
-	mysqli_stmt_bind_param($query, 'ss', $fname, $lname);
+	$query = mysqli_prepare($conn, "SELECT * FROM teacher WHERE tid=?");
+	mysqli_stmt_bind_param($query, 's', $_SESSION['tid']);
     mysqli_stmt_execute($query);
     $result = mysqli_stmt_get_result($query);
     $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 
-//  printf("fname=%s", $row['fname']);
-// 	printf("lname=%s", $row['lname']);
-// 	printf("sid=%d", $row['sid']);
 
     mysqli_stmt_close($query);
     mysqli_close($conn);
@@ -147,9 +140,9 @@ li a:hover, .dropdown:hover .dropbtn {
 					</button>
 				
 					<div class="row">
-						<h2>Teacher Name</h2>
-						<strong>Tracks:</strong><br>						
-						<strong>Number of Students:</strong>
+						<h2><?php echo $row['fname']." ".$row['lname']?></h2>
+						<strong>Tracks:<?php echo $row['trackid']?></strong><br>						
+						<strong>Number of Students:???</strong>
 					
 					</div>
 					  
@@ -225,6 +218,8 @@ li a:hover, .dropdown:hover .dropbtn {
 									<textarea rows="20" cols="80">
 									Enter notes here. 
 									</textarea>
+									<button class="btn btn-default pull-right" type="button" id="cancel_note">Cancel</button>
+									<button class="btn btn-default pull-right" type="button" id="submit_note">Submit</button>
 								</div>		
 							</div>
 						</div>
