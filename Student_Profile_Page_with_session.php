@@ -142,6 +142,22 @@ input[type=text], input[type=password] {
     box-sizing: border-box;
 }
 
+
+.effectfront{
+	border: none;
+	margin: 0 auto;
+}
+
+.effectfront:hover{
+	-webkit-transform: scale(1.5);
+	-moz-transform: scale(1.5);
+	-o-transform: scale(1.5);
+	transform; scale(1.5);
+	transform: all 0.3s;
+	-webkit-transform: all 0.3s;
+}
+
+
 button {
     background-color: #4CAF50;
     color: white;
@@ -237,7 +253,9 @@ li a, .dropbtn {
 					<button2 class="btn btn-default pull-right" type="button" id="logoff">Logoff</button2>
 				</div>	
 			</div>
-	
+			
+		<div class "row">
+			<div class="col-sm-6">
 			<label><b>Search for student</b></label>
 			<input type="text" placeholder="Search">
 			
@@ -252,28 +270,34 @@ li a, .dropbtn {
 						<option value="mathlevel">Math Level</option>
 						<option value="track">Track</option>
 					</select>
-		
+					
 			<button type="button" class="btn btn-default">
 				<span class="glyphicon glyphicon-search"></span> Search
 			</button>
+			
+			</div>	
+				<div class="col-sm-2"><button id="edButton" class="editButton" onclick="editStudent()">Edit Student</button></div>
+				<div class="col-sm-2"><button id="deleteButton" class="deleteButton hidden" onclick="deleteStudent()">Delete Student</button></div>
+				<div class="col-sm-2"><button id="changesButton" class="submitButton hidden" onclick="submitChanges()">Submit Changes</button></div>
+		</div>
+
 		
 			<div class="row">
-				<div class="col-sm-6">
+				<div class="col-sm-12">
 					<h2 id='fname' style='display:inline-block'><?php echo $row['fname']/*." ".$row['lname']*/?></h2>
 					<h2 id='lname' style='display:inline-block'><?php echo $row['lname']?></h2>
+				
 					<h2 style='display:inline-block; padding-left:80px'>ID: </h2>
 					<h3 id='sid' style='display:inline-block'><?php echo $row['sid']?></h3>
 					<p  id='errorMessage' class='hidden' style='color:red; display: inline-block; padding-left: 100px'>Error in a data field. Please try again.</p>
 				</div>
-				<div class="col-sm-2"><button id="edButton" class="editButton" onclick="editStudent()">Edit Student</button></div>
-				<div class="col-sm-2"><button id="deleteButton" class="deleteButton hidden" onclick="deleteStudent()">Delete Student</button></div>
-				<div class="col-sm-2"><button id="changesButton" class="submitButton hidden" onclick="submitChanges()">Submit Changes</button></div>
 			</div>
 		
 			<div class="row">
 				<div class="col-sm-4"><!--left col-->
           			<div class="imgcontainer">
-						<img src="https://rlv.zcache.com/little_girl_silhouette_5_x_7_photo_print-rb397f23ed99f480da092c7450a3a342e_fk95_8byvr_324.jpg" alt="girl">
+						<img class="effectfront" img src="https://rlv.zcache.com/little_girl_silhouette_5_x_7_photo_print-rb397f23ed99f480da092c7450a3a342e_fk95_8byvr_324.jpg" alt="girl" width="120" height="120">
+						<br><br><br>
 						
 						<ul class="list-group">
 							<strong>Joined:</strong><br>
@@ -309,6 +333,7 @@ li a, .dropbtn {
 					<ul class="nav nav-tabs" id="myTab">
 						<li class="active"><a href="#home" data-toggle="tab">Assessments</a></li>
 						<li><a href="#messages" data-toggle="tab">Upcoming Dates</a></li>
+						<li><a href="#notes" data-toggle="tab">Student Notes</a></li>
 					</ul>
 				  
 					<div class="tab-content">
@@ -406,22 +431,44 @@ li a, .dropbtn {
 
 							<h4>Alerts</h4>
 						  
-								<div class="table-responsive">
-									<div class="container">
+							<div class="table-responsive">
+								<ul class="nav nav-tabs" id="myTab">
+									<li><a href="#success" data-toggle="tab">Success</a></li>
+									<li><a href="#info" data-toggle="tab">Info</a></li>
+									<li><a href="#warning" data-toggle="tab">Warning</a></li>
+									<li><a href="#danger" data-toggle="tab">Danger</a></li>
+								</ul>
+							</div>
+							<div class="tab-content">
+								<div class="tab-pane" id="success">
+									<div class="table-responsive">
 										<div class="alert alert-success">
-											<strong>Success!</strong> The student has taken all required assessments!
-										</div>
-										<div class="alert alert-info">
-											<strong>Info!</strong> Updated the students info!
-										</div>
-										<div class="alert alert-warning">
-											<strong>Warning!</strong> Assessments approaching within 2 weeks!
-										</div>
-										<div class="alert alert-danger">
-											<strong>Danger!</strong> Assessments within 2 days!
+											The student has taken all required assessments!
 										</div>
 									</div>
 								</div>
+								<div class="tab-pane" id="info">
+									<div class="table-responsive">
+										<div class="alert alert-info">
+											Updated the students info!
+										</div>
+									</div>
+								</div>
+								<div class="tab-pane" id="warning">
+									<div class="table-responsive">
+										<div class="alert alert-warning">
+											Assessments approaching within 2 weeks!
+										</div>
+									</div>
+								</div>		
+								<div class="tab-pane" id="danger">
+									<div class="table-responsive">
+										<div class="alert alert-danger">
+											Assessments within 2 days!
+										</div>
+									</div>
+								</div>							
+							</div>
 
 						</div><!--/tab-pane-->
 						
@@ -437,6 +484,13 @@ li a, .dropbtn {
 							  <li class="list-group-item text-right"><a class="pull-left">Also we, havesapien massaortor. A lobortis vitae, condimentum justo...</a> 2.11.2014</li>
 							  <li class="list-group-item text-right"><a class="pull-left">Swedish chef is assaortor. A lobortis vitae, condimentum justo...</a> 2.11.2014</li> 
 							</ul> 
+							
+						</div>
+							<div class="tab-pane" id="notes">
+								<textarea rows="20" cols="80">
+									Enter notes here. 
+								</textarea>
+							</div>
 
 						</div>
 					</div>
