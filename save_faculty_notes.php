@@ -8,7 +8,7 @@ $date = date('Y,m,d');
 echo $date;
 
 //insert note data into db
-mysqli_query($connection, "INSERT INTO notes (ndate, note, tid) VALUES (".$date.", 'test', 1111111)");
+mysqli_query($connection, "INSERT INTO notes (ndate, note, tid) VALUES ('$date', 'test', 1111111)");
 
 
 ?>
