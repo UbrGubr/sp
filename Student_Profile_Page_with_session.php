@@ -419,6 +419,33 @@ li a, .dropbtn {
 												</select>
 											</td>
 										</tr>
+										
+										<!--table row for assessment checkboxes-->
+										<tr>
+											<td id='readingCheckBox' class='hidden' align='center'>
+												<input type='checkbox' id='readingAssessment' value='1'>
+											</td>
+											<td id='mathCheckBox' class='hidden' align='center'>
+												<input type='checkbox' id='mathAssessment' value='1'>
+											</td>
+											<td id='behavioralCheckBox' class='hidden' align='center'>
+												<input type='checkbox' id='behaviorAssessment' value='1'>
+											</td>
+											<td id='emotionalCheckBox' class='hidden' align='center'>
+												<input type='checkbox' id='emotionalAssessment' value='1'>
+											</td>
+											<td id='cognitiveCheckBox' class='hidden' align='center'>
+												<input type='checkbox' id='cognitiveAssessment' value='1'>
+											</td>
+											<td id='speechCheckBox' class='hidden' align='center'>
+												<input type='checkbox' id='speechAssessment' value='1'>
+											</td>
+										</tr>
+										<tr>
+											<td colspan='6' id='instruction' class='hidden' align='center' style='font-size:small; color:green'>
+												If Assessment has been completed check the corresponding box.
+											</td>
+										</tr>
 									</tbody>
 								</table>
 							
@@ -528,6 +555,15 @@ li a, .dropbtn {
 		$('#editEmotionalData').removeClass('hidden');
 		$('#editCognitiveData').removeClass('hidden');
 		$('#editSpeechData').removeClass('hidden');
+
+		//show hidden assessment checkboxes
+		$('#readingCheckBox').removeClass('hidden');
+		$('#mathCheckBox').removeClass('hidden');
+		$('#behavioralCheckBox').removeClass('hidden');
+		$('#emotionalCheckBox').removeClass('hidden');
+		$('#cognitiveCheckBox').removeClass('hidden');
+		$('#speechCheckBox').removeClass('hidden');
+		$('#instruction').removeClass('hidden');
 
 		//show dropdowns on corresponding table cells
 		$('#editReadingDataText').removeClass('hidden');
