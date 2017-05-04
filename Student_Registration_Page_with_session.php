@@ -24,6 +24,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
 </head>
 
 <style>
@@ -38,6 +39,15 @@ input[type=text], input[type=password] {
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
+}
+
+input[type="text"]#edate {
+	width: 100%;
+	padding: 6px 10px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	box-sizing: border-box;
 }
 
 button {
@@ -303,6 +313,10 @@ li a, .dropbtn {
 								<option value="D">D</option>
 							</select><br><br>
 						</div>
+						<div class="col-sm-1">
+							<label><b>Enrollment Date<b></label>
+							<input type="text" id="edate"/>
+						</div>
 					</div>
 					<h3>Emergency Contact Info</h3>
 						
@@ -327,6 +341,12 @@ li a, .dropbtn {
 		</div>
 	</div>
 </body>
+
+<script>
+	$(function() {
+		$("#edate").datepicker();
+	});
+</script>
 
 <script type="text/javascript">
 	
