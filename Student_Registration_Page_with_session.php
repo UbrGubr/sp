@@ -226,8 +226,14 @@ li a, .dropbtn {
 								<option value="0">No</option>
 							</select><br><br>
 						</div>
-					</div>
-					
+						<div class="col-sm-1"></div>
+						<div class="col-sm-1">
+							<label><b>Enrollement Date<b><label>
+						</div>
+						<div class="col-sm-1">
+							<input type="text" id="edate">						
+						</div>
+					   </div>					
 					<div class="row">
 						<div class="col-sm-3">
 							<label><b>Date of Birth<b></label><br>
@@ -313,10 +319,7 @@ li a, .dropbtn {
 								<option value="D">D</option>
 							</select><br><br>
 						</div>
-						<div class="col-sm-1">
-							<label><b>Enrollment Date<b></label>
-							<input type="text" id="edate"/>
-						</div>
+			
 					</div>
 					<h3>Emergency Contact Info</h3>
 						
