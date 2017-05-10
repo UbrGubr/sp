@@ -36,14 +36,6 @@ input[type=text], input[type=password] {
     box-sizing: border-box;
 }
 
-button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 14px 20px;
-    border: none;
-    cursor: pointer;
-}
-
 .imgcontainer {
     text-align: center;
     margin: 24px 0 12px 0;
@@ -84,8 +76,13 @@ li a, .dropbtn {
 	<div class="container-fluid">
 		<div class="container">
 			<div class="row">
-					<class="sm-col-6"><a href="Faculty_Profile_Page_with_session.php">Home</a>
-					<button class="sm-col-6 button pull-right" type="button" style="background-color: #58D68D" id="logoff">Logoff</button>
+				<div class="col-sm-1">
+					<a href="Faculty_Profile_Page_with_session.php">Home</a>
+				</div>
+				<div class="col-sm-10"></div>
+				<div class="col-sm-1">
+					<a href id="logoff">Logoff</a>
+				</div>
 			</div>	
 
 				<h1>Search for Student</h1>

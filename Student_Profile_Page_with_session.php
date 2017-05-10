@@ -142,7 +142,6 @@ input[type=text], input[type=password] {
     box-sizing: border-box;
 }
 
-
 .effectfront{
 	border: none;
 	margin: 0 auto;
@@ -166,16 +165,6 @@ button {
     border: none;
     cursor: pointer;
     
-}
-
-button2 {
-    background-color: #4CAF50;
-    color: white;
-    padding: 4px 10px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 100%;
 }
 
 .editButton{
@@ -244,13 +233,11 @@ li a, .dropbtn {
 		
 			<div class="row">
 				<div class="col-sm-1">
-					<div class="dropdown">
-						<button2 class="btn btn-default dropdown-toggle" type="button"><a href="Faculty_Profile_Page_with_session.php">Home</a></button2>
-					</div>
+					<a href="Faculty_Profile_Page_with_session.php">Home</a>
 				</div>
 				<div class="col-sm-10"></div>
 				<div class="col-sm-1">
-					<button2 class="btn btn-default pull-right" type="button" id="logoff">Logoff</button2>
+					<a href id="logoff">Logoff</a>
 				</div>	
 			</div>
 			
@@ -423,22 +410,22 @@ li a, .dropbtn {
 										<!--table row for assessment checkboxes-->
 										<tr>
 											<td id='readingCheckBox' class='hidden' align='center'>
-												<input type='checkbox' id='readingAssessment' value='1'>
+												<input type='checkbox' id='readingAssessment'>
 											</td>
 											<td id='mathCheckBox' class='hidden' align='center'>
-												<input type='checkbox' id='mathAssessment' value='1'>
+												<input type='checkbox' id='mathAssessment'>
 											</td>
 											<td id='behavioralCheckBox' class='hidden' align='center'>
-												<input type='checkbox' id='behaviorAssessment' value='1'>
+												<input type='checkbox' id='behavioralAssessment'>
 											</td>
 											<td id='emotionalCheckBox' class='hidden' align='center'>
-												<input type='checkbox' id='emotionalAssessment' value='1'>
+												<input type='checkbox' id='emotionalAssessment'>
 											</td>
 											<td id='cognitiveCheckBox' class='hidden' align='center'>
-												<input type='checkbox' id='cognitiveAssessment' value='1'>
+												<input type='checkbox' id='cognitiveAssessment'>
 											</td>
 											<td id='speechCheckBox' class='hidden' align='center'>
-												<input type='checkbox' id='speechAssessment' value='1'>
+												<input type='checkbox' id='speechAssessment'>
 											</td>
 										</tr>
 										<tr>
@@ -600,8 +587,101 @@ li a, .dropbtn {
 		var fname = $('#fname').html();
 		var lname = $('#lname').html();
 
+		//vars for final formatted assessment dates
+		var finalReadingDate = null;
+		var finalMathDate = null;
+		var finalBehavioralDate = null;
+		var finalEmotionalDate = null;
+		var finalCognitiveDate = null;
+		var finalSpeechDate = null;;
 
-		//scrub values for database compatibility
+		//completed assessments true false vals
+		var readingTaken = 0;
+		var mathTaken = 0;
+		var behavioralTaken = 0;
+		var emotionalTaken = 0;
+		var cognitiveTaken = 0;
+		var speechTaken = 0;
+
+
+		//if readingAssessment is checked format date
+		if(document.getElementById('readingAssessment').checked){
+			readingTaken = 1;
+			finalReadingDate = formatDate();
+		}
+
+		//if mathAssessment is checked
+		if(document.getElementById('mathAssessment').checked){
+			mathTaken = 1;
+			finalMathDate = formatDate();
+		}
+
+		//if behavioralAssessment is checked
+		if(document.getElementById('behavioralAssessment').checked){
+			behavioralTaken = 1;
+			finalBehavioralDate = formatDate();
+		}
+
+		//if emotionalAssessment is checked
+		if(document.getElementById('emotionalAssessment').checked){
+			emotionalTaken = 1;
+			finalEmotionalDate = formatDate();
+		}
+
+		//if cognitive is checked
+		if(document.getElementById('cognitiveAssessment').checked){
+			cognitiveTaken = 1;
+			finalCognitiveDate = formatDate();
+		}
+
+		// if speech is checked
+		if(document.getElementById('speechAssessment').checked){
+			speechTaken = 1;
+			finalSpeechDate = formatDate();
+		}
+	
+
+		//do ajax call to update db to correct assessment dates and values if any checkbox was checked
+		if(finalReadingDate !== null){
+			updateReadingAssessment(readingTaken, finalReadingDate, sid);
+		}
+
+		if(finalMathDate !== null){
+			updateMathAssessment(mathTaken, finalMathDate, sid);
+		}
+
+		if(finalBehavioralDate !== null){
+			updateBehavioralAssessment(behavioralTaken, finalBehavioralDate, sid);
+		}
+
+		if(finalEmotionalDate !== null){
+			updateEmotionalAssessment(emotionalTaken, finalEmotionalDate, sid);
+		}
+
+		if(finalCognitiveDate !== null){
+			updateCognitiveAssessment(cognitiveTaken, finalCognitiveDate, sid);
+		}
+
+		if(finalSpeechDate !== null){
+			updateSpeechAssessment(speechTaken, finalSpeechDate, sid);
+		}
+		/*	$.ajax({
+				type: 'POST',
+				url: 'edit_student_data.php',
+				data: { READINGTAKEN: readingTaken, FINALREADINGDATE: finalReadingDate, 
+						MATHTAKEN: mathTaken, FINALMATHDATE: finalMathDate, 
+						BEHAVIORALTAKEN: behavioralTaken, FINALBEHAVIORALDATE: finalBehavioralDate,
+						EMOTIONALTAKEN: emotionalTaken, FINALEMOTIONALDATE: finalEmotionalDate, 
+						COGNITIVETAKEN: cognitiveTaken, FINALCOGNITIVEDATE: finalCognitiveDate,
+						SPEECHTAKEN: speechTaken, FINALSPEECHDATE: finalSpeechDate },
+				error: function(a,b,c){
+					console.log(a);
+					console.log(b);
+					console.log(c);
+				}
+			}); 	*/
+
+		//scrub grade lvl values for database compatibility
 
 		//check for kin lvl grades
 		if(readinglvl.search('Kin') !== -1){
@@ -754,7 +834,146 @@ li a, .dropbtn {
 	}
 
 	</script>
-	
+
+		<!--script for logoff operation -->
+	<script type="text/javascript">
+
+		$('#logoff').click(function(){
+			$.ajax({
+				type: 'POST',
+				url: 'logoff.php',
+				data: '',
+				success: function(response){
+							var trim = $.trim(response);
+							if(trim == 'ok'){
+								//window.alert(response);
+								window.location.href = "login_page_with_session.php";
+							} else {
+								//console.log(response);
+								console.log("unable to logout!");
+							}
+						},
+				error: function(a,b,c){
+						console.log(a);
+						console.log(b);
+						console.log(c);
+					}
+			});
+		});
+	</script>
+
+	<!--function for formating dates to database compatible form-->
+	<script type='text/javascript'>
+	function formatDate(){
+		var d = new Date();
+		var Y = d.getFullYear();
+		var M = d.getMonth();
+		M = M + 1;
+		var D = d.getDate();
+		var formattedDate = Y + '/' + M + '/' + D;
+
+		return formattedDate;
+
+	}
+	</script>
+
+	<!--update reading assessment data-->
+	<script type='text/javascript'>
+	function updateReadingAssessment(readingTaken, finalReadingDate, sid){
+		$.ajax({
+				type: 'POST',
+				url: 'update_read_assessment.php',
+				data: { READINGTAKEN: readingTaken, FINALREADINGDATE: finalReadingDate, SID: sid },
+				error: function(a,b,c){
+					console.log(a);
+					console.log(b);
+					console.log(c);
+				}
+			}); 
+	}
+	</script>
+
+	<!--update math assessment data-->
+	<script type='text/javascript'>
+	function updateMathAssessment(mathTaken, finalMathDate, sid){
+		$.ajax({
+				type: 'POST',
+				url: 'update_math_assessment.php',
+				data: { MATHTAKEN: mathTaken, FINALMATHDATE: finalMathDate, SID: sid },
+				error: function(a,b,c){
+					console.log(a);
+					console.log(b);
+					console.log(c);
+				}
+			}); 
+	}
+	</script>
+
+	<!--update behavioral assessment data-->
+	<script type='text/javascript'>
+	function updateBehavioralAssessment(behavioralTaken, finalBehavioralDate, sid){
+		$.ajax({
+				type: 'POST',
+				url: 'update_behavioral_assessment.php',
+				data: { BEHAVIORALTAKEN: behavioralTaken, FINALBEHAVIORALDATE: finalBehavioralDate, SID: sid },
+				error: function(a,b,c){
+					console.log(a);
+					console.log(b);
+					console.log(c);
+				}
+			}); 
+	}
+	</script>
+
+	<!--update emotional assessment data-->
+	<script type='text/javascript'>
+	function updateEmotionalAssessment(emotionalTaken, finalEmotionalDate, sid){
+		$.ajax({
+				type: 'POST',
+				url: 'update_emotional_assessment.php',
+				data: { EMOTIONALTAKEN: emotionalTaken, FINALEMOTIONALDATE: finalEmotionalDate, SID: sid },
+				error: function(a,b,c){
+					console.log(a);
+					console.log(b);
+					console.log(c);
+				}
+			}); 
+	}
+	</script>
+
+	<!--update cognitive assessment data-->
+	<script type='text/javascript'>
+	function updateCognitiveAssessment(cognitiveTaken, finalCognitiveDate, sid){
+		$.ajax({
+				type: 'POST',
+				url: 'update_cognitive_assessment.php',
+				data: { COGNITIVETAKEN: cognitiveTaken, FINALCOGNITIVEDATE: finalCognitiveDate, SID: sid },
+				error: function(a,b,c){
+					console.log(a);
+					console.log(b);
+					console.log(c);
+				}
+			}); 
+	}
+	</script>
+
+	<!--update speech assessment data-->
+	<script type='text/javascript'>
+	function updateSpeechAssessment(speechTaken, finalSpeechDate, sid){
+		console.log(speechTaken);
+		console.log(finalSpeechDate);
+		$.ajax({
+				type: 'POST',
+				url: 'update_speech_assessment.php',
+				data: { SPEECHTAKEN: speechTaken, FINALSPEECHDATE: finalSpeechDate, SID: sid },
+				error: function(a,b,c){
+					console.log(a);
+					console.log(b);
+					console.log(c);
+				}
+			}); 
+	}
+	</script>
 </body>
 
 </html>

@@ -108,13 +108,22 @@ li a:hover, .dropdown:hover .dropbtn {
 		<div class="container">
 			<div class="row">
 				<h3>Teacher Profile</h3>
-				<ul class="list-inline">
-					<li><a href="Student_Registration_Page.html">Add Student</a></li>
-					<li><a href="Student_Search_Page.php">Modify Student</a></li>
-					<li><a href="Calendar.html">Calendar</a></li>
-					<li><a href="Faculty_Search_Page.html">Modify Teacher</a></li>
-					<button class="btn btn-default pull-right" type="button" id="logoff">Logoff</button>
-				</ul>
+				<div class="col-sm-1">
+					<a href="Student_Registration_Page_with_session.php">Add Student</a>
+				</div>
+				<div class="col-sm-1">
+					<a href="Student_Search_Page.php">Modify Student</a>
+				</div>
+				<div class="col-sm-1">
+					<a href="Calendar.html">Calendar</a>
+				</div>
+				<div class="col-sm-1">
+					<a href="Faculty_Search_Page.html">Modify Teacher</a>
+				</div>
+				<div class="col-sm-7"></div>
+				<div class="col-sm-1">
+					<a href id="logoff">Logoff</a>
+				</div>
 			</div>
 		</div>
 			<form action="action_page.php">
