@@ -35,13 +35,20 @@
 	
 	// Add student into database
 	if(mysqli_query($connection,"INSERT INTO student VALUES ('$idnum', '$fname', '$mname',
-					'$lname', '$gender', '$track', '$phone', '$address', '19900823', 12345, $grade, $read, $math, $behave, $cognitive, $speech, $emotion, NULL)")){
-
+					'$lname', '$gender', '$track', '$phone', '$address', '19900823', 12345, $grade, $read, $math, '20170520', $behave, $cognitive, $emotion, $speech)"))
+	{
 		echo "successful\n";
 	} else {
 		echo "not successful\n";
 	}
-	
+
+	if(mysqli_query($connection,"INSERT INTO assessment (sid,readComplete,mathComplete,behaviorComplete,emotionComplete,cognitiveComplete,speechComplete) VALUES ('$idnum',0,0,0,0,0,0)"))
+	{
+		echo "successful\n";
+	} else {
+		echo "not successful\n";
+	} 
+
 	mysqli_close($connection);
 
 	echo "Complete\n";
