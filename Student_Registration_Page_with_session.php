@@ -452,7 +452,8 @@ li a, .dropbtn {
 			type:	'POST',
 			url:	'student_reg.php',
 			data:	{ FIRSTNAME: firstName, MIDNAME: midName, LASTNAME: lastName, IDNUM: idNum, PHONE: phone, ADDRESS: addr, GENDER: gend, GRADE: grade,
-						READLVL: read, MATHLVL: math, BEHAVE: behave, EMOTIONAL: emote, COGNITIVE: cog, SPEECH: speech, TRACK: trackID, },
+						READLVL: read, MATHLVL: math, BEHAVE: behave, EMOTIONAL: emote, COGNITIVE: cog, SPEECH: speech, TRACK: trackID, 
+						EFIRSTNAME: eFName, ELASTNAME: eLName, ERELATION: eRelation, EPHONE: ePh, EMAIL: eMail, },
 			success: function(){ 
 						console.log('data stored successfully'); 
 						//window.alert("succesfully registered!");
