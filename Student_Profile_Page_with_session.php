@@ -142,7 +142,6 @@ input[type=text], input[type=password] {
     box-sizing: border-box;
 }
 
-
 .effectfront{
 	border: none;
 	margin: 0 auto;
@@ -166,16 +165,6 @@ button {
     border: none;
     cursor: pointer;
     
-}
-
-button2 {
-    background-color: #4CAF50;
-    color: white;
-    padding: 4px 10px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 100%;
 }
 
 .editButton{
@@ -244,13 +233,11 @@ li a, .dropbtn {
 		
 			<div class="row">
 				<div class="col-sm-1">
-					<div class="dropdown">
-						<button2 class="btn btn-default dropdown-toggle" type="button"><a href="Faculty_Profile_Page_with_session.php">Home</a></button2>
-					</div>
+					<a href="Faculty_Profile_Page_with_session.php">Home</a>
 				</div>
 				<div class="col-sm-10"></div>
 				<div class="col-sm-1">
-					<button2 class="btn btn-default pull-right" type="button" id="logoff">Logoff</button2>
+					<a href id="logoff">Logoff</a>
 				</div>	
 			</div>
 			
@@ -753,6 +740,33 @@ li a, .dropbtn {
 
 	}
 
+	</script>
+	
+		<!--script for logoff operation -->
+	<script type="text/javascript">
+
+		$('#logoff').click(function(){
+			$.ajax({
+				type: 'POST',
+				url: 'logoff.php',
+				data: '',
+				success: function(response){
+							var trim = $.trim(response);
+							if(trim == 'ok'){
+								//window.alert(response);
+								window.location.href = "login_page_with_session.php";
+							} else {
+								//console.log(response);
+								console.log("unable to logout!");
+							}
+						},
+				error: function(a,b,c){
+						console.log(a);
+						console.log(b);
+						console.log(c);
+					}
+			});
+		});
 	</script>
 	
 </body>
