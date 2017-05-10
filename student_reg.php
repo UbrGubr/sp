@@ -4,7 +4,8 @@
     static $connection;
 
 	$fname = $mname = $lname = $idnum = $phone = $address = $gender = $grade = $read = $math = $behave = $emotion = $cognitive = $speech = $track = '';
-
+	$eFName = $eLName = $relation = $ePhone = $eMail = '';
+	
     // Try and connect to the database, if a connection has not been established yet
     if(!isset($connection)) {
          // Load configuration as an array. Use the actual location of your configuration file
@@ -39,16 +40,20 @@
 			$ePhone = $_REQUEST['EPHONE'];
 			$eMail = $_REQUEST['EMAIL'];
 			
-	// Add Contact
-	if(mysqli_query($connection,"INSERT INTO emergency_cont (fname, lname, phone, email, relationship, sid) VALUES ('$eFName', '$eLName', '$ePhone', '$eMail', '$relation', '$idnum')"))
+	// test to see if contact already exist
+	$test = mysqli_query($connection, "SELECT * FROM emergency_cont WHERE fname = '$eFName' AND lname = '$eLName' AND phone = '$ePhone'");
+	if(mysqli_num_rows($test) > 0)
 	{
-		echo "successful\n";
-	} else {
-		echo "not successful\n";
+		//contact already exist, dont add
+		//do nothing
+	}
+	else{
+		// Add Contact
+		mysqli_query($connection,"INSERT INTO emergency_cont (fname, lname, phone, email, relationship) VALUES ('$eFName', '$eLName', '$ePhone', '$eMail', '$relation')");
 	}
 	
 	// Get contact id
-	$contactId = mysqli_fetch_assoc(mysqli_query($connection, "SELECT contactid FROM emergency_cont WHERE sid = '$idnum'"));
+	$contactId = mysqli_fetch_assoc(mysqli_query($connection, "SELECT contactid FROM emergency_cont WHERE fname = '$eFName' AND lname = '$eLName' AND phone = '$ePhone'"));
 	$cid = $contactId['contactid'];
 	
 	// Add student into database
@@ -59,16 +64,8 @@
 	} else {
 		echo "not successful\n";
 	}
-	
-	/*/ Add student into database
-	if(mysqli_query($connection,"INSERT INTO student VALUES ('$idnum', '$fname', '$mname',
-					'$lname', '$gender', '$track', '$phone', '$address', '19900823', 12345, $grade, $read, $math, '20170520', $behave, $cognitive, $emotion, $speech)"))
-	{
-		echo "successful\n";
-	} else {
-		echo "not successful\n";
-	}*/
 
+	// assessment stuff
 	if(mysqli_query($connection,"INSERT INTO assessment (sid,readComplete,mathComplete,behaviorComplete,emotionComplete,cognitiveComplete,speechComplete) VALUES ('$idnum',0,0,0,0,0,0)"))
 	{
 		echo "successful\n";
@@ -81,3 +78,4 @@
 	echo "Complete\n";
 
 ?>
+
