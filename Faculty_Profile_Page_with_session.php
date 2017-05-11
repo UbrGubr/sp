@@ -151,7 +151,7 @@ li a:hover, .dropdown:hover .dropbtn {
 					<div class="row">
 						<h2><?php echo $row['fname']." ".$row['lname']?></h2>
 						<strong>Tracks:<?php echo $row['trackid']?></strong><br>						
-						<strong>Number of Students:???</strong>
+						<strong>Number of Students:</strong>
 					
 					</div>
 					  
@@ -160,10 +160,9 @@ li a:hover, .dropdown:hover .dropbtn {
 							<h2>Alerts</h2>
 							<div class="table-responsive">
 								<ul class="nav nav-tabs" id="myTab">
-									<li><a href="#success" data-toggle="tab">Success</a></li>
-									<li><a href="#info" data-toggle="tab">Info</a></li>
-									<li><a href="#warning" data-toggle="tab">Warning</a></li>
 									<li><a href="#danger" data-toggle="tab">Danger</a></li>
+									<li><a href="#warning" data-toggle="tab">Warning</a></li>
+									<li><a href="#info" data-toggle="tab">Info</a></li>
 								</ul>
 							</div>
 							<div class="tab-content">
