@@ -91,10 +91,9 @@ li a:hover, .dropdown:hover .dropbtn {
 		<div class="container-fluid">
 			<div class="container">
 				<div class="row">
-					<ul class="list-inline">
-						<li><a href="Forgot_Password_Page.html">Forgot Password</a></li>		
-						<li><a href="Faculty_Registration_Page.html">Register</a></li>
-					</ul>
+					<div class="col-sm-1">	
+						<a href="Faculty_Registration_Page.html">Register</a>
+					</div>
 				</div>
 				
 				<div class="container">
